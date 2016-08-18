@@ -11,7 +11,7 @@ public class VariableSize {
 		byte var5 = (byte)/*(byte) -> 자르는크기*/var3; // casting(형변환) : (타입)크기만큼 변환 된다.
 		System.out.println(var5);
 		
-		char var6 = (char)200000;		
+		char var6 = (char)200000;
 		System.out.println(var6);
 		
 	}
