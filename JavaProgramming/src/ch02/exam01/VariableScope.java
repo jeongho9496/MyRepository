@@ -23,7 +23,7 @@ public class VariableScope { // 첫글자 대문자 두 단어 합치면 단어�
 			// System.out.println("var1: " + var3); // 변수 선언한 블록을 벗어남
 		}
 
-		System.out.println("var1: " + var1);
+		System.out.println("var1 : " + var1);
 		// System.out.println("var1: " + var2); // 변수 선언한 블록을 벗어남
 
 	}
