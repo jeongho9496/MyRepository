@@ -53,7 +53,8 @@ public class HomeWork2 {
 		  
 	      for(int x=1;x<=10;x++){	//1~10까지의 x범위에 대한 for문
 	         if((60-4*x)%5 ==0){	//4x+5y = 60 가 성립하기 위한 조건문 (=> y = (60-4*x)/5)
-	            System.out.println("("+x+","+(60-4*x)/5+")");
+	        	int y = (60-4*x)/5; //y값 저장
+	            System.out.println("("+x+","+y+")");
 	            //조건에 해당하는 x,y 값 출력
 	         }
 	      }
