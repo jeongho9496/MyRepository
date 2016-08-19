@@ -3,6 +3,7 @@ package ch04.exam02;
 public class DoWhileExample {
 
 	public static void main(String[] args) throws Exception {
+		//0819
 		int num = 0;
 		
 		do {
