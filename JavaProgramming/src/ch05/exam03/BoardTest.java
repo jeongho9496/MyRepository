@@ -26,7 +26,8 @@ public class BoardTest {
 					// }
 					if (board != null) { // null도 비교 가능 -> student에 배열이 있어야 실행
 											// 가능
-						System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2]+ "\t\t" + board[3]+ "\t\t" + board[4]);
+						System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" + board[3] + "\t\t"
+								+ board[4]);
 					}
 				}
 			} else if (choice.equals("2")) {
@@ -50,6 +51,14 @@ public class BoardTest {
 					}
 				}
 
+			} else if (choice.equals("3")) {
+
+			} else if (choice.equals("4")) {
+
+			} else if (choice.equals("5")) {
+
+			} else if (choice.equals("6")) {
+				break;
 			}
 
 		}
