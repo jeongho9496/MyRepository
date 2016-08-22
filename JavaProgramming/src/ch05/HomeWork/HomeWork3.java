@@ -42,6 +42,7 @@ public class HomeWork3 {
 				for (int i = 0; i < boards.length; i++) {
 
 					if (boards[i] == null) {	//배열에 해당 값 생성
+						
 						String[] board = { String.valueOf(i), writer, title, content, "0" };
 						boards[i] = board;
 						break;
@@ -52,13 +53,18 @@ public class HomeWork3 {
 
 				System.out.print("상세 보기할 번호 : ");
 				String detailNum = scanner.nextLine();
-				System.out.println("************************************************************************");
+				System.out.println("************************************************************************************");
 				System.out.println("게시물 번호\t\t글쓴이\t\t제목\t\t내용\t\t조회수");
-				System.out.println("************************************************************************");
+				System.out.println("************************************************************************************");
+				
 				for (String[] board : boards) {
+					
 					if (board != null) {
+						
 						int views = Integer.parseInt(board[4]); //조회수 카운트 변수
+						
 						if (detailNum.equals(board[0])) {		//선택한 게시물 번호와 board에 있는 인텍스를 문자열로 비교한다.
+							
 							views++;							//읽은 만큼 증가
 							board[4] = String.valueOf(views);
 							System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" +board[3]+"\t\t"+ board[4]);
@@ -74,11 +80,25 @@ public class HomeWork3 {
 				String replaceNum = scanner.nextLine();
 				System.out.print("수정 제목 : ");
 				String replaceTitle = scanner.nextLine();
+				System.out.println("수정 내용 : ");
+				String replaceContent = scanner.nextLine();
+				
 				for (String[] board : boards) {
+					
 					if (board != null) {
+						
 						if (replaceNum.equals(board[0])) {
-							board[2] = replaceTitle;	//기존에 있던 제목을 키보드로 입력한 제목으로 바꾼다.
-							break;
+							
+							if (!replaceTitle.equals("")) {	//수정을 안할시 제목 안바뀌게 한기 위한 조건문
+								
+								board[2] = replaceTitle;	//기존에 있던 제목을 키보드로 입력한 제목으로 바꾼다.
+								break;
+								
+							} if (!replaceContent.equals("")) {
+								
+								board[3] = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
+								break;
+							}
 						}
 					}
 				}
@@ -90,6 +110,8 @@ public class HomeWork3 {
 				boards[bno] = null;	//boards 배열의 값을 null로 초기화 한다.
 
 			} else if (choice.equals("6")) {
+				
+				System.out.println("종료");
 				break;
 			}
 
