@@ -1,8 +1,8 @@
-package ch05.exam03;
+package ch05.HomeWork;
 
 import java.util.Scanner;
 
-public class BoardTest {
+public class HomeWork3 {
 
 	public static void main(String[] args) {
 		// 0822
