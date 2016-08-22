@@ -2,7 +2,7 @@ package ch05.exam02;
 
 public class ArrayCreateByValueList2 {
 
-	public static void main(String[] args) {
+	public static/*정적 키워드*/ void main(String[] args) {//main(매개변수) - 매개값을 가지는 변수
 		//08.19
 		int[] scores1 = { 83, 90, 87 }; // 한가지 타입으로만 값에 들어갈수 있다
 		
