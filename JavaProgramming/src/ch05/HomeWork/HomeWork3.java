@@ -18,6 +18,7 @@ public class HomeWork3 {
 			String choice = scanner.nextLine(); // 키보드로 선택한 숫자를 읽어온다.
 
 			if (choice.equals("1")) {
+				
 				//목록보기
 				System.out.println("************************************************************************");
 				System.out.println("게시물 번호\t\t글쓴이\t\t제목\t\t조회수");
