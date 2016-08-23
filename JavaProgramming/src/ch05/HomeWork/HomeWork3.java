@@ -7,8 +7,7 @@ public class HomeWork3 {
 	public static void main(String[] args) {
 		// 0822
 		Scanner scanner = new Scanner(System.in);//키보드 입력값 받는 메소드 호출
-		String[][] boards = new String[100][];	//배열 객체 정의
-									
+		String[][] boards = new String[100][];	//배열 객체 정의			
 
 		while (true) {
 			System.out.println("-------------------------------------------------------------------------");
@@ -20,16 +19,19 @@ public class HomeWork3 {
 			if (choice.equals("1")) {
 				
 				//목록보기
-				System.out.println("************************************************************************");
-				System.out.println("게시물 번호\t\t글쓴이\t\t제목\t\t조회수");
-				System.out.println("************************************************************************");
+				System.out.println("*************************************************************************");
+				System.out.println("번호\t\t글쓴이\t\t제목\t\t조회수");
+				System.out.println("*************************************************************************");
 
 				for (String[] board : boards) {//향상된 for문(for-each) 배열의 항목수만큼 실행부분을 반복
 												//반복이 이루어질 때마다 배열의 항목을 순서대로 꺼내어 변수에 자동으로 대입
 					if (board != null) {		//배열값이 null인 데이터에 값을 넣을수 없으므로 조건문 으로 처리
 						System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" + board[4]);
+					
 					}
+				
 				}
+			
 			} else if (choice.equals("2")) {
 
 				System.out.print("글쓴이 : ");
@@ -46,6 +48,7 @@ public class HomeWork3 {
 						String[] board = { String.valueOf(i), writer, title, content, "0" };
 						boards[i] = board;
 						break;
+						
 					}
 				}
 
@@ -53,9 +56,9 @@ public class HomeWork3 {
 
 				System.out.print("상세 보기할 번호 : ");
 				String detailNum = scanner.nextLine();
-				System.out.println("************************************************************************************");
-				System.out.println("게시물 번호\t\t글쓴이\t\t제목\t\t내용\t\t조회수");
-				System.out.println("************************************************************************************");
+				System.out.println("*************************************************************************");
+				System.out.println("번호\t\t글쓴이\t\t제목\t\t내용\t\t조회수");
+				System.out.println("*************************************************************************");
 				
 				for (String[] board : boards) {
 					
@@ -69,18 +72,20 @@ public class HomeWork3 {
 							board[4] = String.valueOf(views);
 							System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" +board[3]+"\t\t"+ board[4]);
 							break;
+							
 						}
 
 					}
 				}
 
 			} else if (choice.equals("4")) {
+				
 				// 수정하기
 				System.out.print("수정할 게시글 번호 : ");
 				String replaceNum = scanner.nextLine();
 				System.out.print("수정 제목 : ");
 				String replaceTitle = scanner.nextLine();
-				System.out.println("수정 내용 : ");
+				System.out.print("수정 내용 : ");
 				String replaceContent = scanner.nextLine();
 				
 				for (String[] board : boards) {
@@ -92,12 +97,16 @@ public class HomeWork3 {
 							if (!replaceTitle.equals("")) {	//수정을 안할시 제목 안바뀌게 한기 위한 조건문
 								
 								board[2] = replaceTitle;	//기존에 있던 제목을 키보드로 입력한 제목으로 바꾼다.
-								break;
+								
+								if (!replaceContent.equals("")) {
+									
+									board[3] = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
+						
+								}
 								
 							} if (!replaceContent.equals("")) {
 								
 								board[3] = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
-								break;
 							}
 						}
 					}
