@@ -34,6 +34,7 @@ public class HomeWork3 {
 			
 			} else if (choice.equals("2")) {
 
+				//게시글 작성
 				System.out.print("글쓴이 : ");
 				String writer = scanner.nextLine();	//사용자가 키보드로 입력한 값을 읽음
 				System.out.print("제목 : ");
@@ -53,7 +54,8 @@ public class HomeWork3 {
 				}
 
 			} else if (choice.equals("3")) {
-
+				
+				//상세보기
 				System.out.print("상세 보기할 번호 : ");
 				String detailNum = scanner.nextLine();
 				System.out.println("*************************************************************************");
@@ -113,6 +115,7 @@ public class HomeWork3 {
 				}
 
 			} else if (choice.equals("5")) {
+				
 				// 삭제하기
 				System.out.print("삭제할 번호 : ");
 				int bno = Integer.parseInt(scanner.nextLine());
@@ -120,6 +123,7 @@ public class HomeWork3 {
 
 			} else if (choice.equals("6")) {
 				
+				//종료
 				System.out.println("종료");
 				break;
 			}
