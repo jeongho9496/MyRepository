@@ -9,7 +9,7 @@ public class HomeWork4 {
 		// 0824
 		
 		Scanner scanner = new Scanner(System.in);//키보드 입력값 받는 메소드 호출
-		String[][] boards = new String[100][];	//배열 객체 정의			
+		Board[] boards = new Board[100];	//배열 객체 정의			
 		while (true) {
 			System.out.println("-------------------------------------------------------------------------");
 			System.out.println("| 1.목록 | 2.글쓰기 | 3.상세보기 | 4.수정하기 | 5.삭제하기 | 6.종료 |");
@@ -25,10 +25,10 @@ public class HomeWork4 {
 				System.out.println("*************************************************************************");
 				if (boards != null) {
 					
-					for (String[] board : boards) {//향상된 for문(for-each) 배열의 항목수만큼 실행부분을 반복
+					for (Board board : boards) {//향상된 for문(for-each) 배열의 항목수만큼 실행부분을 반복
 						//반복이 이루어질 때마다 배열의 항목을 순서대로 꺼내어 변수에 자동으로 대입
 						if (board != null) {		//배열값이 null인 데이터에 값을 넣을수 없으므로 조건문 으로 처리
-							System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" + board[4]);
+							System.out.println(board.bno + "\t\t" + board.writer + "\t\t" + board.title + "\t\t" + board.count);
 							
 						}
 						
@@ -49,7 +49,7 @@ public class HomeWork4 {
 
 					if (boards[i] == null) {	//배열에 해당 값 생성
 						
-						String[] board = { String.valueOf(i), writer, title, content, "0" };
+						Board board = new Board(i, writer, title, content, 0);
 						boards[i] = board;
 						break;
 						
@@ -67,17 +67,17 @@ public class HomeWork4 {
 				
 				if (boards != null) {
 					
-					for (String[] board : boards) {
+					for (Board board : boards) {
 						
 						if (board != null) {
 							
-							int views = Integer.parseInt(board[4]); //조회수 카운트 변수
+							int views = board.count; //조회수 카운트 변수
 							
-							if (detailNum.equals(board[0])) {		//선택한 게시물 번호와 board에 있는 인텍스를 문자열로 비교한다.
+							if (detailNum.equals(String.valueOf(board.bno))) {		//선택한 게시물 번호와 board에 있는 인텍스를 문자열로 비교한다.
 								
 								views++;							//읽은 만큼 증가
-								board[4] = String.valueOf(views);
-								System.out.println(board[0] + "\t\t" + board[1] + "\t\t" + board[2] + "\t\t" +board[3]+"\t\t"+ board[4]);
+								board.count = views;
+								System.out.println(board.bno + "\t\t" + board.writer + "\t\t" + board.title + "\t\t" +board.content+"\t\t"+ board.count);
 								break;
 								
 							}
@@ -97,25 +97,25 @@ public class HomeWork4 {
 				String replaceContent = scanner.nextLine();
 				
 				if (boards != null) {				
-					for (String[] board : boards) {
+					for (Board board : boards) {
 						
 						if (board != null) {
 							
-							if (replaceNum.equals(board[0])) {
+							if (replaceNum.equals(String.valueOf(board.bno))) {
 								
 								if (!replaceTitle.equals("")) {	//수정을 안할시 제목 안바뀌게 한기 위한 조건문
 									
-									board[2] = replaceTitle;	//기존에 있던 제목을 키보드로 입력한 제목으로 바꾼다.
+									board.title = replaceTitle;	//기존에 있던 제목을 키보드로 입력한 제목으로 바꾼다.
 									
 									if (!replaceContent.equals("")) {
 										
-										board[3] = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
+										board.content = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
 										
 									}
 									
 								} else if (!replaceContent.equals("")) {
 									
-									board[3] = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
+									board.content = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
 								}
 							}
 						}
