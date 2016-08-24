@@ -1,6 +1,7 @@
 package ch06.exam08;
 
 public class Math {
+	//0824
 	// Field
 	// Constructor
 	// Method

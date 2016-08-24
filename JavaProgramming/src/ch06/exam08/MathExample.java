@@ -1,7 +1,9 @@
 package ch06.exam08;
 
 public class MathExample {
+	
 	public static void main(String[] args) {
+		//0824
 		Math math = new Math();
 		
 		math.printInfo("수학 객체가 생성됨");
