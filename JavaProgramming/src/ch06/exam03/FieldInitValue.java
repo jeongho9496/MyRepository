@@ -18,7 +18,8 @@ public class FieldInitValue {	//라이브러리 클래스
 	
 	public FieldInitValue() {
 		System.out.println("오잉");
-		
+		String a = "asdf";
+		Integer.valueOf(a);
 	}
 	
 	void run(){
