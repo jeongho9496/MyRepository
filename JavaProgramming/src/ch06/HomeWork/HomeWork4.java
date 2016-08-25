@@ -27,7 +27,7 @@ public class HomeWork4 {
 					
 					for (Board board : boards) {//향상된 for문(for-each) 배열의 항목수만큼 실행부분을 반복
 						//반복이 이루어질 때마다 배열의 항목을 순서대로 꺼내어 변수에 자동으로 대입
-						if (board != null) {		//배열값이 null인 데이터에 값을 넣을수 없으므로 조건문 으로 처리
+						if (board != null) {//배열값이 null인 데이터에 값을 넣을수 없으므로 조건문으로 처리
 							System.out.println(board.bno + "\t\t" + board.writer + "\t\t" + board.title + "\t\t" + board.count);
 							
 						}
@@ -45,12 +45,12 @@ public class HomeWork4 {
 				System.out.print("내용 : ");
 				String content = scanner.nextLine();
 				
-				for (int i = 0; i < boards.length; i++) {
+				for (int arr = 0; arr < boards.length; arr++) {
 
-					if (boards[i] == null) {	//배열에 해당 값 생성
+					if (boards[arr] == null) {	//배열에 해당 값 생성
 						
-						Board board = new Board(i, writer, title, content, 0);
-						boards[i] = board;
+						Board board = new Board(arr, writer, title, content, 0);
+						boards[arr] = board;
 						break;
 						
 					}
@@ -97,6 +97,7 @@ public class HomeWork4 {
 				String replaceContent = scanner.nextLine();
 				
 				if (boards != null) {				
+					
 					for (Board board : boards) {
 						
 						if (board != null) {
@@ -114,7 +115,6 @@ public class HomeWork4 {
 									}
 									
 								} else if (!replaceContent.equals("")) {
-									
 									board.content = replaceContent;	//기존에 있던 내용을 키보드로 입력한 제목으로 바꾼다.
 								}
 							}
