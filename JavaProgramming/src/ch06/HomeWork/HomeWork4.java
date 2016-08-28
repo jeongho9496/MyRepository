@@ -71,12 +71,10 @@ public class HomeWork4 {
 						
 						if (board != null) {
 							
-							int views = board.count; //조회수 카운트 변수
 							
 							if (detailNum.equals(String.valueOf(board.bno))) {		//선택한 게시물 번호와 board에 있는 인텍스를 문자열로 비교한다.
 								
-								views++;							//읽은 만큼 증가
-								board.count = views;
+								board.count++;
 								System.out.println(board.bno + "\t\t" + board.writer + "\t\t" + board.title + "\t\t" +board.content+"\t\t"+ board.count);
 								break;
 								

@@ -10,7 +10,6 @@ public class Example {
 //		im.field = "자바";//객체 안에 저장
 		im.method();	//객체 안에서 호출
 		
-		
 		System.out.println("-------------static block 실행---------------");
 		//Static Member 사용
 //		StaticMember sm; 변수만 사용시 메모리 적제가 안되므로 static block 실행이 안된다.

@@ -91,10 +91,8 @@ public class HomeWork3 {
 				// 수정하기
 				System.out.print("수정할 게시글 번호 : ");
 				String replaceNum = scanner.nextLine();
-				System.out.print("수정 제목 : ");
-				String replaceTitle = scanner.nextLine();
-				System.out.print("수정 내용 : ");
-				String replaceContent = scanner.nextLine();
+				String replaceTitle;
+				String replaceContent;
 				
 				if (boards != null) {				
 					for (String[] board : boards) {
@@ -102,6 +100,10 @@ public class HomeWork3 {
 						if (board != null) {
 							
 							if (replaceNum.equals(board[0])) {
+								System.out.print("수정 제목 : " + board[2]);
+								replaceTitle = scanner.nextLine();
+								System.out.print("수정 내용 : " + board[3]);
+								replaceContent = scanner.nextLine();
 								
 								if (!replaceTitle.equals("")) {	//수정을 안할시 제목 안바뀌게 한기 위한 조건문
 									
