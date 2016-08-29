@@ -8,14 +8,16 @@ public class Board2 {
 	private String content;
 	private int count;
 	
-	public Board2(int bno, String writer, String title, String content, int count) {
+	public Board2(){}
+	
+	/*public Board2(int bno, String writer, String title, String content, int count) {
 		// TODO Auto-generated constructor stub
 		this.bno = bno;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.count = count;
-	}
+	}*/
 	
 	public int getBno() {
 		return bno;

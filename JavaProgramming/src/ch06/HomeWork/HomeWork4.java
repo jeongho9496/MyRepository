@@ -59,7 +59,7 @@ public static void main(String[] args) {
 
 			} else if (choice.equals("3")) {
 				
-				//상세보
+				//상세보기
 				System.out.print("상세 보기할 번호 : ");
 				String detailNum = scanner.nextLine();
 				System.out.println("*************************************************************************");
@@ -74,11 +74,11 @@ public static void main(String[] args) {
 							
 							
 							if (detailNum.equals(String.valueOf(board.getBno()))) {		//선택한 게시물 번호와 board에 있는 인텍스를 문자열로 비교한다.
-								
 //								board.count++;
 								board.setCount(board.getCount()+1);
 								
-								System.out.println(board.getBno() + "\t\t" + board.getWriter() + "\t\t" + board.getTitle() + "\t\t" +board.getContent()+"\t\t"+ board.getCount());
+								System.out.println(board.getBno() + "\t\t" + board.getWriter() + 
+										"\t\t" + board.getTitle() + "\t\t" +board.getContent()+"\t\t"+ board.getCount());
 								break;
 								
 							}

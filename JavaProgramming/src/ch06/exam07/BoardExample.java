@@ -1,7 +1,7 @@
 package ch06.exam07;
 
 public class BoardExample {
-
+	//0824
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//0824

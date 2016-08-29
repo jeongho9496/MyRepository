@@ -49,7 +49,12 @@ public class HomeWork4_2 {
 
 					if (boards[arr] == null) {	//배열에 해당 값 생성
 						
-						Board2 board = new Board2(arr, writer, title, content, 0);
+						Board2 board = new Board2();
+						board.setBno(arr);
+						board.setWriter(writer);
+						board.setTitle(title);
+						board.setContent(content);
+						board.setCount(0);
 						boards[arr] = board;
 						break;
 						

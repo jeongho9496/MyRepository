@@ -1,6 +1,7 @@
 package ch06.exam11;
 
 public class Student {
+	//0824
 	//Field
 	int no;
 	String name;
