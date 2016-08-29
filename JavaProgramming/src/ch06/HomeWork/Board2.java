@@ -1,21 +1,22 @@
 package ch06.HomeWork;
 
-public class Board {
-	//0829과제
-	private int bno;		//게시번호
-	private String writer;	//작성자
-	private String title;	//제목
-	private String content;	//내용
-	private int count;		//조회수
+public class Board2 {
+	//0829 vo class
+	private int bno;
+	private String writer;
+	private String title;
+	private String content;
+	private int count;
 	
-	Board(){}
-	Board(int bno, String writer, String title, String content, int count){
+	public Board2(int bno, String writer, String title, String content, int count) {
+		// TODO Auto-generated constructor stub
 		this.bno = bno;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
 		this.count = count;
 	}
+	
 	public int getBno() {
 		return bno;
 	}
@@ -46,7 +47,6 @@ public class Board {
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
 	
 	
 

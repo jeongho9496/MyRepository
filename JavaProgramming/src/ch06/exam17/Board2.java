@@ -1,6 +1,6 @@
 package ch06.exam17;
 
-public class Board {
+public class Board2 {
 	//0829 vo class
 	private int bno;
 	private String writer;
