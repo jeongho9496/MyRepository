@@ -37,14 +37,14 @@ public class BankApplication2 {
 		System.out.println("---------");
 		System.out.println("계좌생성");
 		System.out.println("---------");
-		
+
 		System.out.print("계좌번호 : ");
 		String ano = scanner.nextLine();
 		System.out.print("계좌주 : ");
 		String owner = scanner.nextLine();
 		System.out.print("초기 입금액 : ");
 		int balance = Integer.parseInt(scanner.nextLine());
-		
+
 		for (int i = 0; i < accountArray.length; i++) {
 			if (accountArray[i] == null) {
 				Account account;
@@ -54,12 +54,13 @@ public class BankApplication2 {
 			}
 		}
 	}
+
 	private static void accountList() {
 		// TODO Auto-generated method stub
 		System.out.println("---------");
 		System.out.println("계좌목록");
 		System.out.println("---------");
-		
+
 		if (accountArray != null) {
 			for (Account account : accountArray) {
 				if (account != null) {
@@ -67,69 +68,72 @@ public class BankApplication2 {
 				}
 			}
 		}
-		
+
 	}
-	
+
 	private static void deposit() {
 		// TODO Auto-generated method stub
 		System.out.println("---------");
 		System.out.println("예금");
 		System.out.println("---------");
-		
+
 		System.out.print("계좌번호 : ");
 		String depAno = scanner.nextLine();
 		System.out.print("예금 : ");
 		int plusMoney = Integer.parseInt(scanner.nextLine());
-		
-		if (accountArray != null) {
+
+		findAccount(depAno).setBalance(findAccount(depAno).getBalance()+plusMoney);
+		/*if (accountArray != null) {
 			for (Account account : accountArray) {
 				if (account != null) {
 					if (depAno.equals(account.getAno())) {
-						account.setBalance(account.getBalance()+plusMoney);
+						account.setBalance(account.getBalance() + plusMoney);
 					}
 				}
 			}
-		}
+		}*/
 	}
-	
+
 	private static void widthdraw() {
 		System.out.println("---------");
 		System.out.println("출금");
 		System.out.println("---------");
-		
+
 		System.out.print("계좌번호 : ");
 		String withAno = scanner.nextLine();
 		System.out.print("출금 : ");
 		int minusMoney = Integer.parseInt(scanner.nextLine());
+		int temp = findAccount(withAno).getBalance() - minusMoney;
+		findAccount(withAno).setBalance(temp);
 		
-		if (accountArray != null) {
+		/*if (accountArray != null) {
 			for (Account account : accountArray) {
 				if (account != null) {
 					if (withAno.equals(account.getAno())) {
-						account.setBalance(account.getBalance()-minusMoney);
+						account.setBalance(account.getBalance() - minusMoney);
 					}
 				}
 			}
-		}
-		
-//		findAccount(withAno);
-		
-		
-	}
-	
-	/*private static Account findAccount(String ano){
-	
-			for (Account account : accountArray) {
-				if (ano.equals(account.getAno())) {
-					return account;
-				}else
-					return null;
-			}
-		
-	
-	}*/
+		}*/
 
+		/*if(findAccount(withAno) != null)
+			System.out.println("계좌 찾음");*/
+
+	}
+
+	private static Account findAccount(String ano){
+		if(accountArray != null){
+			for(int i=0;i<accountArray.length;i++){
+				if(ano.equals(accountArray[i].getAno())){
+					return accountArray[i];
+				}
+				
+			}
 	
+		}
+		return null;
+
+	}
 
 
 }
