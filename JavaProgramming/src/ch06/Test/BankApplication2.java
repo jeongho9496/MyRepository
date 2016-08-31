@@ -122,16 +122,18 @@ public class BankApplication2 {
 	}
 
 	private static Account findAccount(String ano){
+		Account account = null;
 		if(accountArray != null){
 			for(int i=0;i<accountArray.length;i++){
 				if(ano.equals(accountArray[i].getAno())){
-					return accountArray[i];
+					account = accountArray[i];
+					break;
 				}
 				
 			}
 	
 		}
-		return null;
+		return account;
 
 	}
 
