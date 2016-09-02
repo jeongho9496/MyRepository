@@ -1,7 +1,7 @@
 package ch10.exam01;
 
 public class TestExceptionThrows {
-
+	//0901
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

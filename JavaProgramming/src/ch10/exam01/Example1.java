@@ -3,8 +3,9 @@ package ch10.exam01;
 import java.util.Scanner;
 
 public class Example1 {
-
+	//0901
 	public static void main(String[] args) {
+//		Object obj = new Object();
 		
 		Scanner scanner = new Scanner(System.in);
 		
