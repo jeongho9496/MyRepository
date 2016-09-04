@@ -4,7 +4,7 @@ public class Button {
 	//0901
 	//이벤트 처리 패턴
 	public static interface OnClickListener{
-		void onClick();	//추상 메소드
+		void onClick();	//추상 메소드 객체 생성없이 사용가능
 		
 	}	//중첩인터페이스 선언
 	

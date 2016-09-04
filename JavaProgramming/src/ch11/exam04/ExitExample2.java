@@ -28,10 +28,4 @@ public class ExitExample2 {
 		System.out.println("출력");
 	}
 
-	public static void method(int x) {
-		if (x == 5) {
-			return;
-		}
-		System.out.println(x);
-	}
 }

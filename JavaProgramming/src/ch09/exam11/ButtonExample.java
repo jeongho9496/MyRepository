@@ -2,6 +2,7 @@ package ch09.exam11;
 
 
 public class ButtonExample {
+	//0901
 	public static void main(String[] args) {
 		Button btnOk = new Button();
 		btnOk.setOnClickListener(new Button.OnClickListener() {	//익명클래스 생성자로 구현 객체 생성

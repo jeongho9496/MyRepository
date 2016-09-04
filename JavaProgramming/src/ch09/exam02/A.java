@@ -10,6 +10,6 @@ public class A {
 		//Field
 		//Constructor
 		//Method
-		//-> 인스턴스 클래스 B 에 static 키워드는 올수 없다 이미 A객체에서 활용하기 때문에
+		//-> static 필드, 메소드도 사용 가능하다.
 	}	
 }

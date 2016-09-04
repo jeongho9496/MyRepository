@@ -17,7 +17,7 @@ public class A {
 	}
 	
 	static void method2(){
-//		B b = new B();	//객체가 없이도 실행해야 하는 내용이 와야 하는데 B는 A객체에서 실행되기 때문에 선언 할수 없다
+//		B b = new B();	//static이므로 객체가 없이도 실행해야 하는 내용이 와야 하는데 B는 A객체에서 실행되기 때문에 선언 할수 없다
 	}
 	
 	public class B{

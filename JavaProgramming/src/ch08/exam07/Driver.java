@@ -8,7 +8,7 @@ public class Driver {	//운전자 클래스
 	public void drive(Vehicle vehicle){	//인터페이스 타입 매개변수
 		if (vehicle instanceof Bus) {
 			
-			Bus bus = (Bus)vehicle;
+			Bus bus = (Bus)vehicle;	//강제 타입 변환
 			bus.checkFare();
 		}else {
 			System.out.println("택시는 공짜");

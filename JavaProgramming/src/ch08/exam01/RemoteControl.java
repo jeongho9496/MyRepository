@@ -11,7 +11,7 @@ public interface RemoteControl {
 	void turnOff();
 	void setVolume(int volume);
 	
-	//Default Method(디폴트 메소드) -> default 반드시 작성. public 자동 생성
+	//Default Method(디폴트 메소드) -> default 반드시 작성. public 자동 생성 Java8버전으로 인해 설계도 안에 실행문 입력 가능하게 함.
 	default void setMute(boolean mute){
 		if (mute) {
 			

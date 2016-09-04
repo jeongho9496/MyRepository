@@ -8,6 +8,7 @@ public class Example {
 		Television tv = new Television();	
 		RemoteControl rc = tv;
 		rc.setMute(true);					//default method -> 객체가 있어야 실행 가능
+		rc.setMute(false);					//default method -> 객체가 있어야 실행 가능
 		
 		RemoteControl.changeBattery();
 	}

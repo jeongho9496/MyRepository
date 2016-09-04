@@ -21,10 +21,10 @@ public class Television implements RemoteControl { // 구현클래스 생성
 
 	@Override
 	public void setVolume(int volume) {
-		if (volume > RemoteControl.MAX_VOLUME) {
+		if (volume > RemoteControl.MAX_VOLUME) {		//매개변수로 받은 볼륨과 상수 MAX_VOLUME 비교
 			System.out.println("볼륨이 최대치 입니다.");
 			this.volume = RemoteControl.MAX_VOLUME;
-		} else if (volume < RemoteControl.MIN_VOLUME) {
+		} else if (volume < RemoteControl.MIN_VOLUME) {//매개변수로 받은 볼륨과 상수 MIN_VOLUME 비교
 			this.volume = RemoteControl.MIN_VOLUME;
 		} else {
 			this.volume = volume;
