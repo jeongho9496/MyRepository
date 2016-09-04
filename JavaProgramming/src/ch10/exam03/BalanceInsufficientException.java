@@ -1,4 +1,4 @@
-package ch10.exam02;
+package ch10.exam03;
 
 public class BalanceInsufficientException extends RuntimeException {
 	//0901

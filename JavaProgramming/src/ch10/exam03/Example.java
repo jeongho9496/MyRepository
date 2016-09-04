@@ -1,6 +1,5 @@
 package ch10.exam03;
 
-import ch10.exam02.BalanceInsufficientException;
 //0901
 public class Example {
 

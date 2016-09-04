@@ -9,8 +9,6 @@ public class Example1 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		
-		
 		while (true) {	//무한 반복
 			
 			try {	//try block
