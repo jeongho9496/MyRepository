@@ -12,7 +12,8 @@ public class PatternExample {
 		
 		String regExp = "(010|011)-\\d{3,4}-\\d{4}";//정규표현식 : 문자열이 정해져 있는 형식
 		
-		System.out.println(Pattern.matches(regExp, tel1));	//Pattern.matches(정규표현식, String 객체) 정규표현식에 맞게 데이터가 작성되있는지 확인
+		System.out.println(Pattern.matches(regExp, tel1));
+		//Pattern.matches(정규표현식, String 객체) 정규표현식에 맞게 데이터가 작성되있는지 확인
 		System.out.println(Pattern.matches(regExp, tel2));
 		System.out.println(Pattern.matches(regExp, tel3));
 		System.out.println(Pattern.matches(regExp, tel4));

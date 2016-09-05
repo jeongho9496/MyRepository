@@ -3,9 +3,9 @@ package ch11.exam10;
 import java.io.IOException;
 
 import javax.swing.plaf.synth.SynthScrollBarUI;
-//0905
-public class KeyboardToStringExample {
 
+public class KeyboardToStringExample {
+	//0905	p498
 	public static void main(String[] args) throws IOException {
 		
 		byte[] bytes = new byte[100];

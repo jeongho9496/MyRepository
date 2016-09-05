@@ -3,7 +3,7 @@ package ch11.exam10;
 import java.util.Arrays;
 
 public class ArrayCompareExample {
-	//0905
+	//0905	p523
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr1 = {1, 2, 3};
@@ -18,7 +18,7 @@ public class ArrayCompareExample {
 		System.out.println(arr3 == arr4);
 		
 		System.out.println(Arrays.equals(arr3, arr4));
-		//배열 항목들이 참조를 하고 있다면 false가 리턴 된다.
+		//배열 항목들이 참조를 하고 있다면 false가 리턴 된다. 1차원항목(배열) 값만 비교
 		
 		System.out.println(Arrays.deepEquals(arr3, arr4));	//deepEquals 2차항목 값 비고
 	}

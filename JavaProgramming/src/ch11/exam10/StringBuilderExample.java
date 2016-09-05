@@ -1,7 +1,7 @@
 package ch11.exam10;
 
 public class StringBuilderExample {
-	//0905
+	//0905	p516
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String data = "a";

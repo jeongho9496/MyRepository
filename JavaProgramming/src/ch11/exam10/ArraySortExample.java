@@ -3,7 +3,7 @@ package ch11.exam10;
 import java.util.Arrays;
 
 public class ArraySortExample {
-
+	//0905	p521
 	public static void main(String[] args) {
 		int[] scores = {99, 97, 98};
 		

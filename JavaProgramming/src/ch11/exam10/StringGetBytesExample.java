@@ -3,7 +3,7 @@ package ch11.exam10;
 import java.io.UnsupportedEncodingException;
 
 public class StringGetBytesExample {
-	//0905
+	//0905	p503
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		// TODO Auto-generated method stub
 		String str = "안녕하세요";
@@ -13,10 +13,10 @@ public class StringGetBytesExample {
 		System.out.println("bytes1.length : " + bytes1.length);
 		
 		byte[] bytes2 = str.getBytes("EUC-KR");
-		System.out.println("bytes.length : " + bytes2.length);
+		System.out.println("bytes.length : " + bytes2.length);//한글 2byte * 5개 문자
 
 		byte[] bytes3 = str.getBytes("UTF-8");
-		System.out.println("bytes.length : " + bytes3.length);
+		System.out.println("bytes.length : " + bytes3.length);//한글 3byte * 5개 문자
 
 		//byte[] -> String
 		String str1 = new String(bytes1);

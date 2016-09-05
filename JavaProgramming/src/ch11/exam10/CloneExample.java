@@ -8,7 +8,7 @@ public class CloneExample {
 		// TODO Auto-generated method stub
 		int[] arr1 = {1,2,3};
 		
-		int[] arr2 = arr1.clone();
+		int[] arr2 = arr1.clone();//복제 객체가 다름??
 		System.out.println(arr1 == arr2);
 		System.out.println(Arrays.equals(arr1, arr2));
 
