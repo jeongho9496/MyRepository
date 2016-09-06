@@ -11,7 +11,7 @@ public class FindAndReplaceExample {
 			System.out.println("자바 문자열이 포함되어 있지 않습니다.");
 		} else {
 			System.out.println("자바 문자열이 포함되어 있습니다.");
-			str = str.replace("자바", "java");
+			str = str.replace("자바", "Java");
 			System.out.println("->"+str);
 		}
 	}

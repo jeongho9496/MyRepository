@@ -8,13 +8,14 @@ public class SplitExample {
 		// TODO Auto-generated method stub
 		String str = "아이디, 이름, 패스워드";
 		
-		/*//splite
-		String[] strSplit = str.split(",");
+		//splite
+		String[] strSplit = str.split(", ");
 		
 		for (String string : strSplit) {
 			
 			System.out.println(string);
-		}*/
+		}
+		System.out.println();
 		
 		StringTokenizer st = new StringTokenizer(str, ", ");
 		int countTokens = st.countTokens();

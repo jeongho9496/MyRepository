@@ -16,7 +16,7 @@ public class Student {
 		// TODO Auto-generated method stub
 		if (obj instanceof Student) {
 			Student target = (Student)obj;
-			if (getStudentNum().equals(target.getStudentNum())) {
+			if (studentNum.equals(target.getStudentNum())) {
 				return true;
 			}
 		}
@@ -26,6 +26,6 @@ public class Student {
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
-		return getStudentNum().hashCode();
+		return studentNum.hashCode();//동등객체가 된다.
 	}
 }
