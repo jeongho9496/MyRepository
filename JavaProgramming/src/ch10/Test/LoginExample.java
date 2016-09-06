@@ -3,24 +3,24 @@ package ch10.Test;
 public class LoginExample {
 	public static void main(String[] args) {
 		try {
-			login("white", "1111");
+			login("blue", "1111");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		try {
+		/*try {
 			login("blue", "12345");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
+		}*/
 	}
 
 	
-	public static void login(String id, String password)throws Exception{
+	public static void login(String id, String password)throws NotExistIDException,WrongPaswordException{
 		if (!id.equals("blue")) {
-			NotExistIDException exception = new NotExistIDException(id);
+			throw new NotExistIDException("아이디가 존재 하지 않습니다.");
 		}
 		if (!password.equals("12345")) {
-			WrongPaswordException exception = new WrongPaswordException(password);
+			throw new WrongPaswordException("비밀번호가 존재 하지 않습니다.");
 		}
 		
 		
