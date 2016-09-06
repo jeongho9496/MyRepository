@@ -3,7 +3,7 @@ package ch12.exam01;
 import java.awt.Toolkit;
 
 public class BeepPrintExample3 {
-	// 0906
+	//0906
 	public static void main(String[] args) throws InterruptedException {
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 
