@@ -1,6 +1,6 @@
 package ch09.exam03_2;
 
-public class Main {
+public class Example {
 	public static void main(String[] args) {
 		A a = new A();
 		
