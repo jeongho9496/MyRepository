@@ -8,7 +8,11 @@ public class InterruptExample {
 		
 		pt1.start();
 		
-		try {Thread.sleep(3000);} catch (InterruptedException e) {}//스레드 3초정지
-		pt1.interrupt();//스레드가 일시정지 될때  InterruptedException(예외) 발생
+		try {
+			System.out.println("MainThread멈춤");
+			Thread.sleep(2);} catch (InterruptedException e) {}//메인스레드 3초동안 정지되는 동안 printThread3는 활성화
+		pt1.interrupt();//pt1의 interrupt()호출
+		System.out.println("MainThread활성");
 	}
 }	
+ 

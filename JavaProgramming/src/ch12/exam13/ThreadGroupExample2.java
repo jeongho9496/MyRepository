@@ -66,7 +66,7 @@ public class ThreadGroupExample2 {
 		try { Thread.sleep(1); } catch (InterruptedException e) {}
 		sub.interrupt();
 		
-		try { Thread.sleep(3); } catch (InterruptedException e) {}
+		try { Thread.sleep(5); } catch (InterruptedException e) {}
 		Thread.currentThread().getThreadGroup().interrupt();
 		
 	}

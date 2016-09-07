@@ -9,7 +9,7 @@ public class PrintThread2 extends Thread {
 			while (true) {
 				
 				System.out.println("실행 중...");
-				Thread.sleep(100);	//스레드가 일시정지 상태가 됨.
+				Thread.sleep(1);	//PrintThread 스레드가 일시정지 상태가 됨.스레드가 일시정지 될때  InterruptedException(예외) 발생
 			}
 		} catch (InterruptedException e) {
 			// TODO: handle exception

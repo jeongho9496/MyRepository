@@ -9,7 +9,7 @@ public class DaemonExample {
 		//반드시 start()메소드 호출 전에 setDaemon(true)를 호출해야 한다.
 		ast.start();
 		
-		try {Thread.sleep(3000);} catch (InterruptedException e) {}
+		try {Thread.sleep(5000);} catch (InterruptedException e) {}
 		System.out.println("메인 스레드 종료");
 	}
 }

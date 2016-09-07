@@ -9,9 +9,8 @@ public class AutoSaveThread extends Thread{
 	@Override
 	public void run() {
 		while (true) {
-			try {Thread.sleep(1000);} catch (InterruptedException e) {}
+			try {Thread.sleep(500);} catch (InterruptedException e) {}
 			save();
-			
 		}
 	}
 }

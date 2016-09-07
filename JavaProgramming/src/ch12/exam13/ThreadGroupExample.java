@@ -8,7 +8,7 @@ public class ThreadGroupExample {
 		System.out.println(thread.getName());
 		
 		for (int i = 0; i < 10; i++) {//익명 객체 안에서 로컬 변수를 사용할 시 변수는 fianl을 갖는다.
-			int count = i;
+			int count = i;	//로컬 클래스에 사용하기 위해 int count에 담는다.
 			Thread thread2 = new Thread(){
 				@Override
 				public void run() {

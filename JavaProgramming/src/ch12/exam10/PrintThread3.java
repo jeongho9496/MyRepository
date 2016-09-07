@@ -9,7 +9,7 @@ public class PrintThread3 extends Thread {
 
 			System.out.println("실행 중...");
 //			if (isInterrupted()) {
-			if (Thread.interrupted()) {//static 메소드
+			if (Thread.interrupted()) {//printThread3 interrupt()가 호출되었는지 확인
 				
 				break;
 			}

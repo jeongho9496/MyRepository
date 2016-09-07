@@ -2,7 +2,7 @@ package ch12.exam09;
 
 public class PrintThread1 extends Thread {
 	//0907
-	private boolean stop;	//기본 false
+	private boolean stop = false;	//기본 false
 
 	public void setStop(boolean stop) {
 		this.stop = stop;
