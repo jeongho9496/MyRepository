@@ -33,7 +33,7 @@ public class ThreadGroupExample2 {
 		};
 		thread.start();
 		
-		ThreadGroup sub = new ThreadGroup("sub");//main group밑에 group생성
+		ThreadGroup sub = new ThreadGroup("sub");//main group밑에 sub group생성
 		
 		thread = new Thread(sub,"t3"){//sub group 안으로 들어감
 			@Override
@@ -64,10 +64,10 @@ public class ThreadGroupExample2 {
 		thread.start();
 		
 		try { Thread.sleep(1); } catch (InterruptedException e) {}
-		sub.interrupt();
+		sub.interrupt();	//subGroup interrupt 호출 (t3,t4 종료)
 		
 		try { Thread.sleep(5); } catch (InterruptedException e) {}
-		Thread.currentThread().getThreadGroup().interrupt();
+		Thread.currentThread().getThreadGroup().interrupt();	//mainGroup interrupt 호출(전체 종료)
 		
 	}
 }

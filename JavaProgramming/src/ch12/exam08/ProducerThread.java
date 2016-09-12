@@ -6,6 +6,7 @@ public class ProducerThread extends Thread{
 	
 	public ProducerThread(DataBox dataBox) {
 		// TODO Auto-generated constructor stub
+		this.setName("ProducerThread");
 		this.dataBox = dataBox;// 데이터 필드 값 초기화 -> 인젝션
 	}
 	
