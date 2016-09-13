@@ -22,10 +22,10 @@ public class ExecuteServiceExample {
 			}
 		};
 		
-		//작업 큐에 작업
+		//생성된 작업을 작업큐에 넣어 스레드가 처리
 		executorService.submit(task);
 		
-		//스레드풀 종류
+		//스레드풀 종료
 		executorService.shutdown();//하던 작업은 계속 하고 작업 완료후 종료 <=> shutdownNow() 강제 종료
 	}
 

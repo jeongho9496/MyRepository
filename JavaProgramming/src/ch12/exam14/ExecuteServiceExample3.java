@@ -15,7 +15,7 @@ public class ExecuteServiceExample3 {
 		for (int i = 0; i < 10; i++) {
 			int count = i;
 			//작업 생성
-			Runnable task = new Runnable() {
+			Runnable task = new Runnable() {//리턴값이 없는 구현 클래스
 				@Override
 				public void run() {
 					ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor)executorService;	//타입변환 스레드 개수
@@ -27,8 +27,8 @@ public class ExecuteServiceExample3 {
 				}
 			};
 			//작업 큐에 작업
-			executorService.submit(task);//예외처리를 메소드내에서 함
-//			executorService.execute(task);//예외처리를 안함
+			executorService.submit(task);//예외처리를 메소드내에서 함, 스레드를 재사용
+//			executorService.execute(task);//예외처리를 안함 오류 발생
 		}
 		
 		

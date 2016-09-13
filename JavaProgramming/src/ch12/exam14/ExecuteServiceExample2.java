@@ -10,8 +10,8 @@ public class ExecuteServiceExample2 {
 		//ThreadPool 생성
 		ExecutorService executorService = Executors.newFixedThreadPool(5);
 		
-		
-		for (int i = 0; i < 1000; i++) {
+		//10개의 작업 만들기
+		for (int i = 0; i < 10; i++) {
 			int count = i;
 			//작업 생성
 			Runnable task = new Runnable() {
