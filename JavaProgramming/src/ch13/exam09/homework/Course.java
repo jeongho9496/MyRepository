@@ -1,4 +1,4 @@
-package ch13.exam09;
+package ch13.exam09.homework;
 
 public class Course<T> {
 	//0908
