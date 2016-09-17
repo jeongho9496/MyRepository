@@ -17,4 +17,6 @@ public class StaticMember {
 	static void method(){
 		
 	}
+	
+	//static -> 객체 생성 없이 (new...) 사용할수 있음
 }

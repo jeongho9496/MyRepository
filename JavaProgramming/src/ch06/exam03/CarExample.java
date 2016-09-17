@@ -4,7 +4,7 @@ public class CarExample {
 
 	public static void main(String[] args) {
 		// 0823
-		//Car 변수(참조타입) 선언 => 메소드 안에 선언 되있으므로 변수임.
+		//Car 변수(참조타입) 선언 => 메인 메소드 안에 선언 되있으므로 변수임.
 		Car myCar = null;
 		
 		//객체 생성하고 위치 정보 얻기

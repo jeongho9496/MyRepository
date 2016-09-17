@@ -7,7 +7,7 @@ public class Korean {
 	String ssn;
 	
 	public Korean(String name, String ssn) {
-		this.name = name;
+		this.name = name;	//필드값을 외부에서 받은 매개변수의 값으로 초기화 한다.
 		this.ssn = ssn;
 //		
 //		System.out.println("국적 : " + nation);

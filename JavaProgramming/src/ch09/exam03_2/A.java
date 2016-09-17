@@ -26,7 +26,7 @@ public class A {
 	
 	void method(){	
 		class D{	//로컬 클래스 생성 (객체 메소드 안의 클래스) 내부에 인스턴스 필드와 메소드만 올수 있다. 메소드 실행 할때 메소드 내에 객체 생성
-			public D() {
+			public D() {//클래스 D의 생성자
 				// TODO Auto-generated constructor stub
 				System.out.println("D객체가 실행됨.");
 			}

@@ -3,10 +3,10 @@ package ch06.exam13;
 public class School {
 	//0829
 	//Field
-	private static School singleton = new School();	//static로 School 타입 필드를 설정하고 자기자신을 생성자로 불러온다.
+	private static School singleton = new School();	//static으로 School 타입 필드를 설정하고 자기자신을 생성자로 불러온다.
 	
 	//Constructor
-	private School(){	//private -> 접근 제한자 외부에서 접근하지 못하게 한다.
+	private School(){	//private -> 접근 제한자 외부에서 접근하지 못하게 한다. 즉 외부에서 생성자 호출을 못하게 막는다.
 		
 	}
 	

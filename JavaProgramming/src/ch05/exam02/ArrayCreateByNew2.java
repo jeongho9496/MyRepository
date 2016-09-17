@@ -29,8 +29,8 @@ public class ArrayCreateByNew2 {
 			System.out.println("arr4["+i+"] => "+arr4[i]);
 		}
 		
-		System.out.println(arr4[0].equals(arr4[1]));
-		System.out.println(arr4[0].equals(arr4[2]));
+		System.out.println(arr4[0].equals(arr4[1]));	
+		System.out.println(arr4[0].equals(arr4[2]));	//문자열 비교이므로 다른 객체라도 문자열이 같으면 true
 		
 	}
 

@@ -6,7 +6,7 @@ public class SchoolExample {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 //		School s1 = new School();
-//		School s2 = new School();
+//		School s2 = new School(); //객체 생성 불가능
 		
 		School s1 = School.getInstance();
 		School s2 = School.getInstance();

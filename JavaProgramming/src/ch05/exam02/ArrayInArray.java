@@ -9,8 +9,8 @@ public class ArrayInArray {
 
 		System.out.println("배열의 길이");
 
-		System.out.println(scores.length); // 베열수2
-		System.out.println(scores[0].length); // 배열수3
+		System.out.println(scores.length); // 베열수2	첫번째 []
+		System.out.println(scores[0].length); // 배열수3 두번째 []
 		System.out.println(scores[1].length); // 베열수3
 
 		System.out.println("항목값 접근");

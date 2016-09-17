@@ -8,8 +8,8 @@ public class ArrayCreateByValueList1 {
 
 		// how2
 		int[] scores2;
-		// scores2={83, 90, 87} //배열 변수 선언후 다음에 목록을 배열변수에 담으면 안된다.
-		scores2 = new int[] { 83, 90, 87 }; //
+		// scores2={83, 90, 87} //배열 변수 선언후 다음에 목록을 배열변수에 담으면 안된다. 새로운 객체 생성후 설정한다.
+		scores2 = new int[] { 83, 90, 87 };
 
 		sum(new int[]{83, 90, 87});//메소드 호출. 배열 변수 선언후 나중에 배열 값을 바로 넣을수 없다. new int[]{...} 식으로 사용
 	}

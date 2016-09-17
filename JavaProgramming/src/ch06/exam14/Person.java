@@ -19,7 +19,7 @@ public class Person {
 		System.out.println(p1.name);
 		
 //		p1.nation = "미국";
-//		p1.ssn = "333333-333333";
+//		p1.ssn = "333333-333333"; ssn은 final 값미므로 초기값입력후 변경이 불가하다.
 		p1.name = "을지문덕";
 		System.out.println(p1.name);
 	}

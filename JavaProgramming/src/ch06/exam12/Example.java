@@ -13,7 +13,7 @@ public class Example {
 		System.out.println("-------------static block 실행---------------");
 		//Static Member 사용
 //		StaticMember sm; 변수만 사용시 메모리 적제가 안되므로 static block 실행이 안된다.
-		StaticMember sm = new StaticMember();
+//		StaticMember sm = new StaticMember();
 		System.out.println(StaticMember.field);
 //		StaticMember.field = "자바";
 //		StaticMember.method();

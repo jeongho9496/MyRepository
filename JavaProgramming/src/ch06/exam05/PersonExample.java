@@ -8,6 +8,8 @@ public class PersonExample {
 		
 		//데이터 수정
 		p1.age = 27;
+		
+		System.out.println(p1.age);
 	}
 
 }

@@ -13,7 +13,7 @@ public class Tire {
 	}
 	
 	public boolean roll(){
-		++accumulatedRotation;
+		++accumulatedRotation;	//호출시 회전수를 더한다.
 		if (accumulatedRotation < maxRotation) {
 			System.out.println(location + " Tire 수명 " + (maxRotation - accumulatedRotation) + "회");
 			return true;

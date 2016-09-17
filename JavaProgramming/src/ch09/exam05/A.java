@@ -9,7 +9,7 @@ public class A {
 	static B b = new B();//사용가능
 	
 	public A(){
-//		B b = new B();
+		B b = new B();
 	}
 	
 	void method(){

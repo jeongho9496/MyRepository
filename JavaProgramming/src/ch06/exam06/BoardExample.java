@@ -15,7 +15,7 @@ public class BoardExample {
 		String s3 = new String(date);
 		System.out.println(s3);
 		
-		String s4 = new String(date, 1, 2);
+		String s4 = new String(date, 1, 2);//데이터출력할시 처음 출력될 배열 번호와 최종 번호를 설정할 수 있다.
 		System.out.println(s4);
 	}
 

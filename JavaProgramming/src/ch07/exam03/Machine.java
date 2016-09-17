@@ -3,7 +3,7 @@ package ch07.exam03;
 public class Machine {
 	//0829
 	
-	public void work(){
+	void work(){
 		System.out.println("Machine- 실행됨");
 	}
 	

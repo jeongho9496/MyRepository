@@ -8,9 +8,9 @@ public class A { // 클래스 내부에서는 생성자, 필드, 메소드 순�
 		this.field = 10;	//A 필드 값 초기화
 		class B {
 			
-			int field = 10; // classB의 필드
+			int field = 10; // 내부classB의 필드
 			
-			B() {
+			B() {//B클래스 생성자
 				field = 20;
 				this.field = 30;//B필드값 초기화
 				A.this.field = 40;//A객체의 필드값 초기화

@@ -9,10 +9,10 @@ public class ScoreManagement {
 		Scanner scanner = new Scanner(System.in);
 		String[][] students = null; // 전체에 쓰이기위에 main에서 초기화 배열길이는 결정 안함.
 
-		while (true) {
+		while (true) {	//무한 루프
 
 			System.out.println("-------------------------------------------------------------------------");
-			if (students == null) {
+			if (students == null) {	//student 배열에 데이터가 없다면
 				
 				System.out.println("| 1.총학생수 | 7.종료 |");
 
@@ -58,7 +58,7 @@ public class ScoreManagement {
 				for (int i = 0; i < students.length; i++) {
 				
 					if (students[i] == null) {
-						String[] student = {String.valueOf(i),name,score};
+						String[] student = {String.valueOf(i+1),name,score};
 						//String.valueOf(i) => 매개변수 안에 있는 숫자를 문자열로 바꿔준다.
 						//(<=> Integer.parseInt() => 매개변수 안에 있는 문자열이 숫자형식이면 숫자로 바꾼다.)
 						students[i] = student;
@@ -70,7 +70,7 @@ public class ScoreManagement {
 				
 				System.out.print("삭제할 학번 : ");
 				int sno = Integer.parseInt(scanner.nextLine());
-				students[sno] = null;
+				students[sno-1] = null;
 
 			} else if (choice.equals("5")) {
 
@@ -81,7 +81,7 @@ public class ScoreManagement {
 				int max = 0;
 				for (String[] student : students) {
 					if (student != null) {						
-						int score = Integer.parseInt(student[2]);
+						int score = Integer.parseInt(student[2]);//학생들의 점수를 int 에 담아 max 값과 비교한다.
 						if (max < score) {
 							max = score;
 						}	

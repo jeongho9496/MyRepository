@@ -11,12 +11,15 @@ public class Example {
 		p1.receiveVoice();
 		p1.internet();
 		
+		System.out.println();
+		
 		HomePhone p2 = new HomePhone();
 		p2.number = "02-123-1234";
 		p2.ring();
 		p2.sendVoice();
 		p2.receiveVoice();
 		p2.address = "서울시 송파구 가락도 IT벤처 타워 서관 12층";
+		System.out.println(p2.address);
 
 	}
 

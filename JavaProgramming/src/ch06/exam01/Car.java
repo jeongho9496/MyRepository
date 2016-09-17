@@ -4,7 +4,7 @@ public class Car {	//다른 클래스에서 이용할 목적으로 설계되있�
 	//0823
 	public int run(int a, int b){
 		int c = a+b;
-		return c;
+		return c; //리턴 타입이 int 이므로 같은 타입의 return 값이 있어야 함.
 	}
 	private int minus(int x, int y){
 		int c = x-y;

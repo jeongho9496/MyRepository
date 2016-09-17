@@ -5,14 +5,19 @@ public class StaticMember2 {
 	//정적 멤버(클래스)
 	//Static(정적) Field
 	static String field;
-	String field2;
+	String field2;	//인스턴스 필드
 	
 	//Static Block -> 제일 먼저 호출(정적 필드, 메소드 사용하기 전에 실행)
 	static{
 		//정적 필드, 메소드 호출 가능
 		System.out.println("static Block 실행");
 		field = "자바";
-//		field2 = "자바"; -> 객체가 없으므로 실행 불가
+		
+		StaticMember2 st2 = new StaticMember2();
+		st2.field2 = "인스턴스 필드";
+		
+		System.out.println(st2.field2);
+//		field2 = "자바"; -> 인스턴스 필드 이므로 객체 생성해야만 실행가능 static는 객체가 필요 없으므로 실행 불가
 	}
 	
 	//Static Method
@@ -22,7 +27,7 @@ public class StaticMember2 {
 	}
 	
 	void method2(){
-		field = "자바";	//가능
+		field = "자바";	//가능 static로 생성된 필드나 메소드는 객체 생성 되도 사용할 수 있다.
 		field2 = "자바";	//가능
 	}
 	

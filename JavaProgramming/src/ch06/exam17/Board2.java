@@ -7,6 +7,7 @@ public class Board2 {
 	private String title;
 	private String content;
 	private int count;
+	//필드값을 private로 하여 외부에서 값을 바꾸지 못하게함.
 	
 	public int getBno() {
 		return bno;

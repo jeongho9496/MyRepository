@@ -6,6 +6,7 @@ public class ArrayCreateByNew {
 		int[] arr1 = new int[5]; // int타입 길이 5짜리 배열 생성
 		
 		for (int i = 0; i < arr1.length; i++) {
+			arr1[i] = (int) (Math.random()*10)+1;
 			System.out.println("arr1["+i+"] => "+arr1[i]);
 		}
 		
