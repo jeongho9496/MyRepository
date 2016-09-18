@@ -6,6 +6,11 @@ public class Button {
 	public static interface OnClickListener{
 		void onClick();	//추상 메소드
 		
+		static void onClick2() {
+			System.out.println("------------------------");
+			System.out.println("클릭");
+		}//정적 메소드
+		
 	}	//중첩인터페이스 선언
 	
 	private OnClickListener onClickListener;	//인터페이스 타입 필드 선언
@@ -17,6 +22,8 @@ public class Button {
 	public void click(){	//외부값을 저장한 필드값이 인터페이스 타입 이므로 인터페이스 안에 있는 추상메소드를 호출 할수 있다.
 		if (onClickListener != null) {			
 			onClickListener.onClick();
+			
+			OnClickListener.onClick2();
 		}
 	}
 	

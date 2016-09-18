@@ -18,7 +18,7 @@ public class ButtonExample {
 class OkListener implements Button.OnClickListener {	//OnClickListener을 구현한 객체가 됨.
 
 	@Override
-	public void onClick() {
+	public void onClick() {	//OnClickListener의 안에 있는 onClick 추상 메소드 재정의
 		System.out.println("ok버튼이 눌렸습니다.");
 	}
 

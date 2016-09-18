@@ -10,8 +10,24 @@ public class Example {
 		Parent p = new Parent(){
 		//=> class XXX extends Parent{}	
 		//자식클래스를 만드는 동시에 객체생성 후 자동 형변환
+			void hocul(){
+				System.out.println("익명 호출");
+			}
 			
-		};	
+			 @Override
+				void wake() {
+					// TODO Auto-generated method stub
+					super.wake();
+					hocul();
+				}
+			
+			
+		};
+		
+		p.wake();
+		
+		
+		Child c1 = new Child();
 		
 		//익명 인터페이스
 		RemoteControl rc = new RemoteControl() {
