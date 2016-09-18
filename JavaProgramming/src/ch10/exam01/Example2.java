@@ -5,8 +5,13 @@ public class Example2 {
 	public static void main(String[] args) {
 
 		try {
+		
+			
 			String data1 = args[0];
 			String data2 = args[1];
+			
+			args[0] = "1";
+			args[1] = "10";
 
 			int value1 = Integer.parseInt(data1);
 			int value2 = Integer.parseInt(data2);

@@ -20,6 +20,7 @@ public class Account {	//계좌클래스
 			balance -= money;
 			
 		} else {
+				//실행 클래스에 message와 함께 예외 던짐
 				throw new BalanceInsufficientException("잔고 부족");
 		}
 	}

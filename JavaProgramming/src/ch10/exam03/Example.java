@@ -8,11 +8,11 @@ public class Example {
 		
 		Account account = new Account();
 		
-		account.deposit(100000);
-		System.out.println(account.getBalance());
+		account.deposit(100000);	//입금
+		System.out.println("현재 잔고 : " + account.getBalance());
 		
 		try {
-			account.withdraw(200000);
+			account.withdraw(200000);//출금
 			System.out.println("출금이 되었습니다.");
 		} catch (BalanceInsufficientException e) {
 			// TODO Auto-generated catch block
