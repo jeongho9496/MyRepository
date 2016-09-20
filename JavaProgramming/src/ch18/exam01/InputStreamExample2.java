@@ -28,13 +28,13 @@ public class InputStreamExample2 {
 		count = 0;
 		values = new byte[3];
 		int byteNum = -1;	//초기값 설정
-		while ((byteNum = inputStream.read(values)) != -1 ) {
+		while ((byteNum = inputStream.read(values)/*값이 없을시  -1 리턴*/) != -1 ) {	
+			//(byteNum = inputStream.read(values)) != -1 ->read메소드로 파일의 데이터를 읽어 오고 읽을 데이터가 없을시 -1을 리턴하며 반복문을 빠져나온다.
 			System.out.println(byteNum + " : " + Arrays.toString(values));
 			count ++;
 		}
 		System.out.println("읽은 횟수 : "+count);
 		inputStream.close();
-		
 		
 	}
 

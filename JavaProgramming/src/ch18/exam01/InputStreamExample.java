@@ -12,6 +12,7 @@ public class InputStreamExample {
 		System.out.println(filePath);
 		
 		int count = 0;
+		//파일 데이터 읽어 오기
 		InputStream inputStream = new FileInputStream(filePath);
 		/*while (true) {
 			int value = inputStream.read();
