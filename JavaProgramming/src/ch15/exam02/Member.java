@@ -10,10 +10,13 @@ public class Member {
 		this.age = age;
 	}
 
-	@Override
+	/*@Override
 	public int hashCode() {	//hashCode 같게 하기
-
 		return name.hashCode() + age;
+	}*/
+	
+	void code(){
+		System.out.println(name.hashCode()+","+age);
 	}
 
 	@Override
