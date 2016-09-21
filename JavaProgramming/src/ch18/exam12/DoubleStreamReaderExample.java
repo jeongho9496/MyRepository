@@ -25,7 +25,7 @@ public class DoubleStreamReaderExample {
 		Reader reader = new InputStreamReader(is);
 		BufferedReader br = new BufferedReader(reader);
 		
-		String data = br.readLine();
+		String data = br.readLine();	//캐리지리턴(\r\n)기준으로 한 행씩 읽음
 		
 		System.out.println(data);
 		
