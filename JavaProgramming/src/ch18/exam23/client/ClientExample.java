@@ -18,6 +18,10 @@ import javafx.stage.Stage;
 
 public class ClientExample extends Application {
 	//0923
+	/*
+	 * 자바 fx 찾기 : C:\Program Files\Java\jdk1.8.0_102\jre\lib\ext
+	 * 에 jfxrt.jar를 AddExternalJars로 받고 order add export로 jar파일 최상위로 올리기
+	 */
 	Socket socket;
 	
 	void startClient() {
