@@ -30,7 +30,7 @@ public class ClientExample extends Application {
 			public void run() {
 				try {
 					socket = new Socket();
-					socket.connect(new InetSocketAddress("192.168.0.48", 5001));//연결시 bind가 아닌 connect 사용
+					socket.connect(new InetSocketAddress("192.168.0.3", 5001));//연결시 bind가 아닌 connect 사용
 					Platform.runLater(new Runnable() {
 						
 						@Override
@@ -88,7 +88,13 @@ public class ClientExample extends Application {
 					
 					@Override
 					public void run() {
-						displayText("[받기 완료]" + data);//소켓 주소 확인
+						String me = "나";
+						String you = "상대방";
+						if (socket.getInetAddress().getHostAddress().equals(socket.getInetAddress().getHostAddress())) {
+							displayText(me+ " : " + data);//소켓 주소 확인
+						} else {
+							displayText(you + data + "[" + socket.getInetAddress().getHostAddress() + "]");//소켓 주소 확인
+						}
 					}
 				});
 			} catch (Exception e) {//정상, 비정상 종류 모두 온다.
