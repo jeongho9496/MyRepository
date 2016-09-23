@@ -7,7 +7,7 @@ import java.net.SocketAddress;
 
 
 public class ClientExample {
-
+	//0922
 	public static void main(String[] args) {
 		//소켓 생성
 		Socket socket = new Socket();
