@@ -30,7 +30,7 @@ public class ClientExample extends Application {
 			public void run() {
 				try {
 					socket = new Socket();
-					socket.connect(new InetSocketAddress("192.168.0.11", 5001));//연결시 bind가 아닌 connect 사용
+					socket.connect(new InetSocketAddress("192.168.0.2", 5001));//연결시 bind가 아닌 connect 사용
 					Platform.runLater(new Runnable() {
 						
 						@Override
@@ -91,7 +91,7 @@ public class ClientExample extends Application {
 						String me = "나";
 						String you = "상대방";
 					
-						displayText(data + "[" + socket.getInetAddress().getHostAddress() + "]");//소켓 주소 확인
+						displayText(data);//소켓 주소 확인
 					}
 				});
 			} catch (Exception e) {//정상, 비정상 종류 모두 온다.

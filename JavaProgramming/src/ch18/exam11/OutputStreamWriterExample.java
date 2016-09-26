@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.Scanner;
 
 public class OutputStreamWriterExample {
 
@@ -27,6 +28,10 @@ public class OutputStreamWriterExample {
 		writer.write(data);
 		writer.flush();
 		writer.close();
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		int a = Integer.parseInt(scanner.nextLine());
 	}
 
 }
