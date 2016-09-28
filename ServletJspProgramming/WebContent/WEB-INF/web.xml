@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>ServletJspProgramming</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+	<!-- 0928 서블릿 등록 -->
+	<servlet>
+		<servlet-name>now</servlet-name>	<!-- Element나 Tag 라함 -->
+		<servlet-class>servlet.NowServlet</servlet-class>	<!-- Element나 Tag 라함 -->
+		
+		<init-param><!-- 변수이름과 변수값을 담은 변수 -->
+			<param-name>location</param-name><!-- 변수이름 -->
+			<param-value>부산</param-value><!-- 변수값 -->
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup><!-- 객체 생성 순서 정한다. -->
+	</servlet>
+	
+	<!-- 서블릿 URL 매핑 -->
+	<servlet-mapping>
+		<servlet-name>now</servlet-name><!-- Servlet-name와 같이 작성 -->
+		<url-pattern>/</url-pattern><!-- /ServletJspProgramming/now -> 요청 HTTP의 시작행에 들어가 실행->context생략 -->
+	</servlet-mapping>
+	<!-- 수정후 서버 재부팅 -->
 </web-app>
