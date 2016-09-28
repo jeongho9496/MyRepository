@@ -20,7 +20,14 @@ public class HomeController {
 		//System.out.println("home() 실행1");//어디서 출력 된지 모름
 		logger.debug("home() 실행");	//어디 클래스에서 출력 되는지 사용(오류 찾아 낼때 주로 사용)
 		
-		return "index";				//views의 .jsp파일명과 같아야 한다.
+		return "home";				//views의 .jsp파일명과 같아야 한다.
+	}
+	
+	@RequestMapping("/news")//http://localhost:8080/myapp/news로 요청 할시 news()실행
+	
+	public String news(){
+		logger.debug("news() 실행");
+		return "news";
 	}
 	
 }
