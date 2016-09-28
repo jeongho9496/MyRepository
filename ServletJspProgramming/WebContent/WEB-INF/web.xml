@@ -5,9 +5,9 @@
 		<servlet-name>now</servlet-name>	<!-- Element나 Tag 라함 -->
 		<servlet-class>servlet.NowServlet</servlet-class>	<!-- Element나 Tag 라함 -->
 		
-		<init-param><!-- 변수이름과 변수값을 담은 변수 -->
-			<param-name>location</param-name><!-- 변수이름 -->
-			<param-value>부산</param-value><!-- 변수값 -->
+		<init-param><!-- 초기화 파라미터를 지정할때 사용 -->
+			<param-name>location</param-name><!-- 초기화 파라미터의 이름 지정(이름을 호출하면 값이 응답한다.) -->
+			<param-value>부산</param-value><!-- 초기화 파라미터의 값 지정 -->
 		</init-param>
 		
 		<load-on-startup>1</load-on-startup><!-- 객체 생성 순서 정한다. -->

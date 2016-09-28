@@ -37,7 +37,7 @@ public class NowServlet extends HttpServlet {
 		//URL로 접근하는 방식은 GET방식
 		
 		//System.out.println("doGet() 실행");
-		response.setContentType("text/html; charset=UTF-8");//헤더행의 Content-Type에 넣어줌
+		response.setContentType("text/html; charset=UTF-8");//응답HTTP의 헤더행의 Content-Type에 넣어줌. 응답의 content type지정
 		//response.setHeader("ContentType", "text/html; charset=UTF-8");
 		
 		//OutputStream os = response.getOutputStream();//여러가지 데이터를 보낼때 사용	요청 HTTP의 본문에 실려서 들어감
