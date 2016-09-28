@@ -14,7 +14,7 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 			<!-- servlet-context.xml ->spring 설정파일.DispatcherServlet이 servlet-context.xml 안의 내용을 읽고 읽은 대로 실행시킨다. -->
 		</init-param>
-		<load-on-startup>1</load-on-startup>
+		<load-on-startup>1</load-on-startup><!-- 서블릿을 가장 먼저 초기화 (번호가 낮을수록 초기화가 먼저 된다.)-->
 	</servlet>
 		
 	<servlet-mapping>
