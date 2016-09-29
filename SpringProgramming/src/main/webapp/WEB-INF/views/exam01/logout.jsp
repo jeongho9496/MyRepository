@@ -7,6 +7,6 @@
 		<meta charset = "UTF-8">
 	</head>
 	<body>
-		withdraw 홈 페이지 입니다.
+		logout 페이지 입니다.
 	</body>
 </html>

@@ -7,7 +7,7 @@
 	
 	<!-- Processes application requests -->
 	<servlet>
-		<servlet-name>appServlet</servlet-name>
+		<servlet-name>appServlet</servlet-name><!-- 변경가능 -->
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -18,7 +18,8 @@
 	</servlet>
 		
 	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
+		<servlet-name>appServlet</servlet-name><!-- <servlet>에서 수정하면 같이 변경해야함 -->
 		<url-pattern>/</url-pattern>
+		<!-- http://~/ 마지막 '/'뒤에 어떤 것이 붙어도 <param-value>의 내용이 실행된다. --> 
 	</servlet-mapping>
 </web-app>

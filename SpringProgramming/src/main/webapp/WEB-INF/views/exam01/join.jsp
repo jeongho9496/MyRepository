@@ -7,6 +7,6 @@
 		<meta charset = "UTF-8">
 	</head>
 	<body>
-		login 홈 페이지 입니다.
+		join 페이지 입니다.
 	</body>
 </html>
