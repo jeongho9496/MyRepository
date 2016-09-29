@@ -10,24 +10,24 @@
 		<hr/>
 		[회원 가입 폼]<br/>
 		<form action="/myapp/exam03/join"><%-- form tag작성 action => 다른 페이지로 넘길때 사용  --%>
-			아 이 디:<input type="text"name="mid" value="fall"/><br/><%-- name="~" =>.jsp 파라미터 이름 --%>
+			아 이 디:<input type="text" name="mid" value="fall"/><br/><%-- input type = "~" 데이터 타입 설정 name="~".jsp 파라미터 이름 , value="~" 기본 값 설정--%>
 			
-			이    름:<input type="text"name="mname" value="한가을"/><br/>
+			이    름:<input type="text" name="mname" value="한가을"/><br/>
 	
-			비밀번호:<input type="password"name="mpassword" value="12345"/><br/>
+			비밀번호:<input type="password" name="mpassword" value="12345"/><br/>
 			
-			이 메 일:<input type="email"name="memail" value="fall@naver.com"/><br/>
+			이 메 일:<input type="email" name="memail" value="fall@naver.com"/><br/>
 			
-			전화번호:<input type="tel"name="mtel" value="010-123-1234"/><br/>
+			전화번호:<input type="tel" name="mtel" value="010-123-1234"/><br/>
 			
 			직    업:<input type="radio" name="mjob" value="대학생">대학생
 					<input type="radio" name="mjob" value="회사원" checked>회사원
 					<input type="radio" name="mjob" value="공무원">공무원<br/>
 					
-			개발분야:<input type="checkbox"name="mskill" value="web">웹개발
-					<input type="checkbox"name="mskill" value="system" checked>시스템개발
-					<input type="checkbox"name="mskill" value="bigdate">빅데이터개발
-					<input type="checkbox"name="mskill" value="iot" checked>IoT개발<br/>
+			개발분야:<input type="checkbox" name="mskill" value="web">웹개발<%--중복 선택 --%>
+					<input type="checkbox" name="mskill" value="system" checked>시스템개발
+					<input type="checkbox" name="mskill" value="bigdate">빅데이터개발
+					<input type="checkbox" name="mskill" value="iot" checked>IoT개발<br/>
 					
 			주    소:<select name="maddress1">
 						<option>서울특별시</option>
