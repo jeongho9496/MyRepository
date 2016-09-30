@@ -1,13 +1,14 @@
-package com.mycompany.kjhapp.exan03;
+package com.mycompany.myapp.exam04;
 
 public class Member {
+	//0929
 	private String mid;
 	private String mname;
-	private String mpassword;
+	private int mpassword;
 	private String memail;
 	private String mtel;
 	private String mjob;
-	private String[] mskill;
+	private String[] mskill;	//필드에 여러개가 들어가는 경우 배열로 생성
 	private String maddress1;
 	private String maddress2;
 	private String mbirth;
@@ -23,10 +24,10 @@ public class Member {
 	public void setMname(String mname) {
 		this.mname = mname;
 	}
-	public String getMpassword() {
+	public int getMpassword() {
 		return mpassword;
 	}
-	public void setMpassword(String mpassword) {
+	public void setMpassword(int mpassword) {
 		this.mpassword = mpassword;
 	}
 	public String getMemail() {
@@ -71,6 +72,5 @@ public class Member {
 	public void setMbirth(String mbirth) {
 		this.mbirth = mbirth;
 	}
-	
 	
 }

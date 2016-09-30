@@ -1,4 +1,4 @@
-package com.mycompany.kjhapp.exan03;
+package com.mycompany.kjhapp.exam03;
 
 import java.util.Arrays;
 
