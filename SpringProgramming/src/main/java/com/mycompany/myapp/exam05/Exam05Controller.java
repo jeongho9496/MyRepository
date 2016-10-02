@@ -38,7 +38,8 @@ public class Exam05Controller {
 	}
 	
 	@RequestMapping("/index3")
-	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException{	//void 메소드 안에서 응답을 직접 만들어 보낼때 사용
+	public void index3(HttpServletRequest request, HttpServletResponse response) throws IOException{	
+		//void 메소드 안에서 응답을 직접 만들어 보낼때 사용
 		//매개변수에 HttpServletResponse response 가 들어가있으면 Spring이 자동으로 response 객체를 만든다. 
 		//직접 응답을 만들어서 보내고 싶을때 사용 ex)파일데이터 보낼때 주로 사용
 		logger.info("index3 요청처리");

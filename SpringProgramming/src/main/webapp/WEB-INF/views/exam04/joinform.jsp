@@ -8,7 +8,7 @@
 	<body>
 		[회원 가입 폼]<br/>
 		<form method="post" action="/myapp/exam04/join"><%-- method="post" 데이터를 본문에 담아 전송  --%>
-			아 이 디:<input type="text" name="mid" value="fall"/><br/><%-- input type = "~" 데이터 타입 설정 name="~".jsp 파라미터 이름 , value="~" 기본 값 설정--%>
+			아 이 디:<input type="text" name="mid" value="fall"/><br/><%-- input type = "~" 데이터 타입 설정 name="~".jsp 데이터 파라미터 이름 , value="~" 기본 값 설정--%>
 			
 			이    름:<input type="text" name="mname" value="한가을"/><br/>
 	
