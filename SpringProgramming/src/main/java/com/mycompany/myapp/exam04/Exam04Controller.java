@@ -53,7 +53,7 @@ public class Exam04Controller {
 		logger.info("maddress1 : " + member.getMaddress1());
 		logger.info("maddress2 : " + member.getMaddress2());
 		logger.info("mbirth : " + member.getMbirth());
-		return "exam04/index";
+		return "exam04/index";//redirect:/exam04/index => Return시 redirect로 변경을 안하면 주소가 바뀌지 않는 forward로 응답한다.
 	}
 	
 	
