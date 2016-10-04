@@ -24,7 +24,7 @@ public class Exam04Controller {
 		return "exam04/BoardForm";
 	}
 	
-	@RequestMapping(value="/board1", method=RequestMethod.POST)
+	@RequestMapping(value="/board", method=RequestMethod.POST)
 	public String board(Board board){
 		logger.info("board POST 요청처리");
 		logger.info("title : " + board.getMtitle());

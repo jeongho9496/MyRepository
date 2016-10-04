@@ -13,5 +13,7 @@
 		2. <a href="/kjhapp/exam02/index">Exam02</a>: 요청 파라미터 값 받기<br/>
 		3. <a href="/kjhapp/exam03/index">Exam03</a>: 폼 입력 값 받기<br/>
 		4. <a href="/kjhapp/exam04/index">Exam04</a>: 요청 처리 방식<br/>
+		5. <a href="/kjhapp/exam05/index">Exam05</a>: 요청 처리 메소드의 리턴 타입<br/>
+		6. <a href="/kjhapp/exam06/index">Exam06</a>: 요청 처리 메소드의 매개변수 타입<br/>
 	</body>
 </html>

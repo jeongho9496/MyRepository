@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		[게시판 폼]<br/>
-		<form method="post" action="/kjhapp/exam04/board1">
+		<form method="post" action="/kjhapp/exam04/board">
 			제목:<input type="text" height="50" width="50" name="mtitle" value="제목 없음"/><br/>
 			내용:<input type="text" name="mcontent" value="내용 없음"/><br/>
 			카테고리:<select name="mcategory">
