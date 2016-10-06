@@ -24,5 +24,7 @@
 		6. <a href="/myapp/exam06/index">Exam06</a>: 요청 처리 메소드의 매개변수 타입<br/>
 		7. <a href="/myapp/exam07/index">Exam07</a>: 컨트롤러에서 JSP로 데이터 객체 전달<br/>
 		8. <a href="/myapp/exam08/index">Exam08</a>: Redirect<br/>
+		<br/>
+		9. <a href="/myapp/exam09/index">Exam09</a>: 의존성 주입(DI)<br/>
 	</body>
 </html>

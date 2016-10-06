@@ -23,6 +23,25 @@
 	
 	<context:component-scan base-package="com.mycompany.kjhapp" />
 	
+	<!-- 관리 객체 생성 -->
+	<beans:bean name="aObj" class="com.mycompany.kjhapp.exam09.A"/>
+	<beans:bean name="bObj" class="com.mycompany.kjhapp.exam09.B"/>
+	<beans:bean name="serviceAObj" class="com.mycompany.kjhapp.exam09.ServiceA"/>
+	<beans:bean name="serviceBObj" class="com.mycompany.kjhapp.exam09.ServiceB"/>
 	
+	<beans:bean name="serviceCImpl" class="com.mycompany.kjhapp.exam09.ServiceCImpl1"/>
+	<!-- <beans:bean name="serviceDImpl" class="com.mycompany.kjhapp.exam09.ServiceDImpl1"/> -->
+	<beans:bean name="serviceDImpl" class="com.mycompany.kjhapp.exam09.ServiceDImpl2"/>
+		
+	<!-- 컨트롤러 생성 -->
+	<beans:bean name="exam09Controller" class="com.mycompany.kjhapp.exam09.Exam09Controller">
+		<beans:property name="a" ref="aObj"/> 
+		<beans:property name="b" ref="bObj"/>
+		<beans:property name="serviceA" ref="serviceAObj"/>
+		<beans:property name="serviceB" ref="serviceBObj"/>
+		
+		<beans:property name="serviceC" ref="serviceCImpl"/>
+		<beans:property name="serviceD" ref="serviceDImpl"/>
+	</beans:bean>
 	
 </beans:beans>

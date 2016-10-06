@@ -41,6 +41,7 @@
 		<%-- '<%  %>' 자바코드만 실행하는 목적(값이 목적이 아님) --%>
 		<%-- '<%@ %>' 지시자를 사용하겠다. ex)'<%@ page contentType="text/html;charset=UTF-8" %>' --%>
 		<%-- '<%= %>' 하나의 값을 출력하겠다. --%>
+		
 		<%-- JSP 버전 --%>
 		<%Board board = (Board) request.getAttribute("board"); %>
 		<%if(board !=null) { %>
