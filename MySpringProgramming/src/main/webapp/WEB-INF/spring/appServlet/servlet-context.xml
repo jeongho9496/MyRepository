@@ -32,6 +32,23 @@
 	<beans:bean name="serviceCImpl" class="com.mycompany.kjhapp.exam09.ServiceCImpl1"/>
 	<!-- <beans:bean name="serviceDImpl" class="com.mycompany.kjhapp.exam09.ServiceDImpl1"/> -->
 	<beans:bean name="serviceDImpl" class="com.mycompany.kjhapp.exam09.ServiceDImpl2"/>
+	
+	<!-- 1007 -->
+	<beans:bean name="dObj" class="com.mycompany.kjhapp.exam09.D"/><!-- 생성자 매개값으로 전달할 관리객체D 생성 -->
+	<beans:bean name="cObj" class="com.mycompany.kjhapp.exam09.C">
+		<beans:constructor-arg ref="dObj"/><!-- beans:constructor-arg =>생성자 매개변수 받기 , C생성자의 매개값으로 전달 -->
+	</beans:bean>
+	
+	<beans:bean name="eObj" class="com.mycompany.kjhapp.exam09.E">
+		<beans:constructor-arg ref="bObj"/>
+		<beans:constructor-arg ref="dObj"/>
+	</beans:bean>
+	
+	<beans:bean name="fObj" class="com.mycompany.kjhapp.exam09.F">
+		<beans:constructor-arg ref="serviceAObj"/>
+		<beans:constructor-arg ref="serviceBObj"/>
+		<beans:constructor-arg ref="serviceCImpl"/>
+	</beans:bean>
 		
 	<!-- 컨트롤러 생성 -->
 	<beans:bean name="exam09Controller" class="com.mycompany.kjhapp.exam09.Exam09Controller">
@@ -42,6 +59,11 @@
 		
 		<beans:property name="serviceC" ref="serviceCImpl"/>
 		<beans:property name="serviceD" ref="serviceDImpl"/>
+		
+		<!-- 1007 -->
+		<beans:property name="c" ref="cObj"/>
+		<beans:property name="e" ref="eObj"/>
+		<beans:property name="f" ref="fObj"/>
 	</beans:bean>
 	
 </beans:beans>

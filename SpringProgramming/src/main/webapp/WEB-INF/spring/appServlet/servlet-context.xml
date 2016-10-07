@@ -36,6 +36,23 @@
 	<beans:bean name="serviceCImpl1Obj" class="com.mycompany.myapp.exam09.ServiceCImpl1"/>
 	<beans:bean name="serviceDImpl" class="com.mycompany.myapp.exam09.ServiceDImpl2"/>
 	
+	<!-- 1007 -->
+	<!-- 관리 객체 생성 -->
+	<beans:bean name="dObj" class="com.mycompany.myapp.exam09.D"/><!-- 생성자 매개값으로 전달할 관리객체D 생성 -->
+	<beans:bean name="cObj" class="com.mycompany.myapp.exam09.C">
+		<beans:constructor-arg ref="dObj"/><!-- beans:constructor-arg =>생성자 매개변수 받기 , C생성자의 매개값으로 전달 -->
+	</beans:bean>
+	
+	<beans:bean name="eObj" class="com.mycompany.myapp.exam09.E">
+		<beans:constructor-arg ref="bObj"/>
+		<beans:constructor-arg ref="dObj"/>
+	</beans:bean>
+	
+	<beans:bean name="fObj" class="com.mycompany.myapp.exam09.F">
+		<beans:constructor-arg ref="serviceAObj"/>
+		<beans:constructor-arg ref="serviceBObj"/>
+		<beans:constructor-arg ref="serviceCImpl1Obj"/>
+	</beans:bean>
 	
 	<!-- Exam09Controller 컨트롤러 객체를 찾아 가져오기 ->이미 만들어진 객체를 가져오기(없으면 관리객체로 생성) -->
 	<!-- 동일한 객체를 2개 이상 만들지 않는다 무조건 하나만 만들어 공유해서 사용한다. -->
@@ -50,6 +67,11 @@
 		<beans:property name="serviceD" ref="serviceDImpl"/>
 		<!-- name="setter이름" setter메소드(set때고 첫글자 소문자로 한 이름) 이름이 온다. ref = "setter매개값으로 전달한 객체(관리객체이름)" -> 해당 관리객체를 setter메소드에 참조한다. -->
 		<!-- 값을 매개변수로 받고 싶은 경우 ref="~"가 아닌 value="~"로 대입한다. -->
+		
+		<!-- 1007 -->
+		<beans:property name="c" ref="cObj"/>
+		<beans:property name="e" ref="eObj"/>
+		<beans:property name="f" ref="fObj"/>
 	</beans:bean>
 	
 </beans:beans>

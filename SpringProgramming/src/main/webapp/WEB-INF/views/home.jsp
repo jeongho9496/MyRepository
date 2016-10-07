@@ -25,6 +25,7 @@
 		7. <a href="/myapp/exam07/index">Exam07</a>: 컨트롤러에서 JSP로 데이터 객체 전달<br/>
 		8. <a href="/myapp/exam08/index">Exam08</a>: Redirect<br/>
 		<br/>
-		9. <a href="/myapp/exam09/index">Exam09</a>: 의존성 주입(DI)<br/>
+		9. <a href="/myapp/exam09/index">Exam09</a>: 의존성 주입(DI): XML설정 파일 이용<br/>
+		10. <a href="/myapp/exam10/index">Exam10</a>: 의존성 주입(DI): @어노테이션 이용<br/>
 	</body>
 </html>

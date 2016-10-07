@@ -12,7 +12,7 @@ public class B {
 	}
 	
 	public void method1(){
-		logger.info("B : method1 실행");
+		logger.info("B: method1 실행");
 	}
 	
 	
