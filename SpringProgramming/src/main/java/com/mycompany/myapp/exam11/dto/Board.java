@@ -1,16 +1,16 @@
 package com.mycompany.myapp.exam11.dto;
 
 public class Board {
-	//1012
-	private String bwrite;
+	//1012	Spring 관리 객체가 아니므로 (의존 객체가 아님) @Component를 붙히지 않는다.(매개변수로만 사용)
+	private String bwriter;
 	private String btitle;
 	private String bcontent;
 	
-	public String getBwrite() {
-		return bwrite;
+	public String getBwriter() {
+		return bwriter;
 	}
-	public void setBwrite(String bwrite) {
-		this.bwrite = bwrite;
+	public void setBwriter(String bwriter) {
+		this.bwriter = bwriter;
 	}
 	public String getBtitle() {
 		return btitle;
