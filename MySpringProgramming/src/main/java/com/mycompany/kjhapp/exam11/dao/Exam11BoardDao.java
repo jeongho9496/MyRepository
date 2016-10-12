@@ -1,4 +1,4 @@
-package com.mycompany.myapp.exam11.dao;
+package com.mycompany.kjhapp.exam11.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.myapp.exam11.dto.Board;
+import com.mycompany.kjhapp.exam11.dao.Exam11BoardDao;
+import com.mycompany.kjhapp.exam11.dto.Board;
 
 @Component
-public class Exam11BoardDao {	//service에 주입
-	//1012
-	
+public class Exam11BoardDao {
 	private static final Logger logger = LoggerFactory.getLogger(Exam11BoardDao.class);
 	
 	public void insert(Board board){

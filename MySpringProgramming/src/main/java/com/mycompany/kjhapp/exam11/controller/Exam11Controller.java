@@ -1,4 +1,4 @@
-package com.mycompany.myapp.exam11.controller;
+package com.mycompany.kjhapp.exam11.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,33 +11,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mycompany.myapp.exam11.dto.Board;
-import com.mycompany.myapp.exam11.dto.Member;
-import com.mycompany.myapp.exam11.service.Exam11BoardService;
-import com.mycompany.myapp.exam11.service.Exam11MemberService;
+import com.mycompany.kjhapp.exam11.dto.Member;
+import com.mycompany.kjhapp.exam11.service.Exam11BoardService;
+import com.mycompany.kjhapp.exam11.service.Exam11MemberService;
+import com.mycompany.kjhapp.exam11.dto.Board;
 
-@Controller("MemberController")//등록이름 변경하기
+
+@Controller("MemberController")
 @RequestMapping("/exam11")
 public class Exam11Controller {
-	//1012
 	private static final Logger logger = LoggerFactory.getLogger(Exam11Controller.class);
 	
-	@Autowired	//field 주입
-	private Exam11MemberService memberService;
-	
-	@Autowired	//field 주입
-	private Exam11BoardService boardService;
-
-	/*@Autowired	//setter 주입
-	public void setMemberService(Exam11MemberService memberService) {
-		this.memberService = memberService;
-	}*/
-
 	@RequestMapping("/index")
 	public String index(){
 		logger.info("index 실행");
 		return "exam11/index";
 	}
+	
+	@Autowired	//field 주입
+	private Exam11MemberService memberService;
 	
 	@RequestMapping(value="/memberJoin", method=RequestMethod.GET)//get방식으로 요청시 실행
 	public String memberJoinForm(){
@@ -78,7 +70,7 @@ public class Exam11Controller {
 		logger.info("mpassword : " + mpassword);
 		
 		int result = memberService.login(mid, mpassword);
-		if(result == Exam11MemberService.LOGIN_SUCCESS){	//memberService에서 받은 리턴값으로 확인			
+		if(result == Exam11MemberService.LOGIN_SUCCESS){			
 			logger.info("Login 성공");
 			return "redirect:/exam11/index";			
 		} else if(result == Exam11MemberService.LOGIN_FAIL_MID){
@@ -88,7 +80,6 @@ public class Exam11Controller {
 			logger.info("Login 실패 - PASSWORD_FAILD");
 			return "redirect:/exam11/memberLogin";
 		}
-		//기능요청중 화면을 갱신하기 위해서는 Redirect로 적용 화면 갱신 (.jsp 파일로 가면 주소 유지됨.)
 	}
 	
 	@RequestMapping("/memberLogout")
@@ -96,6 +87,9 @@ public class Exam11Controller {
 		logger.info("memberLogout 처리");
 		return "redirect:/exam11/index";
 	}
+	
+	@Autowired
+	private Exam11BoardService boardService;
 	
 	@RequestMapping(value="/boardWrite", method=RequestMethod.GET)
 	public String boardWriteForm(){
@@ -117,5 +111,6 @@ public class Exam11Controller {
 		model.addAttribute("boardlist", list);// request에 boardlist 이름으로 list 저장
 		return "exam11/boardList";
 	}
+	
 	
 }

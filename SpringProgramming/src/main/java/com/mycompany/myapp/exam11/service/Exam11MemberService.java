@@ -9,7 +9,7 @@ import com.mycompany.myapp.exam11.dao.Exam11MemberDao;
 import com.mycompany.myapp.exam11.dto.Member;
 
 @Component
-public class Exam11MemberService {
+public class Exam11MemberService {	//controller에 주입
 	//1012
 	private static final Logger logger = LoggerFactory.getLogger(Exam11MemberService.class);
 	
@@ -29,12 +29,12 @@ public class Exam11MemberService {
 	public int login(String mid, String mpassword){
 		logger.info("login 처리");
 		Member member = memberDao.select(mid);	//mid값을 매개값으로 주면 select가 데이터베이스로 가서 mid가 있는지 조사(조회,검색)
-		if(member == null) {
+		if(member == null) {	//일치하는 데이터가 없음
 			return LOGIN_FAIL_MID;
 		} else {
-			if (member.getMpassword().equals(mpassword)) {
+			if (member.getMpassword().equals(mpassword)) {//아이디와 비밀번호가 둘다 맞는 데이터가 있음
 				return LOGIN_SUCCESS;
-			} else {
+			} else {//데이터가 있지만 비밀번호가 다름
 				return LOGIN_FAIL_MPASSWORD;				
 			}
 		}

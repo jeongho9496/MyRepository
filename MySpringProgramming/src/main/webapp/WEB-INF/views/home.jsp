@@ -20,5 +20,8 @@
 		<br/>
 		9. <a href="/kjhapp/exam09/index">Exam09</a>: 의존성 주입(DI): XML설정 파일 이용<br/>
 		10. <a href="/kjhapp/exam10/index">Exam10</a>: 의존성 주입(DI): @어노테이션 이용<br/>
+		
+		<br/>
+		11. <a href="/kjhapp/exam11/index">Exam11</a>: 서비스 계층과 데이터(Persistance) 계층<br/>
 	</body>
 </html>
