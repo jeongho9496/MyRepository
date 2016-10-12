@@ -19,9 +19,9 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"><!-- ViewResolver: 뷰해결자 -->
-		<beans:property name="prefix" value="/WEB-INF/views/" /><!-- 파일 앞에 오는것 -->
-		<beans:property name="suffix" value=".jsp" />			<!-- 파일 형식 지정 -->
-	</beans:bean><!-- 전체 JSP의 경로를 만들어줌 -->
+		<beans:property name="prefix" value="/WEB-INF/views/" /><!-- 파일 앞에 오는것 setPrefix("/WEB-INF/views/"); -->
+		<beans:property name="suffix" value=".jsp" />			<!-- 파일 형식 지정 setSuffix(".jsp"); -->
+	</beans:bean><!-- 전체 JSP의 경로를 만들어줌,예약된 이름이 있으므로 name지정안함, beans:bean=>관리객체로 만들어줌 -->
 	
 	<context:component-scan base-package="com.mycompany.myapp" />
 	<!-- component : Spring이 관리해야할 객체 @Controller를 base-package 안에서 찾음 -->
