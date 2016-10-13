@@ -6,6 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AlternativeJdkIdGenerator;
 
 import com.mycompany.myapp.exam11.dto.Board;
 
@@ -35,5 +36,22 @@ public class Exam11BoardDao {	//service에 주입
 		}
 		
 		return list;
+	}
+	
+	public Board selectBoard(int bno){
+		logger.info("selectBoard() 처리");
+		Board board = new Board();
+		board.setBwriter("한가을");
+		board.setBtitle("날씨가 쌀쌀합니다.");
+		board.setBcontent("감기 조심하세요. 내일부터 감점 있습니다.");
+		return board;
+	}
+	
+	public void update(Board board){
+		logger.info("Update 처리");	
+	}
+
+	public void delete(int bno) {
+		logger.info("Delete 처리");
 	}
 }

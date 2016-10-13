@@ -17,9 +17,10 @@
 
 		4) <a href="/myapp/exam11/boardWrite">게시물 쓰기</a><br/>
 		5) <a href="/myapp/exam11/boardList">게시물 목록</a><br/>
-		6) <a href="/myapp/exam11/boardView">게시물 보기</a><br/>
-		7) <a href="/myapp/exam11/boardUpdate">게시물 수정</a><br/>
-		8) <a href="/myapp/exam11/boardDelete">게시물 삭제</a><br/>
+		<%-- 1013 --%>
+		6) <a href="/myapp/exam11/boardView?bno=5">게시물 보기</a><br/><%-- Get 방식 --%>
+		7) <a href="/myapp/exam11/boardUpdate?bno=5">게시물 수정</a><br/>
+		8) <a href="/myapp/exam11/boardDelete?bno=5">게시물 삭제</a><br/>
 		
 	</body>
 </html>

@@ -25,10 +25,11 @@ public class Exam11Controller {
 	@Autowired	//field 주입
 	private Exam11MemberService memberService;
 	
-	@Autowired	//field 주입
+	@Autowired	//field 주입 한개의 타입이 있어야 한다.
 	private Exam11BoardService boardService;
 
 	/*@Autowired	//setter 주입
+	//@Resource(name = "a")는 setter 주입만 가능함. 객체를 상속(구현)받는 관리 객체가 여러개일 경우 해당.
 	public void setMemberService(Exam11MemberService memberService) {
 		this.memberService = memberService;
 	}*/
@@ -117,5 +118,37 @@ public class Exam11Controller {
 		model.addAttribute("boardlist", list);// request에 boardlist 이름으로 list 저장
 		return "exam11/boardList";
 	}
+	
+	//1013
+	@RequestMapping("/boardView")
+	public String boardView(int bno, Model model){//int 매개변수를 받을시 변환을 한번 해줘야 하기때문에 값이 안들어 올시 Exception이 난다.
+		logger.info("boardView 처리");
+		Board board = boardService.getBoard(bno);//getBoard 리턴 타입은 Board
+		model.addAttribute("board", board);
+		return "exam11/boardView";
+	}
+	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.GET)
+	public String boardUpdateForm(int bno, Model model){
+		logger.info("boardUpdateForm 처리");
+		Board board = boardService.getBoard(bno);//getBoard 리턴 타입은 Board
+		model.addAttribute("board", board);
+		return "exam11/boardUpdateForm";
+	}
+	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
+	public String boardUpdate(Board board){
+		logger.info("boardUpdate 처리");
+		boardService.updateBoard(board);	//수정된 게시물 저장
+		return "redirect:/exam11/boardList";
+	}
+	
+	@RequestMapping(value="/boardDelete")
+	public String boardUpdate(int bno){
+		logger.info("boardDelete 처리");
+		boardService.deleteBoard(bno);
+		return "redirect:/exam11/boardList";
+	}
+	
 	
 }
