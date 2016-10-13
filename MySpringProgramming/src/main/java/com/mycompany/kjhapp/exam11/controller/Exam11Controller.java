@@ -113,4 +113,34 @@ public class Exam11Controller {
 	}
 	
 	
+	@RequestMapping("/boardView")
+	public String boardView(int bno, Model model){
+		logger.info("boardView 처리");
+		Board board = boardService.getBoard(bno);
+		model.addAttribute("board", board);
+		return "exam11/boardView";
+	}
+	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.GET)
+	public String boardUpdateForm(int bno, Model model){
+		logger.info("boardUpdateForm 처리");
+		Board board = boardService.getBoard(bno);//getBoard 리턴 타입은 Board
+		model.addAttribute("board", board);
+		return "exam11/boardUpdateForm";
+	}
+	
+	@RequestMapping(value="/boardUpdate", method=RequestMethod.POST)
+	public String boardUpdate(Board board){
+		logger.info("boardUpdate 처리");
+		boardService.updateBoard(board);	//수정된 게시물 저장
+		return "redirect:/exam11/boardList";
+	}
+	
+	@RequestMapping(value="/boardDelete")
+	public String boardDelete(int bno){
+		logger.info("boardDelete 처리");
+		boardService.deleteBoard(bno);	//수정된 게시물 저장
+		return "redirect:/exam11/boardList";
+	}
+	
 }

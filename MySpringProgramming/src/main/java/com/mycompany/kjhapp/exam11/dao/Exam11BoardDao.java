@@ -35,4 +35,24 @@ public class Exam11BoardDao {
 		
 		return list;
 	}
+
+	public Board selectBoard(int bno) {
+		// TODO Auto-generated method stub
+		logger.info("selectBoard() 처리");
+		Board board = new Board();
+		board.setBwriter("김정호");
+		board.setBtitle("배고프다");
+		board.setBcontent("오늘은 조용히 집을 가고 싶다.");
+		return board;
+	}
+
+	public void update(Board board) {
+		// TODO Auto-generated method stub
+		logger.info("Update 처리");
+	}
+
+	public void delete(int bno) {
+		// TODO Auto-generated method stub
+		logger.info("Delete 처리");
+	}
 }
