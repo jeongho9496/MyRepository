@@ -38,6 +38,8 @@ public class Exam11BoardDao {	//service에 주입
 		return list;
 	}
 	
+	//1013
+	
 	public Board selectBoard(int bno){
 		logger.info("selectBoard() 처리");
 		Board board = new Board();
