@@ -30,6 +30,24 @@ public class Exam11BoardService {
 		
 		return list;
 	}
+
+	public Board getBoard(int bno) {
+		// TODO Auto-generated method stub
+		logger.info("getBoard 처리");
+		Board board = boardDao.selectBoard(bno);
+		return board;
+	}
+
+	public void updateBoard(Board board) {
+		// TODO Auto-generated method stub
+		logger.info("updateBoard 처리");
+		boardDao.update(board);
+	}
+
+	public void deleteBoard(int bno) {
+		logger.info("deleteBoard 처리");
+		boardDao.delete(bno);
+	}
 	
 	
 }

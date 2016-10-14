@@ -144,7 +144,7 @@ public class Exam11Controller {
 	}
 	
 	@RequestMapping(value="/boardDelete")
-	public String boardUpdate(int bno){
+	public String boardDelete(int bno){
 		logger.info("boardDelete 처리");
 		boardService.deleteBoard(bno);
 		return "redirect:/exam11/boardList";
