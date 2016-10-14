@@ -30,6 +30,8 @@ public class Exam11BoardService {
 		return list;
 	}
 	
+	//1013
+	
 	public Board getBoard(int bno){		
 		logger.info("getBoard 처리");
 		Board board = boardDao.selectBoard(bno);
