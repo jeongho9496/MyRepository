@@ -91,7 +91,7 @@ select * from emp order by hiredate desc;
 --가장 최근에 입사한 순서(1차 정렬) -> 이름순 올림 차순(2차 정렬)
 select * from emp order by hiredate desc, ename asc ;
 
---30번 부서에서 월급이 400이상인 사원의 번호, 이름, 연봉(내림차순)을 가져오기
+--30번 부서에서 월급이 400이상인 사원의 번호, 이름, 연봉(내림차순)을 가져오기(시험)
 select empno,ename,sal*12+nvl(comm,0) as yearsal from emp 
 where sal>400 and deptno=30
 order by yearsal desc;
