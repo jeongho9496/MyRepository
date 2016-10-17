@@ -22,8 +22,8 @@ public class Exam01 {
 			Connection conn = DriverManager.getConnection
 			("jdbc:oracle:thin:@myhost:1521:orcl", "scott", "tiger");
 			Specifying a Databse URL That Includes User Name and Password */
-		//Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
-		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@106.253.56.123:1521:orcl", "kosauser2", "kosa12345");
+		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
+//		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@106.253.56.123:1521:orcl", "kosauser2", "kosa12345");
 
 		//SQL문을 보내고 실행시킴
 		String sql = "select empno,ename from emp";
