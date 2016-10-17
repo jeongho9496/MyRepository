@@ -27,7 +27,7 @@ select sal, trunc(sal,1) from emp;
 --Section03 문자 처리 함수
 --대소문자 변환 함수
 select * from employees;
-select phone_number,first_name,last_name from employees where lower(first_name)='steven'; --데이터 부분은 대소문자 가림
+select employee_id,phone_number,first_name,last_name from employees where lower(first_name)='steven'; --데이터 부분은 대소문자 가림(시험)
 
 --문자 조작 함수
 --문자열 일부만 추출하는 SUBSTR 함수
@@ -43,4 +43,18 @@ select rpad(substr(first_name, 1,5), 10, '*') from employees;--게시판 유효�
 --날짜형을 문자형으로 변환하기
 select hire_date, to_char(hire_date,'YYYY.MM.DD DAY HH:mm:ss') from employees;
 --문자형을 날짜형으로 변환하기
-select first_name, hire_date from employees where hire_date=to_date('2003.06.17');
+select first_name, hire_date from employees where hire_date=to_date('06.17.2003','MM.DD.YYYY');--애플리케이션이 문자열을 DB에 넘겨 Date 타입으로 받을때 사용
+
+--Section05 날짜 함수
+--DBMS의 현재 날짜
+select sysdate from dual;
+--DBMS의 현재 날짜를 "2016.10.17 월요일"로 변환해 보세요 (시험)
+select to_char(sysdate,'YYYY.MM.DD DAY') from dual;
+
+--Section06 NULL을 다른 값으로 변환하는 NVL함수
+select salary*12+ nvl(commission_pct,0)*salary from employees; --null 값으로 연산할시 null값이 나옴.
+select nvl2(
+            commission_pct, --값이 null이 아니면 salary*12+commission_pct*salary 계산 null이라면 salary*12 계산
+            salary*12+commission_pct*salary,
+            salary*12) as 연봉
+from employees;
