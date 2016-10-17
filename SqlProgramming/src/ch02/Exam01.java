@@ -23,10 +23,10 @@ public class Exam01 {
 			("jdbc:oracle:thin:@myhost:1521:orcl", "scott", "tiger");
 			Specifying a Databse URL That Includes User Name and Password */
 		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
-//		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@106.253.56.123:1521:orcl", "kosauser2", "kosa12345");
+		//Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@106.253.56.123:1521:orcl", "kosauser2", "kosa12345");
 
 		//SQL문을 보내고 실행시킴
-		String sql = "select empno,ename from emp";
+		String sql = "select * from emp";
 		PreparedStatement pstmt = conn.prepareStatement(sql);//PreparedStatement : 실행할 준비가 되면 준비된 객체를 얻음
 		ResultSet rs = pstmt.executeQuery();// resultset(결과 값)으로 리턴
 		
