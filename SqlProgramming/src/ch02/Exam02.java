@@ -31,7 +31,6 @@ public class Exam02 {
 			 System.out.println(empno+" "+ename+":"+date);
 		}
 		
-		
 		rs.close();
 		pstmt.close();
 		conn.close();//돈과 관련 되기 때문에 꼭 종료를 해줘야 한다.

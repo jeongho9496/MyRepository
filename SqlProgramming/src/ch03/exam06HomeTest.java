@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class exam06 {
+public class exam06HomeTest {
 	public static void main(String[] args) {
 		//1017
 		//과제 1001번에 해당하는 객체를 찾아 출력
@@ -49,34 +49,34 @@ public class exam06 {
 		return emp;
 	}
 
-	private static List<Department> getDepartment(String searchDname) {
-		List<Department> list = new ArrayList<>();//null 리턴하지 않고 리스트를 리턴해줌.
-		String sql = "select * from dept where dname like ? ";
+	private static List<Department> getDepartment(String searchName) {
+		List<Department> list = new ArrayList<>();
 		Connection conn = null;
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
+			String sql = "select * from dept where dname like ? ";
+			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+searchDname+"%");
+			pstmt.setString(1, "%"+searchName+"%");
 			ResultSet rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				Department dept = new Department();
-				dept.setDeptno(rs.getInt("dno"));
+				dept.setDeptno(rs.getInt("deptno"));
 				dept.setDname(rs.getString("dname"));
 				dept.setLoc(rs.getString("loc"));
-				
 				list.add(dept);
+				
 			}
 			rs.close();
 			pstmt.close();
+			conn.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {conn.close();} catch (SQLException e) {}
-			//예외 발생 상관 없이 무조건 Connection을 닫아야 하기에 finally에 close()작성.
+			try {
+				conn.close();
+			} catch (SQLException e1) {
+			}
 		}
-		
 		return list;
 	}
 	
