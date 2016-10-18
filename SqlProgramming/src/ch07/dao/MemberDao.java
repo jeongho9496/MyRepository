@@ -58,7 +58,6 @@ public class MemberDao {
 		List<Member> list = new ArrayList<>();
 		try {
 			conn = connectionService();
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
 			String sql = "select * from member";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
