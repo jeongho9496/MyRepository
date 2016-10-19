@@ -31,6 +31,7 @@ public class BoardDao {
 		
 		int rowNo = pstmt.executeUpdate();
 		pstmt.close();
+		
 		return rowNo;
 	}
 	
@@ -56,6 +57,7 @@ public class BoardDao {
 		
 		rs.close();
 		pstmt.close();
+		
 		return board;
 	}
 	
