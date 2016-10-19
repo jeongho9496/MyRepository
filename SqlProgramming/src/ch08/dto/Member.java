@@ -1,9 +1,9 @@
-package ch07.dto;
+package ch08.dto;
 
 import java.util.Date;
 
 public class Member {
-	//1018
+	//1019
 	private String mid;
 	private String mname;
 	private int mage;

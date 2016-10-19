@@ -5,7 +5,7 @@ create table member(  --테이블 선언부
   mid varchar(10) not null,  -- varchar(var:variable + char ) => 데이터 크기가 동적으로 변경될 때 사용 char => 크기가 고정일때 사용(ex. 주민등록 번호) *varchar생성하면 내부적으로 varchar2생성
   mname varchar(10) not null,-- ms949는 한글이 2byte  =>varchar(10) 5글자. utf-8은 3byte  =>varchar(10)3글자
   mage number(3,0) null, -- number(3,0) (정수부분, 소수부분)
-  mbrith date null
+  mbirth date null
 );
 --중요한 데이터 타입 교재 p.39 참고
 
