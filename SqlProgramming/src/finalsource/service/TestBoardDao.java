@@ -28,7 +28,7 @@ public class TestBoardDao {
 			
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
-			for (int i = 1; i < 10000; i++) {
+			/*for (int i = 1; i < 10000; i++) {
 				Board board = new Board();
 				
 				board.setBtitle("테스트" +i);
@@ -37,8 +37,16 @@ public class TestBoardDao {
 				
 				int rowNo = dao.insert(board);
 				
-			}
-			System.out.println("10000 행이 저장됨");
+			}*/
+			
+			Board board = new Board();
+			
+			board.setBtitle("테스트제목1");
+			board.setBcontent("테스트내용1");
+			board.setBwriter("user10");
+			
+			int rowNo = dao.insert(board);
+			System.out.println(rowNo+"행이 저장됨");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
