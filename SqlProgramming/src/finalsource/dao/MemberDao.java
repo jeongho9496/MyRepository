@@ -21,12 +21,13 @@ public class MemberDao {
 
 	public int insert(Member member) throws SQLException{
 		//insert 리턴은 1 or Exception
-		String sql = "insert into member(mid, mname, mage, mbirth) values(?,?,?,?) ";
+		String sql = "insert into member(mid, mname, mpassword, mage, mbirth) values(?,?,?,?,?) ";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, member.getMid());
 		pstmt.setString(2, member.getMname());
-		pstmt.setInt(3, member.getMage());
-		pstmt.setDate(4, new Date(member.getMbirth().getTime()));
+		pstmt.setString(3, member.getMpassword());
+		pstmt.setInt(4, member.getMage());
+		pstmt.setDate(5, new Date(member.getMbirth().getTime()));
 
 		int rowNo = pstmt.executeUpdate();
 		pstmt.close();
@@ -37,7 +38,7 @@ public class MemberDao {
 	public Member selectByMid(String mid) throws SQLException{
 		//1개의 행을 가져옴
 		//데이터가 없으면 null리턴
-		String sql = "select mid, mname, mage, mbirth from member where mid=?";
+		String sql = "select mid, mname, mpassword, mage, mbirth from member where mid=?";
 		Member member = null;
 		
 		PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -49,6 +50,7 @@ public class MemberDao {
 			member = new Member();
 			member.setMid(rs.getString("mid"));
 			member.setMname(rs.getString("mname"));
+			member.setMpassword(rs.getString("mpassword"));
 			member.setMage(rs.getInt("mage"));
 			member.setMbirth(rs.getDate("mbirth"));
 		}
@@ -62,7 +64,7 @@ public class MemberDao {
 	public List<Member> selectByMname(String mname) throws SQLException{
 		//여러개의 행을 가져올때(중복)
 		//데이터가 없으면 비어있는 List객체 리턴
-		String sql = "select mid, mname, mage, mbirth from member where mname like ?";
+		String sql = "select mid, mname, mpassword, mage, mbirth from member where mname like ?";
 		List<Member> list = new ArrayList<>();
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, "%"+mname+"%");
@@ -74,6 +76,7 @@ public class MemberDao {
 			Member member = new Member();
 			member.setMid(rs.getString("mid"));
 			member.setMname(rs.getString("mname"));
+			member.setMpassword(rs.getString("mpassword"));
 			member.setMage(rs.getInt("mage"));
 			member.setMbirth(rs.getDate("mbirth"));
 			list.add(member);
@@ -88,12 +91,13 @@ public class MemberDao {
 	
 	public int update(Member member) throws SQLException{
 		//수정된 행수 리턴
-		String sql = "update member set mname=?, mage=?, mbirth=? where mid=?";
+		String sql = "update member set mname=?, mpassword=? ,mage=?, mbirth=? where mid=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, member.getMname());
-		pstmt.setInt(2, member.getMage());
-		pstmt.setDate(3, new Date(member.getMbirth().getTime()));
-		pstmt.setString(4, member.getMid());
+		pstmt.setString(2, member.getMpassword());
+		pstmt.setInt(3, member.getMage());
+		pstmt.setDate(4, new Date(member.getMbirth().getTime()));
+		pstmt.setString(5, member.getMid());
 		
 		int rowNo = pstmt.executeUpdate();
 		pstmt.close();

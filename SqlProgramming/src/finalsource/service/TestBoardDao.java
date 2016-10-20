@@ -28,17 +28,17 @@ public class TestBoardDao {
 			
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
-			
-			Board board = new Board();
-			board.setBno(100);
-			board.setBtitle("인생이란...");
-			board.setBcontent("부질없다...");
-			board.setBwriter("김정호");
-			board.setBhitcount(100);
-			board.setBdate(new Date());
-			
-			int rowNo = dao.insert(board);
-			System.out.println(rowNo+"행이 저장됨");
+			for (int i = 1; i < 10000; i++) {
+				Board board = new Board();
+				
+				board.setBtitle("테스트" +i);
+				board.setBcontent("테스트내용: "+i);
+				board.setBwriter("user10");
+				
+				int rowNo = dao.insert(board);
+				
+			}
+			System.out.println("10000 행이 저장됨");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,7 +61,7 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 			
-			Board board = dao.selectByBno(100);
+			Board board = dao.selectByBno(1);
 			if (board != null) {
 				System.out.print(board.getBno() + " : ");
 				System.out.print(board.getBtitle() + " : ");
@@ -125,10 +125,10 @@ public class TestBoardDao {
 			dao.setConn(conn);
 			
 			Board board = new Board();
-			board.setBno(100);
-			board.setBtitle("배고프다...");
-			board.setBcontent("미치도록...");
-			board.setBwriter("누군가");
+			board.setBno(1);
+			board.setBtitle("테스트제목2");
+			board.setBcontent("테스트내용2");
+			board.setBwriter("user10");
 			board.setBhitcount(1);
 			board.setBdate(new Date());
 			
@@ -142,6 +142,7 @@ public class TestBoardDao {
 				conn.close();
 			} catch (SQLException e) {
 			}
+			
 		}
 
 	}
@@ -156,7 +157,7 @@ public class TestBoardDao {
 			BoardDao dao = new BoardDao();
 			dao.setConn(conn);
 		
-			int rowNo = dao.deleteByBno(100);
+			int rowNo = dao.deleteByBno(1);
 			System.out.println(rowNo+"행이 삭제됨");
 			
 		} catch (Exception e) {
@@ -166,6 +167,7 @@ public class TestBoardDao {
 				conn.close();
 			} catch (SQLException e) {
 			}
+			
 		}
 
 	}

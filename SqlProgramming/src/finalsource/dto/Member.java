@@ -6,6 +6,7 @@ public class Member {
 	//1019
 	private String mid;
 	private String mname;
+	private String mpassword;
 	private int mage;
 	private Date mbirth;
 	
@@ -20,6 +21,12 @@ public class Member {
 	}
 	public void setMname(String mname) {
 		this.mname = mname;
+	}
+	public String getMpassword() {
+		return mpassword;
+	}
+	public void setMpassword(String mpassword) {
+		this.mpassword = mpassword;
 	}
 	public int getMage() {
 		return mage;

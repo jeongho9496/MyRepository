@@ -13,11 +13,11 @@ import finalsource.dto.Member;
 public class TestMemberDao {
 	// 1019
 	public static void main(String[] args) {
-		//testInsert();
+		testInsert();
 		//testSelectByMid();
 		//testSelectByMname();
 		//testUpdate();
-		testDeleteByMid();
+		//testDeleteByMid();
 	}
 
 	private static void testInsert() {
@@ -32,6 +32,7 @@ public class TestMemberDao {
 			Member member = new Member();
 			member.setMid("user10");
 			member.setMname("사용자10");
+			member.setMpassword("kosa12345");
 			member.setMage(28);
 			member.setMbirth(new Date());
 			
@@ -61,6 +62,7 @@ public class TestMemberDao {
 			Member member = dao.selectByMid("user10");
 			if(member != null){//리턴되는 값의 null 체크
 				System.out.print(member.getMid() + " : ");
+				System.out.print(member.getMpassword() + " : ");
 				System.out.print(member.getMname() + " : ");
 				System.out.print(member.getMage() + " : ");
 				System.out.print(member.getMbirth());
@@ -90,6 +92,7 @@ public class TestMemberDao {
 			List<Member> list = dao.selectByMname("사용");
 			for (Member member : list) {
 				System.out.print(member.getMid() + " : ");
+				System.out.print(member.getMpassword() + " : ");
 				System.out.print(member.getMname() + " : ");
 				System.out.print(member.getMage() + " : ");
 				System.out.print(member.getMbirth());
@@ -117,6 +120,7 @@ public class TestMemberDao {
 			
 			Member member = new Member();
 			member.setMid("user10");
+			member.setMpassword("kosa54321");
 			member.setMname("홍길동");
 			member.setMage(58);
 			member.setMbirth(new Date());

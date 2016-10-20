@@ -20,14 +20,14 @@ public class BoardDao {
 	
 	public int insert(Board board) throws SQLException{
 		//insert 리턴은 1 or Exception
-		String sql = "insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate) values(?,?,?,?,?,?)";
+		String sql = "insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate)"
+					+" values(seq_board_bno.nextval,?,?,?,0,sysdate)";
+		//(seq_board_bno.nextval,?,?,?,0,sysdate) 게시판 날짜는 현재시간으로 하고 조회는 처음에 무조건 0이므로 지정해준다
+		//seq_board_bno.nextval 자동으로 숫자 증가
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setInt(1, board.getBno());
-		pstmt.setString(2, board.getBtitle());
-		pstmt.setString(3, board.getBcontent());
-		pstmt.setString(4, board.getBwriter());
-		pstmt.setInt(5, board.getBhitcount());
-		pstmt.setDate(6, new Date(board.getBdate().getTime()));
+		pstmt.setString(1, board.getBtitle());
+		pstmt.setString(2, board.getBcontent());
+		pstmt.setString(3, board.getBwriter());
 		
 		int rowNo = pstmt.executeUpdate();
 		pstmt.close();
@@ -65,10 +65,8 @@ public class BoardDao {
 		//여러개의 행을 가져올때(중복)
 		//데이터가 없으면 비어있는 List객체 리턴
 		String sql = "select bno, btitle, bcontent, bwriter, bhitcount, bdate from board where btitle like ?";
+		List<Board> list = new ArrayList<>();	
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		
-		List<Board> list = new ArrayList<>();
-		
 		pstmt.setString(1, "%"+btitle+"%");
 		ResultSet rs = pstmt.executeQuery();
 		
@@ -113,7 +111,7 @@ public class BoardDao {
 	public int deleteByBno(int bno) throws SQLException{
 		//삭제된 행수 리턴
 		
-		String sql = "delete board where bno=?";
+		String sql = "delete from board where bno=?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, bno);
 		

@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F3275C9F-6322-E561-8A49-E505CDC44BFE" name="member">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:19:18 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mid" id="7A6D7FB0-8216-1975-2FAE-BB13CEC2FF61">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:23:26 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mname" id="06082F6B-453F-C6BA-0E69-2974434A6D0D">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:23:26 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mpassword" id="7851A732-3E26-7DC2-15CB-85231366E843">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 06:20:16 UTC</createdTime>
+<ownerDesignName>member_board</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mage" id="B661EC33-B26E-DEDE-A4F7-38447A78FBD0">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:41:07 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mbirth" id="E1037126-FB1A-AFDF-5D95-FE56F02471EA">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:41:24 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="640D06D4-CA2A-9B84-11CA-E0009934F728" name="pk_member_mid">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-20 05:23:26 UTC</createdTime>
+<ownerDesignName>member_board2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A6D7FB0-8216-1975-2FAE-BB13CEC2FF61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

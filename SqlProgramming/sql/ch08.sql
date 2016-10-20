@@ -13,8 +13,8 @@ VALUES('user4','사용자4');
 insert into member values('user5','사용자5',null,null);-- member에 매개값없으면 values는 not null 부분도 순서대로 나와야 한다.
 insert into member values('user5','사용자5',10,'2006.10.06');
 
-insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate) 
-values(4,'제목4','내용4','user2',0,sysdate);
+insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate) --데이터 값을 넣을 컬럼명 명시
+values(4,'제목4','내용4','user2',0,sysdate);--데이터에 넣을 값
 
 insert into board(bno, btitle, bcontent, bwriter) 
 values(5,'제목5','내용5','user3');--한개의 행만 삽입할 수 있다. 삽입 성공시 1을 리턴, 삽입 실패시 예외
