@@ -10,20 +10,20 @@ VALUES('user3','사용자3',10,'2006.5.15');
 INSERT INTO MEMBER(MID, MNAME) --조건이 not null인 부분은 무조건 삽입 해야함
 VALUES('user4','사용자4');
 
-insert into member values('user5','사용자5',null,null);-- member에 매개값없으면 values는 not null 부분도 순서대로 나와야 한다.
+insert into member values('user5','사용자5',null,null);--member에 매개값없으면 values는 not null 부분도 순서대로 나와야 한다.
 insert into member values('user5','사용자5',10,'2006.10.06');
 
-insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate) --데이터 값을 넣을 컬럼명 명시
+insert into board(bno, btitle, bcontent, bwriter, bhitcount, bdate)--데이터 값을 넣을 컬럼명 명시
 values(4,'제목4','내용4','user2',0,sysdate);--데이터에 넣을 값
 
 insert into board(bno, btitle, bcontent, bwriter) 
 values(5,'제목5','내용5','user3');--한개의 행만 삽입할 수 있다. 삽입 성공시 1을 리턴, 삽입 실패시 예외
 
 --Section02 테이블의 내용을 수정하는 UPDATE문
-update member set mage=10 where mid='user4';-- alter와 다름
-update member set mage=20, mbirth='2001.08.10' where mid='user5';-- alter와 다름
-update member set mage=20, mbirth='2001.08.10' where mid='user5'; -- 반드시 where절과 같이 사용한다.
-update member set mage=mage+1 where mid='user4';-- alter와 다름
+update member set mage=10 where mid='user4';--alter와 다름
+update member set mage=20, mbirth='2001.08.10' where mid='user5';--alter와 다름
+update member set mage=20, mbirth='2001.08.10' where mid='user5';--반드시 where절과 같이 사용한다.
+update member set mage=mage+1 where mid='user4';--alter와 다름
 
 --Section03 테이블의 내용을 삭제하는 DELETE문
 delete member where mid='user5';

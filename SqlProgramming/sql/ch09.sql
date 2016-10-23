@@ -65,7 +65,7 @@ create table board(
   bno       NUMBER(10) primary key,
   btitle    varchar(100) not null,
   bcontent  varchar(4000) not null,
-  bwriter   varchar(10) not null, --references 외부table(컬럼명) => 외부에 있는 컬럼명 값(대부분 primary key값)을 참조 하는 것.
+  bwriter   varchar(10) not null,
   bhitcount number(5) default 0,
   bkind     varchar(15) default '자유',
   bdate     date null
