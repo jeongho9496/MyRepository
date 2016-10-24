@@ -30,5 +30,8 @@
 		
 		<br/>
 		11. <a href="/myapp/exam11/index">Exam11</a>: 서비스 계층과 데이터(Persistance) 계층<br/>
+		
+		<%--1024 --%>
+		12. <a href="/myapp/exam12/index">Exam12</a>: Connection Pool설정<br/>
 	</body>
 </html>

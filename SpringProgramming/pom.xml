@@ -118,7 +118,30 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>        
+	
+		<!-- 1024 -->
+		<!-- ConnectionPool =>spring에서 제공해주지 않기 때문에 외부에서 받아와 사용한다.(maver중앙저장소에서 가져온다.) -->
+		<!-- 의존성라이브러리는 ${org.springframework-version} 작성 -->
+	    <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc6</artifactId>
+		    <version>11.2.0.4</version>
+		</dependency>
+	
 	</dependencies>
+    
     <build>
         <plugins>
             <plugin>

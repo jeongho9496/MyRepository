@@ -124,7 +124,7 @@ public class BoardDao {
 	//1024
 	public List<Board> selectByPage(int pageNo, int rowsPerPage) throws SQLException{
 		String sql = "select rn,bno, btitle, bcontent, bwriter, bhitcount, bdate "
-					+"from (select rownum as rn, bno, btitle "
+					+"from (select rownum as rn, bno, btitle, bcontent, bwriter, bhitcount, bdate "
 					+"from ( "
 					+"select bno, btitle, bcontent, bwriter, bhitcount, bdate from board order by bno desc) "
 					+"where rownum<=? "
