@@ -1,8 +1,9 @@
 package com.mycompany.myapp.exam12.service;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,14 +20,15 @@ public class Exam12Service {
 	private static final Logger logger = LoggerFactory.getLogger(Exam12Service.class);
 	
 	@Autowired
+	private DataSource dataSource;//servlet_context에서 구현한 dataSource구현객체 주입
+	
+	@Autowired
 	private MemberDao dao;
 	
 	public void join(Member member){
 		Connection conn = null;
 		try {
-
-			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "tester1", "kosa12345");
+			conn = dataSource.getConnection();//dataSource의 connection 대여
 			dao.setConn(conn);
 			
 			int rowNo = dao.insert(member);
@@ -36,7 +38,7 @@ public class Exam12Service {
 			e.printStackTrace();
 		} finally {
 			try {
-				conn.close();
+				conn.close();//connection 반납
 			} catch (SQLException e) {
 			}
 		}
