@@ -12,11 +12,6 @@ public class FreeboardController {
 	private static final Logger logger = LoggerFactory.getLogger(FreeboardController.class);
 	
 	
-	@RequestMapping("/")
-	public String index() {
-		
-		logger.debug("home() 실행");	
-		return "home";
-	}
+	
 	
 }
