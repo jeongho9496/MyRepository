@@ -23,5 +23,6 @@
 		
 		<br/>
 		11. <a href="/kjhapp/exam11/index">Exam11</a>: 서비스 계층과 데이터(Persistance) 계층<br/>
+		12. <a href="/kjhapp/exam12/index">Exam12</a>: Connection Pool설정<br/>
 	</body>
 </html>

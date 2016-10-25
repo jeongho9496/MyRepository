@@ -66,4 +66,15 @@
 		<beans:property name="f" ref="fObj"/>
 	</beans:bean>
 	
+	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<beans:property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+		<beans:property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<beans:property name="user" value="tester1"/>
+		<beans:property name="password" value="kosa12345"/>
+		<beans:property name="maxPoolSize" value="3"/>
+		<beans:property name="initialPoolSize" value="1"/>
+		<beans:property name="acquireIncrement" value="1"/>
+		<beans:property name="minPoolSize" value="1"/>
+	</beans:bean>
+	
 </beans:beans>
