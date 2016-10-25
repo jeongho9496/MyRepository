@@ -104,6 +104,6 @@
 	<!-- JdbcTemplate 객체 생성 -->
 	<beans:bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dataSource"/><!-- name="dataSource"=>setter이름 ref="dataSource"=>connection이름 -->
-	</beans:bean>
+	</beans:bean><!-- spring에서만 사용가능 -->
 
 </beans:beans>
