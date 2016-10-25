@@ -35,6 +35,6 @@
 		12. <a href="/myapp/exam12/index">Exam12</a>: Connection Pool설정<br/>
 		
 		<%-- 1025 --%>
-		13. <a href="/myapp/exam13/index">Exam13</a>: Jdbc템플릿을 이용한 DAO<br/>
+		13. <a href="/myapp/exam13/index">Exam13</a>: Jdbc템플릿을 이용한 DAO<br/><br/>
 	</body>
 </html>
