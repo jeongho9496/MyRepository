@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DCA97676-2C18-8DA1-79E8-C8E264A6E9A2" name="freeBoard">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:43:41 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="bno" id="6A2904D7-B8BB-9C0C-BF8A-F89EA80849DE">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:45:40 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="btitle" id="58E98B6D-623D-84D6-3223-7192AF7A2158">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:45:47 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bcontent" id="22835080-420D-CE29-E41C-9B425474097A">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:45:53 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bhitcount" id="AFDB7291-9EDE-F893-F564-55384C82BE08">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:46:30 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bdate" id="7843EC26-DB46-5C0E-C8A2-E16721DBD7FE">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:46:42 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bwriter" id="1BD6795E-72EB-8F18-75F8-4610BA2D77F6">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:51:39 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8A567B42-D67F-D4B2-5A62-3BF961C924AC" referredColumn="DA3BA431-EC54-ABD6-7112-46C6B4FCF658"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="975E3DD9-0F41-B304-91CF-A2079C7B392B" name="FreeBoard_PK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:47:03 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6A2904D7-B8BB-9C0C-BF8A-F89EA80849DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="993C5702-CA8B-7B2F-D78B-45B8FEC7784D" name="freeBoard_MEMBER_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-10-25 09:51:52 UTC</createdTime>
+<ownerDesignName>table</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1BD6795E-72EB-8F18-75F8-4610BA2D77F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
