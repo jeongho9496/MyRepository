@@ -1,4 +1,4 @@
-package com.mycompany.myapp.exam12.dao;
+package com.mycompany.myapp.exam13.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,10 +10,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mycompany.myapp.exam12.dto.Member;
+import com.mycompany.myapp.exam13.dto.Member;
+
 
 @Component
-public class MemberDao {
+public class Exam13MemberDao {
 	//1019
 	//Connection 주입
 	private Connection conn;

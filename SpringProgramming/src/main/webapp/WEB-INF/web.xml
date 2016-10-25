@@ -37,4 +37,12 @@
 		<url-pattern>/</url-pattern>
 		<!-- http://~/ 마지막 '/'뒤에 어떤 것이 붙어도 <param-value>의 내용이 실행된다. --> 
 	</servlet-mapping>
+	
+	<!-- 1025 WAS Connection Pool 방법-->
+	<!-- <resource-ref>
+	 	<description>Oracle Datasource</description>
+	 	<res-ref-name>jdbc/orcl</res-ref-name>C:\Program Files\Apache Software Foundation\Tomcat 8.0\conf 의<Resource>의 이름과 일치 시킴
+	 	<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref> -->
 </web-app>

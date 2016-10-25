@@ -1,4 +1,4 @@
-package com.mycompany.myapp.exam12.service;
+package com.mycompany.myapp.exam13.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -10,20 +10,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.mycompany.myapp.exam12.dao.Exam12MemberDao;
-import com.mycompany.myapp.exam12.dto.Member;
+import com.mycompany.myapp.exam13.dao.Exam13MemberDao;
+import com.mycompany.myapp.exam13.dto.Member;
+
 
 
 @Component
-public class Exam12Service {
+public class Exam13Service {
 	//1024
-	private static final Logger logger = LoggerFactory.getLogger(Exam12Service.class);
+	private static final Logger logger = LoggerFactory.getLogger(Exam13Service.class);
 	
 	@Autowired
 	private DataSource dataSource;//servlet_context에서 구현한 dataSource구현객체 주입
 	
 	@Autowired
-	private Exam12MemberDao dao;
+	private Exam13MemberDao dao;
 	
 	public void join(Member member){
 		Connection conn = null;
