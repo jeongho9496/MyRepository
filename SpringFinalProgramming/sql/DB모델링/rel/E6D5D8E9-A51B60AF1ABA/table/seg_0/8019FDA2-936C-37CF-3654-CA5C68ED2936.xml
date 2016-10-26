@@ -23,7 +23,6 @@
 <createdBy>Administrator</createdBy>
 <createdTime>2016-10-26 00:34:48 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -35,9 +34,11 @@
 <createdBy>Administrator</createdBy>
 <createdTime>2016-10-26 00:34:48 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="maddress" id="004717D0-BAE3-02FE-6563-FDBB43EB2D19">
@@ -45,26 +46,33 @@
 <createdTime>2016-10-26 00:34:48 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="mtel" id="A363825F-9457-1213-A0B1-E014D337A907">
 <createdBy>Administrator</createdBy>
 <createdTime>2016-10-26 00:34:48 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="memail" id="7C4196DC-0F1A-DBC8-5324-4C28F521F31F">
 <createdBy>Administrator</createdBy>
 <createdTime>2016-10-26 00:34:48 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>
