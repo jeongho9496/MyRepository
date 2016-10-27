@@ -81,8 +81,34 @@ public class FreeboardController {
 	@RequestMapping("/info")
 	public String info(int bno, Model model){
 		FreeBoard freeBoard = freeBoardService.info(bno);
+		freeBoard.setBhitcount(freeBoard.getBhitcount() + 1); //조회수 증가
+		freeBoardService.modify(freeBoard);
 		model.addAttribute("freeBoard", freeBoard);
 		return "freeboard/info";
+	}
+	
+	@RequestMapping(value = "/modify", method=RequestMethod.GET)
+	public String modifyForm(int bno, Model model){
+		FreeBoard freeBoard = freeBoardService.info(bno);
+		model.addAttribute("freeBoard", freeBoard);
+		return "freeboard/modify";
+	}
+	@RequestMapping(value = "/modify", method=RequestMethod.POST)
+	public String modify(FreeBoard freeBoard){
+		FreeBoard dbFreeBoard = freeBoardService.info(freeBoard.getBno());
+		freeBoard.setBhitcount(dbFreeBoard.getBhitcount());//좋은 방법이 아님 hitcount를 따로 만들어야 됨.
+		freeBoardService.modify(freeBoard);
+		return "redirect:/freeboard/list";
+	}
+	
+	@RequestMapping("/remove")
+	public String remove(int bno, Model model){
+		int result = freeBoardService.remove(bno);
+		if (result == freeBoardService.REMOVE_FAIL) {
+			return "freeboard/info";	//jsp파일에서 매개변수인 FreeBoard 사용 가능
+		} else {
+			return "redirect:/freeboard/list";
+		}
 	}
 	
 }

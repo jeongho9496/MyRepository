@@ -34,5 +34,10 @@
 					<td>${freeBoard.bdate}</td>
 				</tr>
 			</table>
+			<div>
+				<a href="modify?bno=${freeBoard.bno}">[수정]</a>
+				<a href="remove?bno=${freeBoard.bno}">[삭제]</a>
+				<a href="list">[목록]</a>
+			</div>
 	</body>
 </html>
