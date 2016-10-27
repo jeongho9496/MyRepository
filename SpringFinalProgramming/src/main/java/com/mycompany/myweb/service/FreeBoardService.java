@@ -10,14 +10,14 @@ import com.mycompany.myweb.dto.FreeBoard;
 
 @Component
 public class FreeBoardService {
-	private static final int WRITE_SUCESS = 0;
-	private static final int WRITE_FAIL = 1;
+	public static final int WRITE_SUCESS = 0;
+	public static final int WRITE_FAIL = 1;
 	
-	private static final int MODIFY_SUCESS = 0;
-	private static final int MODIFY_FAIL = 1;
+	public static final int MODIFY_SUCESS = 0;
+	public static final int MODIFY_FAIL = 1;
 
-	private static final int REMOVE_SUCESS = 0;
-	private static final int REMOVE_FAIL = 1;
+	public static final int REMOVE_SUCESS = 0;
+	public static final int REMOVE_FAIL = 1;
 	
 	@Autowired
 	private FreeBoardDao freeBoardDao;

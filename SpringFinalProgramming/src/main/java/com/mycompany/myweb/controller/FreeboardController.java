@@ -3,6 +3,8 @@ package com.mycompany.myweb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +61,28 @@ public class FreeboardController {
 	}
 	
 	@RequestMapping(value = "/write", method=RequestMethod.GET)
-	public String write(FreeBoard freeBoard) {
+	public String write() {
 		return "freeboard/write";
+	}
+	
+	@RequestMapping(value = "/write", method=RequestMethod.POST)
+	public String write(FreeBoard freeBoard, HttpSession session) {
+		String mid = (String)session.getAttribute("login");
+		freeBoard.setBwriter(mid);
+		int result = freeBoardService.write(freeBoard);
+		
+		if (result == FreeBoardService.REMOVE_FAIL) {
+			return "freeboard/write";	//jsp파일에서 매개변수인 FreeBoard 사용 가능
+		} else {
+			return "redirect:/freeboard/list";
+		}
+	}
+	
+	@RequestMapping("/info")
+	public String info(int bno, Model model){
+		FreeBoard freeBoard = freeBoardService.info(bno);
+		model.addAttribute("freeBoard", freeBoard);
+		return "freeboard/info";
 	}
 	
 }

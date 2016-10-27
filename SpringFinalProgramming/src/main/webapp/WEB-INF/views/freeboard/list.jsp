@@ -36,7 +36,10 @@
 			<c:forEach var="freeBoard" items="${list}"><%-- 컨트롤러가 넘겨준 list를 items로 찾아줌 items에 들어온 객체를 뽑아 var="b" 에 넣는다. null 처리 필요없음 --%>
 				<tr>
 					<td style="border: 1px solid black;">${freeBoard.bno}</td>
-					<td style="border: 1px solid black;">${freeBoard.btitle}</td>
+					<td style="border: 1px solid black;">
+						<a href="info?bno=${freeBoard.bno}">${freeBoard.btitle}
+						</a>
+					</td>
 					<td style="border: 1px solid black;">${freeBoard.bwriter}</td>
 					<td style="border: 1px solid black;">${freeBoard.bhitcount}</td>
 					<td style="border: 1px solid black;">${freeBoard.bdate}</td>
