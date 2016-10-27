@@ -21,7 +21,7 @@ public class PhotoBoardDao {
 		
 		public int insert(PhotoBoard photoBoard){
 			
-			String sql = "insert intp photoboard(bno, btitle, bcontent, bwriter, bhitcount, bdate, originalfile, savedfile, mimetype) "
+			String sql = "insert into photoboard(bno, btitle, bcontent, bwriter, bhitcount, bdate, originalfile, savedfile, mimetype) "
 					+ "values(seq_photoboard_bno.nextval,?,?,?,0,sysdate,?,?,?)";
 			
 			int row = jdbcTemplate.update(

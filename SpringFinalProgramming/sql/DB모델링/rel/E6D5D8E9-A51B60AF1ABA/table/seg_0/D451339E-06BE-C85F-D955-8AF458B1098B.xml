@@ -48,7 +48,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
-<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="E0E1BC0C-BFD1-4716-CA5F-43F1C822C74A" referredColumn="A3034E4D-3F88-94FF-F496-52BE7A442B20"/>
@@ -97,7 +97,7 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="minetype" id="18F92C58-7692-F84D-E7AC-C9614499FD0E">
+<Column name="mimetype" id="18F92C58-7692-F84D-E7AC-C9614499FD0E">
 <createdBy>Administrator</createdBy>
 <createdTime>2016-10-26 00:49:17 UTC</createdTime>
 <ownerDesignName>DB모델링</ownerDesignName>

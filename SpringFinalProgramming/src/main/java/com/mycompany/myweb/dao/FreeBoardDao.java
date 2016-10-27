@@ -19,7 +19,7 @@ public class FreeBoardDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(FreeBoard freeBoard){
-		String sql = "insert intp freeboard(bno, btitle, bcontent, bwriter, bhitcount, bdate) "
+		String sql = "insert into freeboard(bno, btitle, bcontent, bwriter, bhitcount, bdate) "
 				+ "values(seq_freeboard_bno.nextval,?,?,?,0,sysdate)";
 		int row = jdbcTemplate.update(
 				sql,

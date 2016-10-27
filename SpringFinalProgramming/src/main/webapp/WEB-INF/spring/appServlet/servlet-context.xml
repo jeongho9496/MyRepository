@@ -28,7 +28,7 @@
 	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<beans:property name="driverClass" value="oracle.jdbc.OracleDriver"/>
 		<beans:property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-		<beans:property name="user" value="tester1"/>
+		<beans:property name="user" value="final"/>
 		<beans:property name="password" value="kosa12345"/>
 		<beans:property name="maxPoolSize" value="3"/><!-- connection pool 만들 최대 개수 -->
 		<beans:property name="initialPoolSize" value="1"/><!-- 처음에 애플리케이션이 배치될 때 만들어 질 connection pool개수 -->
