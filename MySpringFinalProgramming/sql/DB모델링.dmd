@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DB모델링" id="C7EBE03A-039A-7E8E-E8A2-F4AABA4E7ACB" version="3.5">
+<createdBy>kimjeongho</createdBy>
+<createdTime>2016-10-27 13:41:21 UTC</createdTime>
+<ownerDesignName>DB모델링</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>C7EBE03A-039A-7E8E-E8A2-F4AABA4E7ACB</designId>
+</OSDM_Design>

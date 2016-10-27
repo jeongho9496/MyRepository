@@ -39,6 +39,7 @@ public class MemberService {
 		memberDao.insert(member);
 		return JOIN_SUCCESS;
 	}
+	
 	public int login(String mid, String mpassword){
 		
 		//회원 로그인
@@ -55,6 +56,7 @@ public class MemberService {
 		
 		return LOGIN_SUCCESS;
 	}
+	
 	public int logout(String mid){
 		//회원 로그아웃
 		return LOGOUT_SUCCESS;

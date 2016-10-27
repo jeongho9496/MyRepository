@@ -12,7 +12,7 @@
 	</appender><!-- log를 어떻게 출력할것인지 정의 하는 곳 -->
 	
 	<!-- Application Loggers -->
-	<logger name="com.mycompany.myapp">
+	<logger name="com.mycompany.kjhweb">
 		<level value="info" />
 	</logger>
 	
