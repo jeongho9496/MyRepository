@@ -13,7 +13,6 @@
 		<form method="post"><%--action=~ 이 없으면 현재 넘어간 요청경로로 다시 이동하다.--%>
 			아이디: <input type="text" name="mid" value="${findMid}"><br/>
 			<c:if test="${error == 'LOGIN_FAIL_MID'}">*아이디가 존재하지 않음</c:if>
-			<br/>
 			패스워드: <input type="password" name="mpassword"><br/>
 			<c:if test="${error == 'LOGIN_FAIL_MPASSWORD'}">*패스워드가 틀림</c:if>
 			<br/>

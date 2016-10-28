@@ -95,10 +95,10 @@ public class PhotoBoardDao {
 		
 		public List<PhotoBoard> selectByPage(int pageNo, int rowsPerPage){//rowsPerPage : 한 페이지의 갯수 pageNo : 페이지 번호(ex. 1page, 2page, 3page)
 		      String sql="";
-		      sql += "select rn, bno, btitle, bhitcount, savedfile ";//이미지는 화면에 보여 지기만 하면 되므로 서버에 저장 되있는 이미지인 savedfile만 적는다.
+		      sql += "select rn, bno, btitle, bhitcount, bdate, savedfile ";//이미지는 화면에 보여 지기만 하면 되므로 서버에 저장 되있는 이미지인 savedfile만 적는다.
 		      sql += "from ( ";
-		      sql += "select rownum as rn, bno, btitle, bhitcount, savedfile ";
-		      sql += "from (select bno, btitle, bhitcount, savedfile from photoboard order by bno desc) ";
+		      sql += "select rownum as rn, bno, btitle, bhitcount, bdate, savedfile ";
+		      sql += "from (select bno, btitle, bhitcount, bdate, savedfile from photoboard order by bno desc) ";
 		      sql += "where rownum<=? ";
 		      sql += ") ";
 		      sql += "where rn>=? ";
@@ -114,6 +114,7 @@ public class PhotoBoardDao {
 		            	  photoBoard.setBno(rs.getInt("bno"));
 		                  photoBoard.setBtitle(rs.getString("btitle"));
 		                  photoBoard.setBhitcount(rs.getInt("bhitcount"));
+		                  photoBoard.setBdate(rs.getDate("bdate"));
 		                  photoBoard.setSavedfile(rs.getString("savedfile"));
 		                  return photoBoard;
 		               }

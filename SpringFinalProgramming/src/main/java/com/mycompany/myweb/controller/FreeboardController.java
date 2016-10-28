@@ -10,9 +10,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mycompany.myweb.dto.FreeBoard;
 import com.mycompany.myweb.service.FreeBoardService;
@@ -27,8 +29,21 @@ public class FreeboardController {
 	private FreeBoardService freeBoardService;
 	
 	@RequestMapping("/list")
-	public String list(@RequestParam(defaultValue="1")int pageNo, Model model){	//@RequestParam(defaultValue="1")=>페이지의 기본값 지정
-	
+	public String list(String pageNo, Model model, HttpSession session){	//@RequestParam(defaultValue="1")=>페이지의 기본값 지정
+		//1028
+		
+		int intPageNo = 1;
+		if (pageNo == null) {
+			pageNo = (String) session.getAttribute("pageNo");
+			if (pageNo != null) {
+				intPageNo = Integer.parseInt(pageNo);
+			}
+		} else {
+			intPageNo = Integer.parseInt(pageNo);
+		}
+		session.setAttribute("pageNo", String.valueOf(intPageNo));//세션에 현재 저장된 페이지 전달
+		
+		
 		int rowsPerPage = 10;
 		int pagesPerGroup = 5;
 		
@@ -37,16 +52,16 @@ public class FreeboardController {
 		int totalPageNo = (totalBoardNo/rowsPerPage)+((totalBoardNo%rowsPerPage!=0)?1:0);//전체 페이지수
 		int totalGroupNo = (totalPageNo/pagesPerGroup)+((totalPageNo%pagesPerGroup!=0)?1:0);//전체 그룹수
 		
-		int groupNo = (pageNo-1)/pagesPerGroup + 1;//현재 그룹의 번호
+		int groupNo = (intPageNo-1)/pagesPerGroup + 1;//현재 그룹의 번호
 		int startPageNo = (groupNo-1)*pagesPerGroup + 1;//그룹의 첫번째 번호 구하기
 		int endPageNo = startPageNo + pagesPerGroup - 1;//그룹의 마지막 번호 구하기
 		
 		if (groupNo == totalGroupNo) {
 			endPageNo = totalPageNo;
 		}
-		List<FreeBoard> list = freeBoardService.list(pageNo, rowsPerPage);
+		List<FreeBoard> list = freeBoardService.list(intPageNo, rowsPerPage);
 		
-		model.addAttribute("pageNo",pageNo);
+		model.addAttribute("pageNo",intPageNo);
 		model.addAttribute("rowsPerPage",rowsPerPage);
 		model.addAttribute("pagesPerGroup",pagesPerGroup);
 		model.addAttribute("totalBoardNo",totalBoardNo);
@@ -71,7 +86,7 @@ public class FreeboardController {
 		freeBoard.setBwriter(mid);
 		int result = freeBoardService.write(freeBoard);
 		
-		if (result == FreeBoardService.REMOVE_FAIL) {
+		if (result == FreeBoardService.WRITE_FAIL) {
 			return "freeboard/write";	//jsp파일에서 매개변수인 FreeBoard 사용 가능
 		} else {
 			return "redirect:/freeboard/list";
@@ -101,14 +116,11 @@ public class FreeboardController {
 		return "redirect:/freeboard/list";
 	}
 	
+	//1028
 	@RequestMapping("/remove")
-	public String remove(int bno, Model model){
-		int result = freeBoardService.remove(bno);
-		if (result == freeBoardService.REMOVE_FAIL) {
-			return "freeboard/info";	//jsp파일에서 매개변수인 FreeBoard 사용 가능
-		} else {
-			return "redirect:/freeboard/list";
-		}
+	public String remove(int bno){
+		freeBoardService.remove(bno);
+		return "redirect:/freeboard/list";
 	}
 	
 }

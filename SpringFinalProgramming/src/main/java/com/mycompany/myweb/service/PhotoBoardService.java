@@ -10,14 +10,14 @@ import com.mycompany.myweb.dto.PhotoBoard;
 
 @Component
 public class PhotoBoardService {
-	private static final int WRITE_SUCESS = 0;
-	private static final int WRITE_FAIL = 1;
+	public static final int WRITE_SUCESS = 0;
+	public static final int WRITE_FAIL = 1;
 	
-	private static final int MODIFY_SUCESS = 0;
-	private static final int MODIFY_FAIL = 1;
+	public static final int MODIFY_SUCESS = 0;
+	public static final int MODIFY_FAIL = 1;
 
-	private static final int REMOVE_SUCESS = 0;
-	private static final int REMOVE_FAIL = 1;
+	public static final int REMOVE_SUCESS = 0;
+	public static final int REMOVE_FAIL = 1;
 	
 	@Autowired
 	private PhotoBoardDao photoBoardDao;
@@ -42,5 +42,9 @@ public class PhotoBoardService {
 	}
 	public PhotoBoard info(int bno){
 		return photoBoardDao.selectByBno(bno);
+	}
+	
+	public int getCount(){
+		return photoBoardDao.count();
 	}
 }
