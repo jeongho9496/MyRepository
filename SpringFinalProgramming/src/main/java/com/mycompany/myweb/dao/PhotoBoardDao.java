@@ -68,7 +68,8 @@ public class PhotoBoardDao {
 		}
 		
 		public PhotoBoard selectByBno(int bno){
-			String sql="select bno, btitle, bcontent, bwriter, bhitcount, bdate, originalfile, savedfile, mimetype from photoboard where bno=?";
+			String sql="select bno, btitle, bcontent, bwriter, bhitcount, bdate, originalfile, savedfile, mimetype "
+					+ "from photoboard where bno=?";
 			List<PhotoBoard> list = jdbcTemplate.query(sql, new Object[]{bno}, new RowMapper<PhotoBoard>(){
 
 				@Override

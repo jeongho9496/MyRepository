@@ -43,7 +43,7 @@ public class MemberService {
 	public int login(String mid, String mpassword){
 		
 		//회원 로그인
-		Member member = memberDao.selectByMid(mid);//멤버를 가져온다.
+		Member member = memberDao.selectByMid(mid);//사용자가 작성한 아이디로 DB에 있는 회원정보를 가져온다.
 		if (member == null) {
 			//디비에 멤버가 없다.
 			return LOGIN_FAIL_MID;

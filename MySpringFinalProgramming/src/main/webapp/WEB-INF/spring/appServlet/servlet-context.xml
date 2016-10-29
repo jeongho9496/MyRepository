@@ -38,5 +38,6 @@
 	<beans:bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<beans:property name="dataSource" ref="dataSource"/><!-- name="dataSource"=>setter이름 ref="dataSource"=>connection이름 -->
 	</beans:bean><!-- spring에서만 사용가능 -->
-
+	
+	<beans:bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 </beans:beans>

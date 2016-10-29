@@ -22,7 +22,7 @@ public class MemberDao {
 	//기본적으로 insert, update, delete
 	public int insert(Member member){
 		String sql = "insert into member(mid, mname, mpassword, maddress, mtel, memail) values(?,?,?,?,?,?)";
-		int row = jdbcTemplate.update(
+		int row = jdbcTemplate.update(	//jdbcTemplate.update 성공시 1리턴
 				sql,
 				member.getMid(),
 				member.getMname(),
@@ -38,7 +38,7 @@ public class MemberDao {
 		String sql = "update member set mpassword=?, maddress=?, mtel=?, memail=? where mid=?";
 		int row = jdbcTemplate.update(
 				sql,
-				member.getMpassword(),
+				member.getMpassword(),// 사용자가 입력한 멤버 입력을 sql문의 ?표 순서대로 대입 된다.
 				member.getMaddress(),
 				member.getMtel(),
 				member.getMemail(),
