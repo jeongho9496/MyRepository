@@ -88,7 +88,7 @@ public class PhotoBoardController {
 	public String write(PhotoBoard photoBoard, HttpSession session) {
 		try{
 			String mid = (String)session.getAttribute("login");
-			photoBoard.setBwriter(mid);
+			photoBoard.setBwriter(mid);//멤버의 아이디를 글쓴이로 한다.
 			photoBoard.setOriginalfile(photoBoard.getPhoto().getOriginalFilename());//저장할 파일 originalfilename 얻기
 			
 			String savedfile = new Date().getTime()+photoBoard.getPhoto().getOriginalFilename();
@@ -159,13 +159,6 @@ public class PhotoBoardController {
 	
 	@RequestMapping(value = "/modify", method=RequestMethod.POST)
 	public String modify(PhotoBoard photoBoard, HttpSession session, Model model){
-		/*photoBoard.setBhitcount(dbPhotoBoard.getBhitcount());//좋은 방법이 아님 hitcount를 따로 만들어야 됨.
-		photoBoard.setOriginalfile(dbPhotoBoard.getOriginalfile());
-		photoBoard.setSavedfile(dbPhotoBoard.getSavedfile());
-		photoBoard.setMimetype(dbPhotoBoard.getMimetype());
-		photoBoard.setPhoto(dbPhotoBoard.getPhoto());
-		photoBoardService.modify(photoBoard);
-		return "redirect:/photoboard/list";*/
 		
 		PhotoBoard dbPhotoBoard = photoBoardService.info(photoBoard.getBno());
 		try{
