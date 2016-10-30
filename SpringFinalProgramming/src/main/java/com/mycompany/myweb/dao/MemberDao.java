@@ -93,5 +93,18 @@ public class MemberDao {
 		return (list.size() != 0)? list.get(0):null;
 	}
 	
+	public String searchMpassword(String mid, String memail){//비밀번호 찾기
+		String sql = "select mpassword from member where memail=? and mid=? ";
+		List<String> list = jdbcTemplate.query(sql, new Object[]{memail}, new RowMapper<String>(){
+
+			@Override
+			public String mapRow(ResultSet rs, int row) throws SQLException {
+				
+				return rs.getString("mpassword");
+			}
+		
+		});
+		return (list.size() != 0)? list.get(0):null;
+	}
 	
 }

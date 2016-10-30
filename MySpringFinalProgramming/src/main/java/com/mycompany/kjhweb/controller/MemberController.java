@@ -66,4 +66,14 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session){
+		String mid = (String) session.getAttribute("login");//로그인한 mid를 session에서 받음
+		int result = memberService.logout(mid);
+		if (result == MemberService.LOGOUT_SUCCESS) {
+			session.removeAttribute("login");
+		}
+		return "redirect:/";
+	}
+	
 }

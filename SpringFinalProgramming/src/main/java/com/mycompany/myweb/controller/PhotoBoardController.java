@@ -116,11 +116,6 @@ public class PhotoBoardController {
 		try{
 			String fileName = savedfile;
 			
-			/* 브라우저에서 보여주지 않고 강제로 다운로드 할 경우
-			fileName = URLEncoder.encode(fileName, "UTF-8"); //fileName(한글) UTF-8형식으로 변환
-			response.setHeader("Content-Disposition", "attachment; filename=\""+fileName+"\"");//첨부화일 만들기(다운로드)
-			*/		
-			
 			String mimeType = request.getServletContext().getMimeType(savedfile);
 			response.setContentType(mimeType);//Content-Type 설정
 			
