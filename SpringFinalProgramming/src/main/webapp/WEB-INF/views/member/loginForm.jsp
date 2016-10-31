@@ -21,6 +21,6 @@
 		
 		<a href ="${pageContext.servletContext.contextPath}/member/join">회원 가입</a><br/><%--상대경로 --%>
 		<a href ="findMid">아이디 찾기</a><br/>											<%--절대경로 --%>
-		비밀번호 찾기
+		<a href ="findMpassword">비밀번호 찾기</a><br/>
 	</body>
 </html>

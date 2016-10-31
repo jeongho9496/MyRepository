@@ -94,7 +94,7 @@ public class MemberDao {
 	}
 	
 	public String searchMpassword(String mid, String memail){//비밀번호 찾기
-		String sql = "select mpassword from member where memail=? and mid=? ";
+		String sql = "select mpassword from member where mid=? and memail=? ";
 		List<String> list = jdbcTemplate.query(sql, new Object[]{memail}, new RowMapper<String>(){
 
 			@Override

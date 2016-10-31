@@ -72,6 +72,7 @@ public class MemberService {
 		//회원 아이디 찾기
 		return memberDao.selectByMemail(memail);
 	}
+	
 	public Member info(String mid,String mpassword){
 		//회원 정보
 		Member member = memberDao.selectByMid(mid);

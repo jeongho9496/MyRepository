@@ -63,6 +63,23 @@ public class MemberController {
 		return "redirect:/member/login";//get방식으로 넘김
 	}
 	
+	@RequestMapping(value="/findMpassword", method=RequestMethod.GET)
+	public String findMpasswordForm(){
+		
+		return "member/findMpasswordForm";
+	}
+	
+	@RequestMapping(value="/findMpassword", method=RequestMethod.POST)
+	public String findMpassword(String mid, String memail,Model model,HttpSession session){
+		String Mpassword = memberService.findMpassword(mid, memail);
+		if (Mpassword == null) {
+			model.addAttribute("error", "이메일및 아이디가 존재하지 않음");//값을 바로 .jsp에 넘김
+			return "member/findMpasswordForm";
+		}
+		session.setAttribute("findMpassword", Mpassword);
+		return "redirect:/member/login";//get방식으로 넘김
+	}
+	
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public String joinForm(){
 		return "member/joinForm";
