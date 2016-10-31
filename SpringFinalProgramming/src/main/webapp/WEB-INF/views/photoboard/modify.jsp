@@ -22,7 +22,7 @@
 				
 				<tr>				
 					<td style="background-color:orange; width:70px">사진</td>
-					<td><input type="file" name="photo"/>${photoBoard.savedfile}</td>
+					<td><input type="file" name="photo"/>${photoBoard.savedfile}</td><%-- name tag = 서버로 전송될 이름 지정 --%>
 				</tr>
 			</table>
 			<input type="submit" value="글수정"/>
