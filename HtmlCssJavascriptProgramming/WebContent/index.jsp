@@ -14,8 +14,9 @@
 		<img src="">
 		
 		1. <a href="htmlcss/index.jsp"> HTML/CSS </a> <br/>
-		2. <a href="javascript/index.jsp"> JavaScript </a> <br/><%-- <br/> 시작과 끝이 같을 때 한꺼번에 사용(<br>내용없음</br>) --%>
-		3. <a href="jquery/index.jsp"> jQuery </a> <br/>
+		2. <a href="bootstrap/index.jsp"> BootStrap </a> <br/>
+		3. <a href="javascript/index.jsp"> JavaScript </a> <br/><%-- <br/> 시작과 끝이 같을 때 한꺼번에 사용(<br>내용없음</br>) --%>
+		4. <a href="jquery/index.jsp"> jQuery </a> <br/>
 	</body>
 	
 </html>
