@@ -10,11 +10,11 @@
 		<hr/>
 		<h1>Block</h1>
 		<%-- block은 부모 컨테이너에 꽉차게 들어간다(부모 전체를 차지) --%>
-		<div style="background-color:#ff0000; height:50px; border:1px solid green"></div>
-		<div style="background-color:#0000FF; height:50px; border:1px solid yellow"></div>
-		<h1 style="background-color:#0000FF; height:50px; border:1px solid yellow">제목</h1>
-		<p style="background-color:#0000FF; height:50px; border:1px solid yellow">내용</p>
-		<form style="background-color:#0000FF; height:50px; border:1px solid yellow"></form>
+		<div style="background-color:#ff0000; height:50px; border:5px solid green"></div>
+		<div style="background-color:#0000FF; height:50px; border:5px solid yellow"></div>
+		<h1 style="background-color:#0000FF; height:50px; border:5px solid yellow">제목</h1>
+		<p style="background-color:#0000FF; height:50px; border:5px solid yellow">내용</p>
+		<form style="background-color:#0000FF; height:50px; border:5px solid yellow"></form>
 		
 		<h1>In-line</h1>
 		<%-- In-line은 자신의 크기만큼만 차지 한다. --%>

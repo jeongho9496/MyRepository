@@ -54,12 +54,12 @@
 		
 		<br/>
 		<div id="div6">
-			<div><p>A</p></div>
+			<div><p>A div6</p></div>
 			<p>B</p>
 		</div>
 		
 		<br/>
-		<div id="div7"></div>
+		<div id="div7">div7</div>
 		<p>A</p>
 		<p>B</p>
 		
