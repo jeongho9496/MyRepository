@@ -20,7 +20,7 @@
 			var v7 = new Date();
 			var v8 = [1,2,3];/* 배열 */
 			
-			console.log("v1: "+ typeof(v1));
+			console.log("v1:  "+ typeof(v1));
 			console.log("v2: "+ typeof(v2));
 			console.log("v3: "+ typeof(v3));
 			console.log("v4: "+ typeof(v4));
