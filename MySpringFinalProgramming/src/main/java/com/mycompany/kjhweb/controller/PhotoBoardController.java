@@ -94,7 +94,7 @@ public class PhotoBoardController {
 			logger.info("실제 파일 이름 : "+photoBoard.getPhoto().getOriginalFilename().toString());
 			
 			String savedfile = new Date().getTime()+photoBoard.getPhoto().getOriginalFilename();
-			logger.info("DB에 저장되는 이름 : "+savedfile);
+			logger.info("저장되는 이름 : "+savedfile);
 			
 			String realpath = session.getServletContext().getRealPath("/WEB-INF/photo/"+savedfile);
 			logger.info("실제 저장되는 경로 : "+realpath);
