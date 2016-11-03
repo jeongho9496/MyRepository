@@ -59,7 +59,8 @@
 		<button onclick="onClickButton1()">버튼1</button>		
 		<div id="div1">최초 내용</div><%-- <div></div> 객체! --%>
 		
-		<button onclick="onClickButton2()">버튼2</button>		
+		<button onclick="onClickButton2()">버튼2</button>	
+		<%-- button(=>Event Source) onclick(=>Event)="..."(=>Event Handler or Event Listener) --%>	
 		<div id="div2">
 			<img class="photo" src="../common/image/photo1.jpg" width="200px"/>
 		</div>
