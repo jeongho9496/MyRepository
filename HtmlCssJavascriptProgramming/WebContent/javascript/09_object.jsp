@@ -14,11 +14,11 @@
 		<hr/>
 		<script type="text/javascript">
 			var car = { 
-				model: "승용차",
+				model: "승용차",		//field(속성)명: 값
 				company: "현대",
 				cc: 3000,
 				speed: 0,
-				start: function(){
+				start: function(){	//method명: function(){}
 					console.log("시동을 겁니다.");
 				},
 				stop: function(){

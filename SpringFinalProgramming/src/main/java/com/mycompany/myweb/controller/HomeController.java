@@ -16,7 +16,7 @@ public class HomeController {
 	public String index() {
 		
 		logger.debug("home() 실행");	
-		return "home";
+		return "index";
 	}
 	
 }
