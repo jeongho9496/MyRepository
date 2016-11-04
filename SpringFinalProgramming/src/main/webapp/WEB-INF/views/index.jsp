@@ -30,7 +30,7 @@
 </script>
 </head>
 
-<body>
+<body style="background-image: url(${pageContext.servletContext.contextPath}/resources/image/paper.gif)">
 
 	<div class="container">
 
@@ -40,10 +40,11 @@
 			<h3 class="text-muted">Kim-JeongHo</h3>
 			<nav>
 				<ul class="nav nav-justified">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">로그인</a></li>
-					<li><a href="#">자유 게시판</a></li>
-					<li><a href="#">포토 게시판</a></li>
+					<li class="active"><a target="iframe" href="${pageContext.servletContext.contextPath}/home">Home</a></li>
+					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/member/login">로그인</a></li>
+					<%--target이 iframe 이다. --%>
+					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/freeboard/list">자유 게시판</a></li>
+					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/photoboard/list">포토 게시판</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -58,15 +59,15 @@
 			</p>
 		</div>
 		 --%>
-		 <iframe style="width: 100%; height: 400px;"></iframe>
+		 <iframe name="iframe" style="width: 100%; height: 400px; border-width:0px;" src="home" ></iframe>
 
 
-		<div class="row">
+		<div class="row bg-success" >
 			<div class="col-lg-4">
 				<h2>회원 서비스</h2>
-				<p class="text-danger">회원가입</p>
-				<p>로그인</p>
-				<p>로그아웃</p>
+				<p class="text-success">회원가입</p>
+				<p class="text-success">로그인</p>
+				<p class="text-success">로그아웃</p>
 				<p>
 					<a class="btn btn-primary" href="#" role="button">자세한 설명</a>
 				</p>

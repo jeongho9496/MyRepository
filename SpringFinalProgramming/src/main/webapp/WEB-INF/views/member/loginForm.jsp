@@ -6,6 +6,16 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<script type="text/javascript"
+				src="${pageContext.servletContext.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript"
+				src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
+		<link
+			href="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/css/bootstrap.min.css"
+			rel="stylesheet" />
+		<link
+			href="${pageContext.servletContext.contextPath}/resources/css/justified-nav.css"
+			rel="stylesheet" />
 	</head>
 	<body>
 		로그인

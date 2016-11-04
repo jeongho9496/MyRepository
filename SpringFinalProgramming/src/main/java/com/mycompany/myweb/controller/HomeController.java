@@ -15,8 +15,17 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		
-		logger.debug("home() 실행");	
+		logger.info("home() 실행");	
 		return "index";
 	}
+	
+	@RequestMapping("/home")
+	public String home() {
+		
+		logger.info("home() 실행");	
+		return "home";
+	}
+	
+	
 	
 }

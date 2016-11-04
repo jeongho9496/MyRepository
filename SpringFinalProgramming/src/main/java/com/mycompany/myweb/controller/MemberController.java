@@ -42,7 +42,7 @@ public class MemberController {
 		
 		} else {
 			session.setAttribute("login", mid);//성공시 session에 저장			
-			return "redirect:/";
+			return "redirect:/home";
 		}
 	}
 	
