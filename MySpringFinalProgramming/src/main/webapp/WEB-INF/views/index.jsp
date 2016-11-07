@@ -38,7 +38,6 @@
 					<li class="active"><a target="iframe" href="${pageContext.servletContext.contextPath}/home">Home</a></li>
 					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/member/login">로그인</a></li>
 					<%--target이 iframe 이다. --%>
-					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/freeboard/list">자유 게시판</a></li>
 					<li><a target="iframe" href="${pageContext.servletContext.contextPath}/photoboard/list">포토 게시판</a></li>
 				</ul>
 			</nav>
@@ -63,17 +62,6 @@
 				<p class="text-success">회원가입</p>
 				<p class="text-success">로그인</p>
 				<p class="text-success">로그아웃</p>
-				<p>
-					<a class="btn btn-primary" href="#" role="button">자세한 설명</a>
-				</p>
-			</div>
-			<div class="col-lg-4">
-				<h2>자유 게시판</h2>
-				<p>게시물 목록</p>
-				<p>게시물 쓰기</p>
-				<p>게시물 보기</p>
-				<p>게시물 삭제</p>
-				<p>게시물 수정</p>
 				<p>
 					<a class="btn btn-primary" href="#" role="button">자세한 설명</a>
 				</p>
