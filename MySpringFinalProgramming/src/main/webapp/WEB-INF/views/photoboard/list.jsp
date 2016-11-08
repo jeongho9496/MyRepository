@@ -28,7 +28,7 @@
 			<a href="write">[글쓰기]</a>
 		</c:if>
 		
-		<table style="width:600px">
+		<table style="width:100%">
 			<tr>
 				<td>
 					

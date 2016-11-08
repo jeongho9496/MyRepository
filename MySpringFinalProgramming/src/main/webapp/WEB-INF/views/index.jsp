@@ -25,7 +25,7 @@
 </script>
 </head>
 
-<body style="background-image: url(${pageContext.servletContext.contextPath}/resources/image/paper.gif)">
+<body style="background-image: url(${pageContext.servletContext.contextPath}/resources/image/album.png); width=100%; ">
 
 	<div class="container">
 
