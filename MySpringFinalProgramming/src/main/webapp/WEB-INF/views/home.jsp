@@ -17,7 +17,7 @@
 			href="${pageContext.servletContext.contextPath}/resources/css/justified-nav.css"
 			rel="stylesheet" />
 	</head>
-	<body>
+	<body style="background-color: #d5b588;">
 		<%-- MySpringFinalProgramming
 		<hr/>
 		1.
