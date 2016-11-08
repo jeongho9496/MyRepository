@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta charset = "UTF-8">
-		<script type="text/javascript"
+		<%-- <script type="text/javascript"
 				src="${pageContext.servletContext.contextPath}/resources/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript"
 				src="${pageContext.servletContext.contextPath}/resources/bootstrap-3.3/js/bootstrap.min.js"></script>
@@ -15,10 +15,10 @@
 			rel="stylesheet" />
 		<link
 			href="${pageContext.servletContext.contextPath}/resources/css/justified-nav.css"
-			rel="stylesheet" />
+			rel="stylesheet" /> --%>
 	</head>
 	<body style="background-color: #d5b588;">
-		<%-- MySpringFinalProgramming
+		MySpringFinalProgramming
 		<hr/>
 		1.
 		<a href="<%=pageContext.getServletContext().getContextPath()%>/member/login">로그인</a><br/>
@@ -26,16 +26,16 @@
 		
 		2. <a href="<%=pageContext.getServletContext().getContextPath()%>/photoboard/list">포토 게시판</a><br/>
 		
-		3. <a href="${pageContext.servletContext.contextPath}/member/join">회원 가입</a><br/> --%>
+		3. <a href="${pageContext.servletContext.contextPath}/member/join">회원 가입</a><br/>
 		
-		<div class="jumbotron">
+		<%-- <div class="jumbotron">
 			<h1>나만의 PHOTO ALBUM</h1>
 			<p class="lead">Java, SQL, JDBC, HTML5, CSS3, JavaScript, jQeury,
 				Ajax, Jsp, Spring</p>
 			<p>
 				<a class="btn btn-lg btn-success" href="<%=pageContext.getServletContext().getContextPath()%>/member/login" role="button">들어가기</a>
 			</p>
-		</div> 
+		</div>  --%>
 	
 	</body>
 </html>
