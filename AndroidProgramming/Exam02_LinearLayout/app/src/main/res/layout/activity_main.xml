@@ -130,7 +130,6 @@
                     android:layout_height="wrap_content"
                     android:text="아무거나 누르면 들어간다 ㅋㅋㅋ 두 줄 나오게 하려면 얼나마 작성해야 할까"/>
 
-
             </LinearLayout>
 
         </LinearLayout>
