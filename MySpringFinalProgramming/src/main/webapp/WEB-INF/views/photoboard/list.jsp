@@ -34,7 +34,7 @@
 					
 					<c:forEach var="photoBoard" items="${list}"><%--?? --%>
 					<a href="info?bno=${photoBoard.bno}">
-					<c:if test="${login == photoBoard.bwriter}">
+					
 					<div style="width:120px; height:130px; margin:5px; background-image:url(showPhoto?savedfile=${photoBoard.savedfile}); background-size: 120px 130px;display:inline-block;">
 						
 						<div style="height:100px;">
@@ -50,7 +50,7 @@
 							</table>
 						</div>
 					</div>
-					</c:if>
+				
 					</a>
 					
 					</c:forEach>

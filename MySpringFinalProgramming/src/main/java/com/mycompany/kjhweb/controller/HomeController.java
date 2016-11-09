@@ -11,14 +11,14 @@ public class HomeController {
 	//1025
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/*@RequestMapping("/")
+	@RequestMapping("/")
 	public String index() {
 		
 		logger.info("index() 실행");	
 		return "index";
-	}*/
+	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String home() {
 		
 		logger.info("home() 실행");	
