@@ -1,6 +1,6 @@
 --1021
 --Section03 Equi Join(Inner Join)
---조인 대상이 되는 두 테이블에서 공통을로 존재하는 컬럼의 값.
+--조인 대상이 되는 두 테이블에서 공통으로 존재하는 컬럼의 값.
 --일치하는 행을 연결하여 결과를 생성하는 조인 방법
 select * from employees;
 select * from departments;
