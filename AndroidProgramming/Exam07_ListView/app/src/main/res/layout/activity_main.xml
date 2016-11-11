@@ -121,20 +121,12 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/lightList"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/itemContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-
-        </LinearLayout>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>
 
