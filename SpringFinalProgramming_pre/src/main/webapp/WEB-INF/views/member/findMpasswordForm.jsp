@@ -14,6 +14,7 @@
 			아이디: <input type="text" name="mid">${error}<br/>
 			이메일: <input type="email" name="memail">${error}<br/>
 			<input type="submit" value="찾기"/>
+			
 		</form>
 	</body>
 </html>
