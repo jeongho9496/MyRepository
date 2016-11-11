@@ -7,6 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout itemContainer;
@@ -25,43 +28,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fillItems() {
-        int[] arrImage={
-                R.drawable.light1,
-                R.drawable.light2,
-                R.drawable.light3,
-                R.drawable.light4,
-                R.drawable.light5
-        };
+        List<Light> list = new ArrayList<>();
+        list.add(new Light(R.drawable.light1, "인테리어 조명1", "거실등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."));
+        list.add(new Light(R.drawable.light2, "인테리어 조명1", "자녀방등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."));
+        list.add(new Light(R.drawable.light3, "인테리어 조명1", "화장실등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."));
+        list.add(new Light(R.drawable.light4, "인테리어 조명1", "현관등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."));
+        list.add(new Light(R.drawable.light5, "인테리어 조명1", "안방등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."));
 
-        String[] arrTitle = {
-                "인테리어 조명1",
-                "인테리어 조명1",
-                "인테리어 조명1",
-                "인테리어 조명1",
-                "인테리어 조명1"
-        };
 
-        String[] arrContent = {
-                "거실등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다.",
-                "자녀방등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다.",
-                "화장실등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다.",
-                "현관등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다.",
-                "안방등으로 사용하면 좋습니다. 검은색 테두리와 백열등의 조화가 이쁩니다."
-        };
-
-        for (int i=0; i<arrImage.length; i++) {
+        for (Light light : list) {
             //inplation
             LinearLayout itemLayout = (LinearLayout) layoutInflater.inflate(R.layout.light_item, null);//xml의 제일 상위 Layout가 리턴됨.
 
             //Data Setting
             ImageView lightImage = (ImageView) itemLayout.findViewById(R.id.lightImage);
-            lightImage.setImageResource(arrImage[i]);
+            lightImage.setImageResource(light.getImage());
 
             TextView lightTitle = (TextView) itemLayout.findViewById(R.id.lightTitle);
-            lightTitle.setText(arrTitle[i]);
+            lightTitle.setText(light.getTitle());
 
             TextView lightContent = (TextView) itemLayout.findViewById(R.id.lightContent);
-            lightContent.setText(arrContent[i]);
+            lightContent.setText(light.getContent());
 
             //itemContainer의 내부 객체로 추가
             itemContainer.addView(itemLayout);
