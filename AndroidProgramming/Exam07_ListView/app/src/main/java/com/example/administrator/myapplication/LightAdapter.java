@@ -16,6 +16,10 @@ import java.util.List;
 
 public class LightAdapter extends BaseAdapter {
 
+    /*웹 프로그램 수정 사항
+    store table - beacon으로 PK, open, closed time 변경
+order table - column (is deleted (y/n)) 추가*/
+
     private List<Light> list;
 
     public void setList(List<Light> list) {
