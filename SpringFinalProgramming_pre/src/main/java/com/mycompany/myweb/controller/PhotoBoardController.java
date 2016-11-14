@@ -169,7 +169,9 @@ public class PhotoBoardController {
 			photoBoard.setSavedfile(savedfile);
 			
 			photoBoard.setMimetype(photoBoard.getPhoto().getContentType());//저장할 파일의 mime type 얻어냄.
+
 			photoBoard.setBhitcount(dbPhotoBoard.getBhitcount());
+
 			photoBoardService.modify(photoBoard);
 			//db에 originalfile, savedfile, mimetype 을 저장(실제 파일은 photoBoard.getPhoto().transferTo(new File(realpath));에 저장)
 			}catch (Exception e) {
