@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_secondary_text_material_dark.xml"
-    },
-    {
         "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
         "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",

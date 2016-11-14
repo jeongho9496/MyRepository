@@ -1,0 +1,7 @@
+#Mon Nov 14 09:05:14 KST 2016
+base.0=D\:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c19ef3ffb7ae5bd221aded850cd3ba4dc70120cb
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=D\:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_c4d8a5b9a6b67eafbab2b58ed4b5072f127fd2cb\\classes.dex
+base.1=D\:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_c4d8a5b9a6b67eafbab2b58ed4b5072f127fd2cb
+file.0=D\:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_c19ef3ffb7ae5bd221aded850cd3ba4dc70120cb\\classes.dex

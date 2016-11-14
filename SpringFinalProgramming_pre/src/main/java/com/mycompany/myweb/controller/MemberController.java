@@ -88,7 +88,6 @@ public class MemberController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String join(Member member){
 		try{
-			
 			int result = memberService.join(member);
 			return "redirect:/member/login";
 		}catch (Exception e) {

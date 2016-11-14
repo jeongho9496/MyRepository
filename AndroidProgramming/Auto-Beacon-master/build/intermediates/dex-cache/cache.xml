@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\libs\mail.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\mail_85abfa4d79dbd0fe5d370c7c38211531fda4673c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_81562a6052dee43bd994f4a57705426472168b2f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_8149dcff5293fe7e028fde00d973bb9a852b1da7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\libs\additionnal.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\additionnal_5831cfc794389d5044fef19062de58b5acdbd53f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_88225cfcdebebce48a67f86765f23aca8f663208\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_1d559e7ed20d144e0afcd6b12511adab899fb1e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_0d59bd7d204222f61269cacf1240fb36074349b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_048374e370de761750931868cf7f21c146e610ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_451cb5cb2eead554db26850e1ad8aa07cfbed5a8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_df44fccdee1121965cca1b721cfabbaa382ed8a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4b5fe225eb97a25d80ad191dd08f1529685872ed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_d4d9bc131a78249896e484c652c840059584f613\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c0de03b6dcb8114fc109385e60cc2d61abec594e">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_c4d8a5b9a6b67eafbab2b58ed4b5072f127fd2cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_4db83092a3814f4864801a97f3208cc33c426f64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_8a9af836566179a0b2fc908d06244d8e1a65c203\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f5972b32cf1f69ffa3e5effdc3b42e79e5e2c4a8">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c19ef3ffb7ae5bd221aded850cd3ba4dc70120cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\libs\activation.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\activation_78223cb4082e7e0b605a7ff34d7e6aa38292c211\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_25610202b29ed80dc053859d209580a88fdbc532\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\libs\commons-codec-1.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-codec-1.9_f1d1818e01e628bbd57ace9c0e7fc507fab3bc7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e26494bd08f48268542c93e5c6aca80c666b30be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="D:\Kosa3sw\MyRepository\AndroidProgramming\Auto-Beacon-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b2345eff814ef8622bf97cba76c905f7b820787e\classes.dex" />
+    </item>
+
+</items>

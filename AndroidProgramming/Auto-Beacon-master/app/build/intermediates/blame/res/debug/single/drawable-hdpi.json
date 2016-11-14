@@ -92,12 +92,12 @@
         "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\src\\main\\res\\drawable-hdpi\\tab_selected_example.9.png"
     },
     {
-        "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\list_focused_example.9.png",
-        "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\src\\main\\res\\drawable-hdpi\\list_focused_example.9.png"
-    },
-    {
         "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tab_selected_pressed_example.9.png",
         "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\src\\main\\res\\drawable-hdpi\\tab_selected_pressed_example.9.png"
+    },
+    {
+        "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\list_focused_example.9.png",
+        "source": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\src\\main\\res\\drawable-hdpi\\list_focused_example.9.png"
     },
     {
         "merged": "D:\\Kosa3sw\\MyRepository\\AndroidProgramming\\Auto-Beacon-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tab_unselected_example.9.png",
