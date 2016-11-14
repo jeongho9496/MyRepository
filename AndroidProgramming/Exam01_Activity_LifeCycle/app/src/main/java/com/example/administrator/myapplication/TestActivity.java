@@ -7,4 +7,5 @@ package com.example.administrator.myapplication;
 public class TestActivity {
 
     //test1
+    //test2
 }
