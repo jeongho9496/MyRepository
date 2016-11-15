@@ -1,8 +1,14 @@
 package com.mycompany.myweb.controller;
 
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +51,32 @@ public class HomeController {
         model.addAttribute("list", list);//객체를 jsp로 넘김
 		
 		return "lightList";
+	}
+	
+	@RequestMapping("/getImage")
+	public void getImage(String fileName, HttpServletRequest request,HttpServletResponse response){
+		//직접 응답을 만들어 보내기 때문에 따로 JSP에 요청하지 않아도 된다.
+		try{
+			
+			String mimeType = request.getServletContext().getMimeType(fileName);
+			response.setContentType(mimeType);//Content-Type 설정
+			
+			OutputStream os = response.getOutputStream();
+			
+			String filePath = request.getServletContext().getRealPath("/resources/image/"+fileName);
+			InputStream is = new FileInputStream(filePath);
+			byte[] values =new byte[1024];
+			int byteNum = -1;
+			while ((byteNum = is.read(values)) != -1 ) {
+				os.write(values, 0, byteNum);
+			}
+			os.flush();
+			is.close();
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

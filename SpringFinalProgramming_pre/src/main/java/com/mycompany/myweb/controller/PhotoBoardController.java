@@ -113,6 +113,7 @@ public class PhotoBoardController {
 	
 	@RequestMapping("/showPhoto")
 	public void showPhoto(String savedfile, HttpServletRequest request,HttpServletResponse response){//이미지 다운로드 받기 위해 메소드 작성
+						//보기를 원하는 파일명
 		try{
 			String fileName = savedfile;
 			
