@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mycompany.myweb.dto.Bistro;
 import com.mycompany.myweb.dto.Light;
 
 @Controller
@@ -51,6 +52,24 @@ public class HomeController {
         model.addAttribute("list", list);//객체를 jsp로 넘김
 		
 		return "lightList";
+	}
+	
+	@RequestMapping("/bistroList")
+	public String bistroList(Model model) {
+		logger.info("bistro() 실행");
+		
+		List<Bistro> list = new ArrayList<>();
+		list.add(new Bistro("food01.png", "food01_large.png","삼겹살", "12,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+        list.add(new Bistro("food02.png", "food02_large.png","양념장어구이", "34,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+        list.add(new Bistro("food03.png", "food03_large.png","소금장어구이", "34,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+        list.add(new Bistro("food04.png", "food04_large.png","비빔밥", "7,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+        list.add(new Bistro("food05.png", "food05_large.png","볶음밥", "7,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+        list.add(new Bistro("food06.png", "food06_large.png","떡볶이", "5,000 WON", "Information about popular Korean food dishes and local restaurant listings in the Tri-state area."));
+		
+        model.addAttribute("list", list);
+        
+        return "bistroList";
+		
 	}
 	
 	@RequestMapping("/getImage")

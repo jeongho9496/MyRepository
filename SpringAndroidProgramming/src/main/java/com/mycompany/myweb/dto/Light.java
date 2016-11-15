@@ -10,7 +10,7 @@ public class Light {
     private String title;
     private String content;
 
-    public void Light(){}
+    public Light(){}
 
 	public Light(String image, String imageLarge, String title, String content) {
 		this.image = image;
