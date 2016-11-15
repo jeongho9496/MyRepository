@@ -30,8 +30,6 @@ public class RestaurantActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     public void fillItems(){

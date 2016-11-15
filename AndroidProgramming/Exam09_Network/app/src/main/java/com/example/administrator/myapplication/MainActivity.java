@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
 
-                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK){
+                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK){//200 이면 정상
                         InputStream is = conn.getInputStream();
                         Reader reader = new InputStreamReader(is);  // 읽기 객체 생성
                         BufferedReader br =  new BufferedReader(reader);//성능 향상위해 사용.
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         List<Light> list = new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(strJson);//매개변수의 배열'[]'을 받아 parsing (<-> 객체이면'{}' JSONObject로 파싱한다.)
-            for (int i=0; i<jsonArray.length(); i++){
+            for (int i=0; i<jsonArray.length(); i++){   //배열([]) 안에 있는 데이터 길이 만큼 for문을 돌린다.
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                 Light light = new Light();
