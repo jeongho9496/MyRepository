@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<annotation-driven />
+
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"><!-- ViewResolver: 뷰해결자 -->
+		<beans:property name="prefix" value="/WEB-INF/views/" /><!-- 파일 앞에 오는것 setPrefix("/WEB-INF/views/"); -->
+		<beans:property name="suffix" value=".jsp" />			<!-- 파일 형식 지정 setSuffix(".jsp"); -->
+	</beans:bean><!-- 전체 JSP의 경로를 만들어줌,예약된 이름이 있으므로 name지정안함, beans:bean=>관리객체로 만들어줌 -->
+	
+	<context:component-scan base-package="com.mycompany.myweb" />
+	<!-- component : Spring이 관리해야할 객체 @Controller를 base-package 안에서 찾음 -->
+	<!-- base-package 밖의 패키지는 검색을 못한다. -->
+	
+
+	<!-- 1024 -->
+	<!-- Connection Pool => 하나의 객체-->
+	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<beans:property name="driverClass" value="oracle.jdbc.OracleDriver"/>
+		<beans:property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+		<beans:property name="user" value="final"/>
+		<beans:property name="password" value="kosa12345"/>
+		<beans:property name="maxPoolSize" value="3"/><!-- connection pool 만들 최대 개수 -->
+		<beans:property name="initialPoolSize" value="1"/><!-- 처음에 애플리케이션이 배치될 때 만들어 질 connection pool개수 -->
+		<beans:property name="acquireIncrement" value="1"/><!-- initialPoolSize가 다 사용될때 얼마나 connection pool을 몇개 증가할것인지  -->
+		<beans:property name="minPoolSize" value="1"/><!-- 실행도중 몇개를 남겨두고 지울 것인지 --> 
+	</beans:bean>
+
+	<!-- 1025 -->
+	<!-- JdbcTemplate 객체 생성 -->
+	<beans:bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<beans:property name="dataSource" ref="dataSource"/><!-- name="dataSource"=>setter이름 ref="dataSource"=>connection이름 -->
+	</beans:bean><!-- spring에서만 사용가능 -->
+	
+	<!-- 1028 file upload -->
+	<!-- Multipart/form-data 해석을 위한 스프링 관리 객체 설정 -->
+	<beans:bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+</beans:beans>
