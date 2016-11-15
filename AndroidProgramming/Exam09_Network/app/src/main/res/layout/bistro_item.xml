@@ -9,15 +9,16 @@
     android:paddingBottom="2.5dp"
     android:layout_weight="1"
     >
-        <ImageView
-            android:id="@+id/bistroImage"
-            android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:layout_marginRight="10dp"
-            android:scaleType="fitXY"
-            />
 
-        <LinearLayout
+    <ImageView
+        android:id="@+id/bistroImage"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="10dp"
+        android:scaleType="fitXY"
+        />
+
+    <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -25,6 +26,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="30dp">
+
                 <TextView
                     android:id="@+id/bistroTitle"
                     android:layout_width="wrap_content"
@@ -32,6 +34,7 @@
                     android:textColor="#ffffffff"
                     android:textStyle="bold"
                     android:layout_weight="1"/>
+
                 <TextView
                     android:id="@+id/bistroPrice"
                     android:layout_width="wrap_content"

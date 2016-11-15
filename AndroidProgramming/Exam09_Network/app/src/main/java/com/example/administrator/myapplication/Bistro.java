@@ -1,19 +1,25 @@
 package com.example.administrator.myapplication;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by kimjeongho on 2016-11-14.
  */
 
 public class Bistro {
-    private int image;
-    private int imageLarge;
+    private Bitmap image;
+    private Bitmap imageLarge;
+
+    private String imageFileName;
+    private String imageLargeFileName;
+
     private String title;
     private String price;
     private String content;
 
     public Bistro(){}
 
-    public Bistro(int image, int imageLarge ,String title, String price, String content) {
+    public Bistro(Bitmap image, Bitmap imageLarge ,String title, String price, String content) {
         this.image = image;
         this.imageLarge = imageLarge;
         this.title = title;
@@ -21,20 +27,36 @@ public class Bistro {
         this.content = content;
     }
 
-    public int getImageLarge() {
-        return imageLarge;
-    }
-
-    public void setImageLarge(int imageLarge) {
-        this.imageLarge = imageLarge;
-    }
-
-    public int getImage() {
+    public Bitmap getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Bitmap image) {
         this.image = image;
+    }
+
+    public Bitmap getImageLarge() {
+        return imageLarge;
+    }
+
+    public void setImageLarge(Bitmap imageLarge) {
+        this.imageLarge = imageLarge;
+    }
+
+    public String getImageFileName() {
+        return imageFileName;
+    }
+
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
+    }
+
+    public String getImageLargeFileName() {
+        return imageLargeFileName;
+    }
+
+    public void setImageLargeFileName(String imageLargeFileName) {
+        this.imageLargeFileName = imageLargeFileName;
     }
 
     public String getTitle() {

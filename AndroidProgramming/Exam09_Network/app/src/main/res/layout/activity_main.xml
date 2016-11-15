@@ -122,6 +122,19 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="BistroActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bistroBtn"
+            android:layout_weight="1" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lightList"
         android:layout_width="match_parent"

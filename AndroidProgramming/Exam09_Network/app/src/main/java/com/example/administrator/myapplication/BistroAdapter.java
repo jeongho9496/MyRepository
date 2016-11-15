@@ -53,7 +53,7 @@ public class BistroAdapter extends BaseAdapter{
 
         Bistro bistro = list.get(position);
         ImageView bistroImage = (ImageView)convertView.findViewById(R.id.bistroImage);
-        bistroImage.setImageResource(bistro.getImage());
+        bistroImage.setImageBitmap(bistro.getImage());
 
         TextView bistroTitle = (TextView)convertView.findViewById(R.id.bistroTitle);
         bistroTitle.setText(bistro.getTitle());

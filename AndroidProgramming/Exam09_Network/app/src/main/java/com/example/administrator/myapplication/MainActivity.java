@@ -38,11 +38,22 @@ public class MainActivity extends AppCompatActivity {
 
     private LightAdapter lightAdapter;
 
+    private Button bistroBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageLarge = (ImageView)findViewById(R.id.imageLarge);
+        bistroBtn = (Button)findViewById(R.id.bistroBtn);
+
+        bistroBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
 
         lightList = (ListView)findViewById(R.id.lightList); //초기화 작업
         lightList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 Thread thread = new Thread(){
                     @Override
                     public void run() {
-                        final Bitmap bitmap = getBitmap(light.getImageLargeFileName());   //지역변수가 익명객체 안에서 사용될때 변수에 final을 붙혀야 된다.
+                        final Bitmap bitmap = getBitmap(light.getImageLargeFileName()); //light1_large.png  //지역변수가 익명객체 안에서 사용될때 변수에 final을 붙혀야 된다.
                         imageLarge.post(new Runnable() {
                             @Override
                             public void run() {
@@ -77,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myandroid/lightList");
+                    URL url = new URL("http://192.168.0.3:8080/myandroid/lightList");
                     //thread생성(MainThread에서 네트워크 통신을 시키면 화면의 UI생성, 변경, 이벤트 처리를 못한다. -> ANR 생성)
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -131,11 +142,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Light light = new Light();
 
-                light.setImage(getBitmap(jsonObject.getString("image")));
+                light.setImage(getBitmap(jsonObject.getString("image")));//light01.png
                 if (i==0){
                     light.setImageLarge(getBitmap(jsonObject.getString("imageLarge")));
                 }
-                light.setImageFileName(jsonObject.getString("image"));  //문자열로 되있는(json) 파일이름 을 얻어옴
+                /*light.setImageFileName(jsonObject.getString("image"));*/  //문자열로 되있는(json) 파일이름 을 얻어옴
                 light.setImageLargeFileName(jsonObject.getString("imageLarge"));
                 light.setTitle(jsonObject.getString("title"));
                 light.setContent(jsonObject.getString("content"));
@@ -151,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.58:8080/myandroid/getImage?fileName="+fileName);//get방식
+            URL url = new URL("http://192.168.0.3:8080/myandroid/getImage?fileName="+fileName);//get방식 light01.png
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

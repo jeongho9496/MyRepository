@@ -1,5 +1,7 @@
 package com.example.administrator.myapplication;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -47,7 +49,23 @@ public class SecondActivity extends AppCompatActivity {
         bistroList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Bistro bistro = (Bistro)bistroAdapter.getItem(position);
+                Thread thread = new Thread(){
+                    @Override
+                    public void run() {
+                        final Bitmap bitmap = getBitmap(bistro.getImageLargeFileName());
+                        imageLarge.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                imageLarge.setImageBitmap(bitmap);
+                            }
+                        });
 
+                    }
+                };
+                thread.start();
+
+                Toast.makeText(getApplicationContext(),bistro.getTitle(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -67,7 +85,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myandroid/bistroList");
+                    URL url = new URL("http://192.168.0.3:8080/myandroid/bistroList");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
 
@@ -91,6 +109,7 @@ public class SecondActivity extends AppCompatActivity {
                                 bistroAdapter = new BistroAdapter(SecondActivity.this);
                                 bistroAdapter.setList(list);
                                 bistroList.setAdapter(bistroAdapter);
+                                imageLarge.setImageBitmap(list.get(0).getImageLarge());
                             }
                         });
                     }
@@ -108,12 +127,17 @@ public class SecondActivity extends AppCompatActivity {
     private List<Bistro> parseJson(String strJson) {
         List<Bistro> list = new ArrayList<>();
         try {
-            JSONArray jsonArray = new JSONArray(strJson);
+            JSONArray jsonArray = new JSONArray(strJson);//[
             for (int i=0; i<jsonArray.length(); i++){
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                JSONObject jsonObject = jsonArray.getJSONObject(i);//{}
 
                 Bistro bistro = new Bistro();
-
+                bistro.setImage(getBitmap(jsonObject.getString("image")));
+                if ( i==0 ){
+                    bistro.setImageLarge(getBitmap(jsonObject.getString("imageLarge")));
+                }
+                bistro.setImageFileName(jsonObject.getString("image"));
+                bistro.setImageLargeFileName(jsonObject.getString("imageLarge"));
                 bistro.setTitle(jsonObject.getString("title"));
                 bistro.setPrice(jsonObject.getString("price"));
                 bistro.setContent(jsonObject.getString("content"));
@@ -124,5 +148,25 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         return list;
+    }
+
+    private Bitmap getBitmap(String fileName) {
+        Bitmap bitmap = null;
+
+        try {
+            URL url = new URL("http://192.168.0.3:8080/myandroid/getImage?fileName="+fileName);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.connect();
+            if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                InputStream is = conn.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is); //inputStream을 가지고 비트맵을 만들어줌.
+            }
+
+            conn.disconnect();
+        } catch (Exception e) {
+            Log.i("myLog",e.getMessage());
+        }
+
+        return bitmap;
     }
 }
