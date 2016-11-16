@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.0.3:8080/myandroid/lightList");
+                    URL url = new URL("http://192.168.0.58:8080/myandroid/lightList");
                     //thread생성(MainThread에서 네트워크 통신을 시키면 화면의 UI생성, 변경, 이벤트 처리를 못한다. -> ANR 생성)
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.3:8080/myandroid/getImage?fileName="+fileName);//get방식 light01.png
+            URL url = new URL("http://192.168.0.58:8080/myandroid/getImage?fileName="+fileName);//get방식 light01.png
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +84,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("http://192.168.0.3:8080/myandroid/bistroList");
+                    URL url = new URL("http://192.168.0.58:8080/myandroid/bistroList");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.connect();
 
@@ -154,7 +153,7 @@ public class SecondActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.3:8080/myandroid/getImage?fileName="+fileName);
+            URL url = new URL("http://192.168.0.58:8080/myandroid/getImage?fileName="+fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
