@@ -98,6 +98,8 @@ public class PhotoBoardController {
 			photoBoard.getPhoto().transferTo(new File(realpath));//클라이언트에서 저장한 파일을 해당 경로(realpath)에 저장 실제 파일을 저장
 			photoBoard.setSavedfile(savedfile);
 			
+			logger.info(realpath);
+			
 			photoBoard.setMimetype(photoBoard.getPhoto().getContentType());//저장할 파일의 mime type 얻어냄.
 			
 			int result = photoBoardService.write(photoBoard);
