@@ -57,7 +57,7 @@
                     android:textOff=""
                     android:textOn=""
                     android:layout_marginRight="5dp"
-                    />
+                    android:id="@+id/btnList" />
 
                 <TextView
                     android:text="목록"
@@ -81,7 +81,7 @@
                     android:textOff=""
                     android:textOn=""
                     android:layout_marginRight="5dp"
-                    />
+                    android:id="@+id/btnReview" />
 
                 <TextView
                     android:text="리뷰"
@@ -106,7 +106,7 @@
                     android:textOff=""
                     android:textOn=""
                     android:layout_marginRight="5dp"
-                    />
+                    android:id="@+id/btnMap" />
 
                 <TextView
                     android:text="위치"
@@ -135,12 +135,32 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/lightList"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/frameLayout">
 
-    </ListView>
+        <ListView
+            android:id="@+id/lightList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/mapContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:id="@+id/mapFragment" />
+        </LinearLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
 

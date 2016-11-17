@@ -21,7 +21,7 @@
 				
 				<tr>				
 					<td style="background-color:orange; width:70px">사진</td>
-					<td><input type="file" name="photo"/></td>
+					<td><input type="file" name="photo" multiple="multiple"/></td>
 				</tr>
 			</table>
 			<input type="submit" value="글쓰기"/>

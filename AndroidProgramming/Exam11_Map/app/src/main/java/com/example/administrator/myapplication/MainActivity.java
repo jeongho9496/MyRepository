@@ -12,10 +12,20 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,20 +42,41 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private ListView lightList;
-
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback{
     private ImageView imageLarge;
+
+    private ToggleButton btnList, btnReview, btnMap;
+
+    private Button bistroBtn;
+
+    private FrameLayout frameLayout;
+
+    private ListView lightList;
 
     private LightAdapter lightAdapter;
 
-    private Button bistroBtn;
+    private LinearLayout mapContainer;
+
+    private SupportMapFragment mapFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageLarge = (ImageView) findViewById(R.id.imageLarge);
+
+        btnList = (ToggleButton) findViewById(R.id.btnList);
+
+        btnReview = (ToggleButton) findViewById(R.id.btnReview);
+        btnMap = (ToggleButton) findViewById(R.id.btnMap);
+
+        btnList.setOnClickListener(buttonClickListener);
+        btnMap.setOnClickListener(buttonClickListener);
+
+        frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
+        mapContainer = (LinearLayout)findViewById(R.id.mapContainer);
+
         bistroBtn = (Button) findViewById(R.id.bistroBtn);
 
         bistroBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +112,32 @@ public class MainActivity extends AppCompatActivity {
         fillItems();
         testAsyncTask();
 
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapFragment);
+        mapFragment.getMapAsync(this);//support fragement 설정(fragment객체 찾기) google developer은 는 v4 코드가 아님.
+        //지도를 다 받으면 getMapAsync가 메인에 알려줌. 그전까지 메인은 다른 일 처리를 한다.
+
+        btnList.setChecked(true);
+        lightList.setVisibility(View.VISIBLE);
+        mapContainer.setVisibility(View.INVISIBLE);
+
     }
+    private View.OnClickListener buttonClickListener = new View.OnClickListener() {//btnList, btnMap click 리스너 설정(익명객체 활용)
+        @Override
+        public void onClick(View v) {
+                if (v == btnList) {
+                    Log.i("myLog", "btnList 클릭");
+                    btnMap.setChecked(false);
+                    lightList.setVisibility(View.VISIBLE);
+                    mapContainer.setVisibility(View.INVISIBLE);
+
+                } else if (v == btnMap) {
+                    Log.i("myLog", "btnMap 클릭");
+                    btnList.setChecked(false);
+                    lightList.setVisibility(View.INVISIBLE);
+                    mapContainer.setVisibility(View.VISIBLE);
+                }
+        }
+    };
 
 
     public void testAsyncTask() {
@@ -221,4 +277,14 @@ public class MainActivity extends AppCompatActivity {
         return bitmap;
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {   //지도를 다 받으면 메인에서 자동으로 실행.
+        LatLng latLng = new LatLng(37.495238, 127.122136);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(latLng);
+        markerOptions.title("it벤처타워 위치");
+        googleMap.addMarker(markerOptions);
+
+    }
 }
