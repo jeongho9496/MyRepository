@@ -156,7 +156,7 @@ public class PhotoBoardController {
 	}
 	
 	@RequestMapping(value = "/modify", method=RequestMethod.POST)
-	public String modify(PhotoBoard photoBoard, HttpSession session, Model model){
+	public String modify(PhotoBoard photoBoard, HttpSession session){
 		
 		PhotoBoard dbPhotoBoard = photoBoardService.info(photoBoard.getBno());
 		try{
