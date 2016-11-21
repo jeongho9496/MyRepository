@@ -18,10 +18,10 @@ public class BeaconService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(Intent intent, int flags, int startId) {  //서비스 실행시 제일 처음 실행하는 메소드
         Log.i("mylog","onStartCommand실행");
 
-        final Thread thread = new Thread(new Runnable() {
+        final Thread thread = new Thread(){
             @Override
             public void run() {
                 while(!stop){
@@ -34,14 +34,14 @@ public class BeaconService extends Service {
 
                 }
             }
-        });
+        };
         thread.start();
 
         return START_STICKY;
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy() {   //서비스 끝날때 실행 되는 메소드
         super.onDestroy();
         Log.i("mylog","onDestroy실행");
         stop=true;

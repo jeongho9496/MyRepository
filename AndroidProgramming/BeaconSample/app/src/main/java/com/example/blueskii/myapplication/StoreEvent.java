@@ -3,10 +3,10 @@ package com.example.blueskii.myapplication;
 import java.util.List;
 
 public class StoreEvent {
-    private int bminor;
-    private int sid;
-    private String sname;
-    private List<String> events;
+    private int bminor; //BEACONiD
+    private int sid;    //STOREID
+    private String sname;//CAFFEE NAME
+    private List<String> events;//EVENT INFO
 
     public int getBminor() {
         return bminor;
