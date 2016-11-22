@@ -4,7 +4,10 @@ package com.mycompany.myweb.controller;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.myweb.dto.Bistro;
+import com.mycompany.myweb.dto.StoreEvent;
 import com.mycompany.myweb.dto.Light;
 
 @Controller
@@ -72,6 +76,28 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/eventList")
+	public String eventList(Model model) throws ParseException {
+		String estartperiod = "2016-11-18";
+		String elastperiod = "2016-11-19";
+		
+		/*SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		Date start = format.parse(estartperiod);
+		Date end = format.parse(elastperiod);
+		
+		SimpleDateFormat formatDate = new SimpleDateFormat("yyyy년MM월dd일 HH시mm분ss초");
+		formatDate.format(start);
+		formatDate.format(end);*/
+		
+		List<StoreEvent> list = new ArrayList<>();
+		list.add(new StoreEvent(503, estartperiod, elastperiod, "자스 커피 할인 이벤트", "전품목 1000원 할인", "store1","coffee1.png"));
+		
+		model.addAttribute("list", list);
+		
+		return "eventList";
+	}
+	
 	@RequestMapping("/getImage")
 	public void getImage(String fileName, HttpServletRequest request,HttpServletResponse response){
 		//직접 응답을 만들어 보내기 때문에 따로 JSP에 요청하지 않아도 된다.
@@ -92,6 +118,7 @@ public class HomeController {
 			while ((byteNum = is.read(values)) != -1 ) {
 				os.write(values, 0, byteNum);
 			}
+			logger.info("android 요청" + fileName);
 			os.flush();
 			is.close();
 			os.close();
