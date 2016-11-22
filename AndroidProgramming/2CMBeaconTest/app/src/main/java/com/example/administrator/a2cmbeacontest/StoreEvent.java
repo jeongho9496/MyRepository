@@ -8,7 +8,7 @@ import java.util.List;
  */
 
 public class StoreEvent {
-    private int bminor;
+    private int bmajor;
     private Date estartperiod;
     private Date elastperiod;
     private List<String> etitle;
@@ -18,12 +18,12 @@ public class StoreEvent {
     private String sid;
     private int mid;
 
-    public int getBminor() {
-        return bminor;
+    public int getBmajor() {
+        return bmajor;
     }
 
-    public void setBminor(int bminor) {
-        this.bminor = bminor;
+    public void setBmajor(int bmajor) {
+        this.bmajor = bmajor;
     }
 
     public Date getEstartperiod() {

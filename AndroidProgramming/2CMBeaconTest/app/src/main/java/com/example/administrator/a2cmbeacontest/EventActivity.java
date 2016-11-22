@@ -19,7 +19,7 @@ public class EventActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getExtras().getString("beacon");
-        serviceText.setText(name+"11");
+        serviceText.setText(name);
 
     }
 

@@ -5,10 +5,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
@@ -17,25 +20,25 @@ import com.perples.recosdk.RECOErrorCode;
 import com.perples.recosdk.RECORangingListener;
 import com.perples.recosdk.RECOServiceConnectListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.EventListener;
 import java.util.List;
 import java.util.Random;
 
 public class BeaconScanService extends Service implements RECOServiceConnectListener, RECORangingListener{
     private RECOBeaconManager recoBeaconManager;    //beacon설정
     private ArrayList<RECOBeaconRegion> regions;    //beacon 검색 범위 설정
-
-    //데이터 전달
-    IBinder mBinder = new MyBinder();
-
-    class MyBinder extends Binder {
-        BeaconScanService getService(){
-            return BeaconScanService.this;
-        }
-    }
 
 
     public BeaconScanService() {
@@ -45,12 +48,9 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         /*throw new UnsupportedOperationException("Not yet implemented");*/
-        return mBinder;
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    int getRan() {
-        return new Random().nextInt();
-    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -100,15 +100,15 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     @Override
     public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
         for (RECOBeacon beacon : collection) {
-            int bminor = beacon.getMinor();
-            if (beacon.getAccuracy() < 1){
-                if (!beacons.contains(bminor)) {
-                    beacons.add(bminor);
-                    StoreEvent storeEvent = getStoreEvent(bminor);
+            int bmajor = beacon.getMajor();
+            if (beacon.getAccuracy() < 0.1){    //5m지정
+                if (!beacons.contains(bmajor)) {
+                    beacons.add(bmajor);
+                    StoreEvent storeEvent = getStoreEvent(bmajor);
                     popupNotification(storeEvent);
                 }
             } else {
-                beacons.remove(new Integer(bminor));
+                beacons.remove(new Integer(bmajor));
             }
         }
     }
@@ -118,9 +118,9 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
 
     }
 
-    private StoreEvent getStoreEvent(int bminor) {
+    private StoreEvent getStoreEvent(int bmajor) {
         StoreEvent storeEvent = new StoreEvent();
-        storeEvent.setBminor(bminor);
+        storeEvent.setBmajor(bmajor);
         storeEvent.setSid("store1");
         List<String> events = Arrays.asList("엄청난 이벤트");
         storeEvent.setEtitle(events);
@@ -128,20 +128,16 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     }
 
     private void popupNotification(StoreEvent storeEvent) {
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setContentTitle(storeEvent.getSid() + ": " + storeEvent.getBminor());
+        builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS /*| Notification.DEFAULT_VIBRATE*/);
+        builder.setSmallIcon(R.drawable.coffeecup24);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.coffeecup));
+        builder.setContentTitle(storeEvent.getSid() + ": " + storeEvent.getBmajor());
         builder.setContentText(storeEvent.getEtitle().get(0));
 
         Intent intent = new Intent(getApplicationContext(), EventActivity.class);
-        intent.putExtra("beacon",""+storeEvent.getBminor());
-
-        /*PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
-                this, 0,
-                new Intent(this, MainActivity.class),
-                PendingIntent.FLAG_UPDATE_CURRENT
-        );*/
+        intent.putExtra("beacon",""+storeEvent.getBmajor());
 
         PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
                 this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT
@@ -150,9 +146,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
         builder.setContentIntent(pendingIntent);
 
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(storeEvent.getBminor(), builder.build());
+        nm.notify(storeEvent.getBmajor(), builder.build());
     }
-
-
 
 }
