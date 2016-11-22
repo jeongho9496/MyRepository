@@ -104,9 +104,9 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             if (beacon.getAccuracy() < 0.1){
                 if (!beacons.contains(bmajor)) {
                     beacons.add(bmajor);
-                    /*StoreEvent storeEvent = getStoreEvent(bmajor);
-                    popupNotification(storeEvent);*/
-                    getStoreEventTest(bmajor);
+                    StoreEvent storeEvent = getStoreEvent(bmajor);
+                    popupNotification(storeEvent);
+                    //getStoreEventTest(bmajor);
                 }
             } else {
                 beacons.remove(new Integer(bmajor));
@@ -199,16 +199,12 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     }
 
     private StoreEvent getStoreEvent(int bmajor) {
-        /*StoreEvent storeEvent = new StoreEvent();
+        StoreEvent storeEvent = new StoreEvent();
         storeEvent.setBmajor(bmajor);
         storeEvent.setSid("store1");
-        List<String> events = Arrays.asList("엄청난 이벤트");
-        storeEvent.setEtitle(events);
-        return storeEvent;*/
-
-
-
-        return null;
+       /* List<String> events = Arrays.asList("엄청난 이벤트");
+        storeEvent.setEtitle(events);*/
+        return storeEvent;
     }
 
     private void popupNotification(StoreEvent storeEvent) {
@@ -217,14 +213,14 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
         builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS );
         builder.setSmallIcon(R.drawable.coffeecup24);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.coffeecup));
-        builder.setContentTitle(storeEvent.getEtitle());
-        builder.setContentText(storeEvent.getEstartperiod()+"~"+storeEvent.getElastperiod()+" "+storeEvent.getEcontents());
-
+        builder.setContentTitle(storeEvent.getSid());
+        /*builder.setContentText(storeEvent.getEstartperiod()+"~"+storeEvent.getElastperiod()+" "+storeEvent.getEcontents());*/
+        builder.setContentText(""+storeEvent.getBmajor());
         Intent intent = new Intent(getApplicationContext(), EventActivity.class);
-        intent.putExtra("content",storeEvent.getEcontents());
         intent.putExtra("sid",storeEvent.getSid());
-        intent.putExtra("beacon",""+storeEvent.getBmajor());
-        intent.putExtra("image",storeEvent.getImageLarge());
+        intent.putExtra("sbeacon",""+storeEvent.getBmajor());
+        //intent.putExtra("content",storeEvent.getEcontents());
+       //intent.putExtra("image",storeEvent.getImageLarge());
 
         PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
                 this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT

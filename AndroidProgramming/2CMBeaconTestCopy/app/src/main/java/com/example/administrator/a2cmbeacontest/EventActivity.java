@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -35,18 +36,20 @@ public class EventActivity extends AppCompatActivity {
         sidText = (TextView)findViewById(R.id.sidText);
 
         Intent intent = getIntent();
-        String content = intent.getExtras().getString("content");
-        String beacon = intent.getExtras().getString("beacon");
+
+        String beacon = intent.getExtras().getString("sbeacon");
+        beaconText.setText("sbeacon: " + beacon);
+
         String sid = intent.getExtras().getString("sid");
-        final String image = intent.getExtras().getString("image");
-        contentText.setText("content: " + content);
-        beaconText.setText("beacon: " + beacon);
         sidText.setText("sid: " + sid);
 
+        String content = intent.getExtras().getString("content");
+       /*final String image = intent.getExtras().getString("image");
+        contentText.setText("content: " + content);*/
 
         eventImage = (ImageView)findViewById(R.id.eventImage);
 
-        AsyncTask<Void, Void, Bitmap> asyncTask = new AsyncTask<Void, Void, Bitmap>() {
+        /*AsyncTask<Void, Void, Bitmap> asyncTask = new AsyncTask<Void, Void, Bitmap>() {
             @Override
             protected Bitmap doInBackground(Void... params) {
                 Bitmap bitmap = getBitmap(image);
@@ -58,7 +61,7 @@ public class EventActivity extends AppCompatActivity {
                 eventImage.setImageBitmap(bitmap);
             }
         };
-        asyncTask.execute();
+        asyncTask.execute();*/
 
         storeItems(beacon);
 
@@ -70,7 +73,8 @@ public class EventActivity extends AppCompatActivity {
             protected Store doInBackground(Void... params) {
                 Store store = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/testBeacon?sbeacon="+beacon);
+                    //URL url = new URL("http://192.168.0.58:8080/myweb/testBeacon?sbeacon="+beacon);
+                    URL url = new URL("http://192.168.0.3:8080/myweb/testBeacon?sbeacon="+beacon);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
@@ -97,7 +101,9 @@ public class EventActivity extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(Store store) {
-                super.onPostExecute(store);
+
+                contentText.setText("받아온 데이터 값 카페 주소 : "+store.getSaddr()+" 카페이름 : "+store.getSname()+" 카페 지점명 : "+ store.getSlocal()+
+                        " 카페 전화 : "+store.getStel()+" OPEN : "+store.getSopen()+" CLOSED : "+store.getSclosed());
             }
         };
         asyncTask.execute();
@@ -106,6 +112,18 @@ public class EventActivity extends AppCompatActivity {
     private Store parseJson(String strJson) {
         Store store = new Store();
 
+        try {
+            JSONObject jsonObject = new JSONObject(strJson);
+            store.setSname(jsonObject.getString("sname"));
+            store.setSlocal(jsonObject.getString("slocal"));
+            store.setSaddr(jsonObject.getString("saddr"));
+            store.setStel(jsonObject.getString("stel"));
+            store.setSopen(jsonObject.getString("sopen"));
+            store.setSclosed(jsonObject.getString("sclosed"));
+            store.setSbeacon(jsonObject.getString("sbeacon"));
+        } catch (JSONException e) {
+            Log.i("mylog", e.getMessage());
+        }
         return store;
     }
 
