@@ -18,13 +18,6 @@
         android:label="BeaconSample"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name=".BeaconScanService"
@@ -32,7 +25,10 @@
             android:exported="true" />
         <service android:name="com.perples.recosdk.RECOBeaconService" />
 
-        <activity android:name=".EventActivity" android:label="Event"></activity>
+        <activity
+            android:name=".EventActivity"
+            android:label="Event" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

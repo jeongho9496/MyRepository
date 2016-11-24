@@ -38,6 +38,8 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     private RECOBeaconManager recoBeaconManager;    //beacon설정
     private ArrayList<RECOBeaconRegion> regions;    //beacon 검색 범위 설정
 
+    private long mScanDuration = 1*1000L;
+
 
     public BeaconScanService() {
     }
@@ -53,7 +55,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         recoBeaconManager = RECOBeaconManager.getInstance(getApplicationContext(), true, false);
-        recoBeaconManager.setScanPeriod(1000);
+        recoBeaconManager.setScanPeriod(mScanDuration);
         recoBeaconManager.setRangingListener(this);
 
         regions = new ArrayList<RECOBeaconRegion>();
@@ -99,7 +101,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
         for (RECOBeacon beacon : collection) {
             int bmajor = beacon.getMajor();
-            if (beacon.getAccuracy() < 0.1){
+            if (beacon.getAccuracy() < 0.2){
                 if (!beacons.contains(bmajor)) {
                     beacons.add(bmajor);
                     /*StoreEvent storeEvent = getStoreEvent(bmajor);
@@ -107,7 +109,10 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
                     getStoreEventTest(bmajor);
                 }
             } else {
+
                 beacons.remove(new Integer(bmajor));
+                NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                nm.cancel(new Integer(bmajor));
             }
         }
     }
@@ -139,6 +144,8 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
 
                         Log.i("mylog", strJson);
 
+
+                    } else {
 
                     }
 
@@ -176,10 +183,6 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
                 event.setImageLarge(jsonObject.getString("esavedfile"));
                 event.setBmajor(bmajor);
 
-                if (i == 0) {
-
-                }
-
                 list.add(event);
 
             }
@@ -196,6 +199,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
 
     }
 
+
     private StoreEvent getStoreEvent(int bmajor) {
         StoreEvent storeEvent = new StoreEvent();
         storeEvent.setBmajor(bmajor);
@@ -206,29 +210,29 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     }
 
     private void popupNotification(StoreEvent storeEvent) {
+        if (storeEvent != null) {
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS);
+            builder.setSmallIcon(R.drawable.coffeecup24);
+            builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.coffeecup));
+            builder.setContentTitle(storeEvent.getEtitle());
+            builder.setContentText(/*storeEvent.getEstartperiod()+"~"+storeEvent.getElastperiod()+" "+*/storeEvent.getEcontents());
+            // builder.setContentText(""+storeEvent.getBmajor());
+            Intent intent = new Intent(getApplicationContext(), EventActivity.class);
+            intent.putExtra("sid", storeEvent.getSid());
+            intent.putExtra("sbeacon", "" + storeEvent.getBmajor());
+            intent.putExtra("content", storeEvent.getEcontents());
+            intent.putExtra("image", storeEvent.getImageLarge());
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS );
-        builder.setSmallIcon(R.drawable.coffeecup24);
-        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.coffeecup));
-        builder.setContentTitle(storeEvent.getEtitle());
-        builder.setContentText(/*storeEvent.getEstartperiod()+"~"+storeEvent.getElastperiod()+" "+*/storeEvent.getEcontents());
-       // builder.setContentText(""+storeEvent.getBmajor());
-        Intent intent = new Intent(getApplicationContext(), EventActivity.class);
-        intent.putExtra("sid",storeEvent.getSid());
-        intent.putExtra("sbeacon",""+storeEvent.getBmajor());
-        intent.putExtra("content",storeEvent.getEcontents());
-        intent.putExtra("image",storeEvent.getImageLarge());
+            PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
+                    this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT
+            );
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
-                this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT
-        );
+            builder.setContentIntent(pendingIntent);
 
-        builder.setContentIntent(pendingIntent);
-
-        NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        nm.notify(storeEvent.getBmajor(), builder.build());
-
+            NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            nm.notify(storeEvent.getBmajor(), builder.build());
+        }
     }
 
 }

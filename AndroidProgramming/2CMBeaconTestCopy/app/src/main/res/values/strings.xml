@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">2CM</string>
     <string name="app_info">권한 설정을 안할시 정상적인 앱실행이 불가능 합니다.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
