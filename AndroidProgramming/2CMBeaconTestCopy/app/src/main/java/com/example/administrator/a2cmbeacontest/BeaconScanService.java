@@ -118,7 +118,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             protected List<StoreEvent> doInBackground(Void... params) {
                 List<StoreEvent> list = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);
+                    URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);z
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
 
