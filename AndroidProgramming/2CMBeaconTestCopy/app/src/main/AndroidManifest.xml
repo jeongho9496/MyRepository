@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -34,7 +34,8 @@
         <service android:name="com.perples.recosdk.RECOBeaconService" />
 
         <activity android:name=".EventActivity" />
-        <activity android:name=".StoreInfoActivity"></activity>
+        <activity android:name=".StoreInfoActivity" />
+        <activity android:name=".MenuActivity"></activity>
     </application>
 
 </manifest>

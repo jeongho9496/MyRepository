@@ -36,7 +36,6 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
 
     private SliderLayout storeImage;
     private TextView storeInfo;
-    private List<Sphoto> photos;
 
 
     @Override
@@ -46,6 +45,8 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
 
         Intent intent = getIntent();
         Store store = (Store) intent.getSerializableExtra("store");
+
+        getSupportActionBar().setTitle(store.getSname()+" "+store.getSlocal());
 
         String sid = store.getSid();
 

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
@@ -81,11 +82,13 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     }
 
     private List<Integer> beacons = new ArrayList<>();
+
     @Override //RECORangingListener에서 구현해야 되는 메소드
     public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
         for(RECOBeacon beacon : collection) {
             int bminor = beacon.getMinor(); //비콘의 minor 정보 입수
-            if (beacon.getAccuracy() < 1) {//1m이내의 비콘 이 있다면
+            //nt bminor = beacon.getMajor();//임시 테스트
+            if (beacon.getAccuracy() < 1) {//1m이내의 비콘이 있다면
                 if(!beacons.contains(bminor)) { //bminor가 becons에 포함되있지 않다면 (똑같은 비콘 정보가 중복으로 알람 띄우는 것을 방지 하기 위해)
                     beacons.add(bminor);        //beacons에 추가
                     StoreEvent storeEvent = getStoreEvent(bminor);//getStoreEvent 메소드에 minor값 추가
@@ -108,6 +111,8 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
         storeEvent.setSname("스타벅스");
         List<String> events = Arrays.asList("크리스마스 할인 이벤트");
         storeEvent.setEvents(events);
+
+        Log.i("mylog",""+bminor);
         return storeEvent;
     }
 
@@ -117,6 +122,8 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
         builder.setSmallIcon(R.mipmap.ic_launcher);
         builder.setContentTitle(shopEvent.getSname() + ": " + shopEvent.getBminor());
         builder.setContentText(shopEvent.getEvents().get(0));
+
+
 
         PendingIntent pendingIntent = PendingIntent.getActivity(    //이벤트후 Activity가 어떤 행동을 할지 미리 정의함.
             this, 0,

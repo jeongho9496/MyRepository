@@ -6,15 +6,20 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.administrator.a2cmbeacontest.dto.Store;
+import com.example.administrator.a2cmbeacontest.menufragment.TotalFragment;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,20 +36,23 @@ public class EventActivity extends AppCompatActivity {
     TextView contentText , beaconText, sidText;
     ImageView eventImage;
     Store storeTrans;//객체로 정보 페이지에 넘길때 사용
+    String beacon;
+    Button btnOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
-        Intent intent = getIntent();
-        String beacon = intent.getExtras().getString("sbeacon");
+        final Intent intent = getIntent();
+        beacon = intent.getExtras().getString("sbeacon");
         String content = intent.getExtras().getString("content");
-        String sid = intent.getExtras().getString("sid");
+        final String sid = intent.getExtras().getString("sid");
 
 
         contentText = (TextView)findViewById(R.id.contentText);
         beaconText = (TextView)findViewById(R.id.beaconText);
         sidText = (TextView)findViewById(R.id.sidText);
+        btnOrder = (Button)findViewById(R.id.btnOrder);
 
         beaconText.setText("sbeacon: " + beacon);
         sidText.setText("sid: " + sid);
@@ -80,12 +88,26 @@ public class EventActivity extends AppCompatActivity {
         };
         asyncTask.execute();
 
-        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-
-        nm.cancel(Integer.parseInt(beacon));
-
         storeItems(sid);
 
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentOrder = new Intent(EventActivity.this,MenuActivity.class);
+                intentOrder.putExtra("sid",sid);
+
+                startActivity(intentOrder);
+            }
+        });
+
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        nm.cancel(Integer.parseInt(beacon));
     }
 
     @Override
