@@ -71,6 +71,9 @@ public class FreeboardController {
 		model.addAttribute("startPageNo",startPageNo);
 		model.addAttribute("endPageNo",endPageNo);
 		model.addAttribute("list",list);
+		
+		logger.info("intPageNo : " + intPageNo);
+		logger.info("rowsPerPage : " + rowsPerPage);
 			
 		return "freeboard/list";
 	}
