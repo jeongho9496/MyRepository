@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootViewGroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.a2cmfinal.BeaconStartActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@android:color/black"
+        android:id="@+id/imageView3"
+        android:scaleType="fitXY" />
+
+
+    <TextView
+        android:text="스위치를 키면"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:text="서비스가 실행됩니다."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textAlignment="center" />
+
+    <ToggleButton
+        android:textOn=""
+        android:textOff=""
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/beacon_off"
+        android:id= "@+id/btnBeacon"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp" />
+
+</RelativeLayout>
