@@ -24,8 +24,8 @@ public class MenuActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);*/
 
         Intent intent = getIntent();
-        String sid = intent.getExtras().getString("sid");
-        Toast.makeText(this,sid,Toast.LENGTH_SHORT).show();
+        //String sid = intent.getExtras().getString("sid");
+       // Toast.makeText(this,sid,Toast.LENGTH_SHORT).show();
 
 
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
@@ -65,7 +65,7 @@ public class MenuActivity extends AppCompatActivity {
         //fragment에 데이터 값 전달
         TotalFragment fragment = new TotalFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("sid",sid);
+        bundle.putString("sid","name");
         fragment.setArguments(bundle);
 
     }
