@@ -5,12 +5,38 @@
     tools:context="com.example.administrator.a2cmbeacontest.menufragment.TotalFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/frgTotal"
+
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="TOTAL FRAGMENT"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:id="@+id/totalList"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:divider="#777"
+        android:dividerHeight="0px"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentBottom="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/relativeLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_search"
+            android:paddingLeft="10dp"
+            android:background="@drawable/search"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

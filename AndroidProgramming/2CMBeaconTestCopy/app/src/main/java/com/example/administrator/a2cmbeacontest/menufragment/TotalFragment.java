@@ -9,15 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.administrator.a2cmbeacontest.MenuAdapter.TotalAdapter;
 import com.example.administrator.a2cmbeacontest.R;
 
 public class TotalFragment extends Fragment {
-
-    private static final String SID = "sid";
-    private String findSid; //액티비티 와 프레그먼트 데이터 전달 예제
-    private TextView frgTotal;
+    private ListView totalList;
+    private TotalAdapter totalAdapter;
 
     public TotalFragment(){
         setHasOptionsMenu(true);
@@ -26,10 +26,6 @@ public class TotalFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle extra = getArguments();
-        if(extra != null) {
-            findSid = extra.getString("sid");
-        }
 
     }
 
@@ -38,8 +34,10 @@ public class TotalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_total, container, false);
-        frgTotal = (TextView)view.findViewById(R.id.frgTotal);
-        frgTotal.setText(findSid);
+
+        totalList = (ListView)view.findViewById(R.id.totalList);
+        totalAdapter = new TotalAdapter(getContext());
+        totalList.setAdapter(totalAdapter);
         return view;
     }
 
