@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,32 @@ import com.example.administrator.a2cmbeacontest.R;
 
 public class TotalFragment extends Fragment {
 
-    private static final String SID = "sid";
-    private String findSid; //액티비티 와 프레그먼트 데이터 전달 예제
+
+    private String findSid="test시작전"; //액티비티 와 프레그먼트 데이터 전달 예제
     private TextView frgTotal;
 
     public TotalFragment(){
         setHasOptionsMenu(true);
     }
 
+    public static final String ARG_PAGE = "ARG_PAGE";
+
+    private String sid;
+
+    public static TotalFragment newInstance(String page){
+        TotalFragment fragment = new TotalFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_PAGE, page);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle extra = getArguments();
-        findSid = extra.getString("sid");
+
+
     }
 
     @Override
@@ -34,6 +48,12 @@ public class TotalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_total, container, false);
+        Bundle bundle = getArguments();
+        if (bundle != null){
+            sid =bundle.getString(ARG_PAGE);
+            Log.i("mylog",sid);
+
+        }
         frgTotal = (TextView)view.findViewById(R.id.frgTotal);
         frgTotal.setText(findSid);
         return view;

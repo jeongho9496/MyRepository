@@ -35,7 +35,9 @@
 
         <activity android:name=".EventActivity" />
         <activity android:name=".StoreInfoActivity" />
-        <activity android:name=".MenuActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

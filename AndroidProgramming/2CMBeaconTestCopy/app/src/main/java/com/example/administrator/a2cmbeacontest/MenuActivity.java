@@ -2,6 +2,8 @@ package com.example.administrator.a2cmbeacontest;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,12 +22,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        /*Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);*/
-
-        Intent intent = getIntent();
-        String sid = intent.getExtras().getString("sid");
-        Toast.makeText(this,sid,Toast.LENGTH_SHORT).show();
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
@@ -37,7 +35,6 @@ public class MenuActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         viewPager = (ViewPager)findViewById(R.id.pager);
-
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
 
@@ -62,11 +59,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        //fragment에 데이터 값 전달
-        TotalFragment fragment = new TotalFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("sid",sid);
-        fragment.setArguments(bundle);
+        TotalFragment.newInstance("test");
 
     }
+
 }
