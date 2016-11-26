@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmbeacontest;
+package com.example.administrator.a2cmfinal;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,7 +12,7 @@ import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
-import com.example.administrator.a2cmbeacontest.dto.StoreEvent;
+import com.example.administrator.a2cmfinal.dto.StoreEvent;
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
 import com.perples.recosdk.RECOBeaconRegion;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class BeaconScanService extends Service implements RECOServiceConnectListener, RECORangingListener{
+public class BeaconScanService extends Service implements RECOServiceConnectListener, RECORangingListener {
     private RECOBeaconManager recoBeaconManager;    //beacon설정
     private ArrayList<RECOBeaconRegion> regions;    //beacon 검색 범위 설정
 
@@ -123,12 +123,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             protected List<StoreEvent> doInBackground(Void... params) {
                 List<StoreEvent> list = null;
                 try {
-<<<<<<< HEAD
-                    /*URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);*/
-                    URL url = new URL("http://192.168.10.65:8080/myweb/eventAndroid?sbeacon="+bmajor);
-=======
                     URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);
->>>>>>> 6f6717dc1bcbcf6d4aeab54481b2dd46441671ea
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
 

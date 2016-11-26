@@ -24,6 +24,13 @@ public class MenuActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+<<<<<<< HEAD
+=======
+
+        Intent intent = getIntent();
+        //String sid = intent.getExtras().getString("sid");
+       // Toast.makeText(this,sid,Toast.LENGTH_SHORT).show();
+>>>>>>> 6f6717dc1bcbcf6d4aeab54481b2dd46441671ea
 
 
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
@@ -59,7 +66,15 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+<<<<<<< HEAD
         TotalFragment.newInstance("test");
+=======
+        //fragment에 데이터 값 전달
+        TotalFragment fragment = new TotalFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("sid","name");
+        fragment.setArguments(bundle);
+>>>>>>> 6f6717dc1bcbcf6d4aeab54481b2dd46441671ea
 
     }
 
