@@ -43,6 +43,8 @@ public class BeaconStartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beacon);
 
+        getSupportActionBar().setTitle("Beacon Start");
+
         rootViewGroup = (RelativeLayout)findViewById(R.id.rootViewGroup);
 
         btnBeacon = (ToggleButton)findViewById(R.id.btnBeacon);
@@ -61,7 +63,7 @@ public class BeaconStartActivity extends AppCompatActivity {
                     startService(intent);
                     editor.putBoolean("Auto_Login_enabled", true);
                     editor.commit();
-                    Log.i("mylog of", String.valueOf(isChecked));
+                    Log.i("mylog of", "start");
 
                 } else {
                     btnBeacon.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.beacon_off));
@@ -69,7 +71,7 @@ public class BeaconStartActivity extends AppCompatActivity {
                     stopService(intent);
                     editor.clear();
                     editor.commit();
-                    Log.i("mylog off", String.valueOf(isChecked));
+                    Log.i("mylog off", "stop");
                 }
             }
         });

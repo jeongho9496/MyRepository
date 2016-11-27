@@ -35,8 +35,11 @@
 
         <activity android:name=".LoginActivity" />
         <activity android:name=".EventActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity android:name=".StoreInfoActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".StoreInfoActivity" />
+        <activity android:name=".DetailMenuActivity"></activity>
     </application>
 
 </manifest>

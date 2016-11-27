@@ -50,6 +50,15 @@ public class EventActivity extends AppCompatActivity {
         sidText = (TextView)findViewById(R.id.sidText);
         btnOrder = (Button)findViewById(R.id.btnOrder);
 
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMenu = new Intent(EventActivity.this, MenuActivity.class);
+                intent.putExtra("sid",sid);
+                startActivity(intentMenu);
+            }
+        });
+
         beaconText.setText("sbeacon: " + beacon);
         sidText.setText("sid: " + sid);
 
@@ -91,7 +100,6 @@ public class EventActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentOrder = new Intent(EventActivity.this,MenuActivity.class);
                 intentOrder.putExtra("sid",sid);
-
                 startActivity(intentOrder);
             }
         });
@@ -131,7 +139,7 @@ public class EventActivity extends AppCompatActivity {
             protected Store doInBackground(Void... params) {
                 Store store = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/storeAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.3:8080/myweb/storeAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
@@ -190,7 +198,7 @@ public class EventActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.58:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
+            URL url = new URL("http://192.168.0.3:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
