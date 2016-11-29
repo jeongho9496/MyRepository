@@ -1,21 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_detail_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+
     tools:context="com.example.administrator.a2cmfinal.DetailMenuActivity">
 
-    <TextView
-        android:text="TextView"
-        android:textSize="34sp"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/midText" />
+        android:id="@+id/menuLayout"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/menuImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/hot_iced"
+            android:layout_marginEnd="10dp"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/priceText"
+            android:layout_below="@+id/nameText"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:layout_toEndOf="@+id/menuImage"
+            android:layout_alignStart="@+id/countText" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/countText"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_alignTop="@+id/minusBtn"
+            android:layout_alignStart="@+id/minusBtn"
+            android:layout_alignEnd="@+id/plusBtn"
+            tools:text="1" />
+
+        <ImageView
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/minus_selector"
+            android:id="@+id/minusBtn"
+            android:clickable="true"
+            android:layout_alignBottom="@+id/menuImage"
+            android:layout_centerHorizontal="true"
+            android:layout_width="25dp"
+            android:onClick="onMinusClick"/>
+
+        <ImageView
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/plus_selector"
+            android:id="@+id/plusBtn"
+            android:clickable="true"
+            android:layout_alignBottom="@+id/minusBtn"
+            android:layout_alignEnd="@+id/hot_iced"
+            android:layout_width="25dp"
+            android:onClick="onPlusClick"/>
+
+        <ImageView
+            android:id="@+id/menuImage"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/menuLayout"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="메뉴 설명"
+            android:padding="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView3"
+            android:background="#ffa500"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:padding="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView3"
+            android:id="@+id/contentText"
+            android:lines="2"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/sizelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/contentLayout"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="사이즈 선택"
+            android:padding="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView9"
+            android:background="#ffa500"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true"
+            />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:id="@+id/sizeSpinner" />
+        <!--android:entries="@array/size"-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/sizelayout"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="옵션 선택"
+            android:padding="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView10"
+            android:background="#ffa500"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:id="@+id/extraSpinner" />
+
+        <!--android:entries="@array/extra"-->
+
+    </RelativeLayout>
+
 </RelativeLayout>

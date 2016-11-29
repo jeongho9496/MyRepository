@@ -37,7 +37,8 @@
         <activity android:name=".EventActivity" />
         <activity
             android:name=".MenuActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".StoreInfoActivity" />
         <activity android:name=".DetailMenuActivity"></activity>
     </application>

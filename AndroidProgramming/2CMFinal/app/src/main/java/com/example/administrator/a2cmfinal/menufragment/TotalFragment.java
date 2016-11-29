@@ -111,7 +111,8 @@ public class TotalFragment extends Fragment {
             protected List<Menu> doInBackground(Void... params) {
                 List<Menu> list = null;
                 try {
-                    URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
+                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid);
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -154,7 +155,7 @@ public class TotalFragment extends Fragment {
                         Menu menuData = (Menu) totalList.getItemAtPosition(position);
 
                         Intent intent = new Intent(getContext(), DetailMenuActivity.class);
-                        intent.putExtra("MenuDetail",menuData.getMid());
+                        intent.putExtra("menuDetail",menuData.getMid());
                         startActivity(intent);
                     }
                 });
@@ -189,7 +190,8 @@ public class TotalFragment extends Fragment {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
+            //URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
+            URL url = new URL("http://192.168.0.22:8080/myweb/getImage?fileName=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

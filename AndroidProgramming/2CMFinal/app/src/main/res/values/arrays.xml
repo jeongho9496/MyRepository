@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="extra">
+        <item>없음</item>
+        <item>샷 추가</item>
+        <item>휘핑크림 추가</item>
+        <item>얼음 추가</item>
+    </string-array>
+
+
+</resources>

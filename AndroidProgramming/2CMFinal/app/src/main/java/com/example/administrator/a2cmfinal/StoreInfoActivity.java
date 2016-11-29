@@ -72,7 +72,8 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
                 List<Sphoto> list = null;
                 try {
                    // URL url = new URL("http://192.168.0.58:8080/myweb/sphotoAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.3:8080/myweb/sphotoAndroid?sid="+sid);
+                   // URL url = new URL("http://192.168.0.3:8080/myweb/sphotoAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/sphotoAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                     conn.connect();
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK){
@@ -106,7 +107,8 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
                 HashMap<String,String> url_maps = new HashMap<String, String>();
                 if(sphotos != null) {
                     for (int i = 0; i < sphotos.size(); i++) {
-                        url_maps.put("photos" + i, "http://192.168.0.3:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
+                        //url_maps.put("photos" + i, "http://192.168.0.3:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
+                        url_maps.put("photos" + i, "http://192.168.0.22:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
                     }
                 }
                     storeImage.removeAllSliders();
