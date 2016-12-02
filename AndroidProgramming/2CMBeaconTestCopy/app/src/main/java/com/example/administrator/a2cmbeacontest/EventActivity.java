@@ -135,7 +135,8 @@ public class EventActivity extends AppCompatActivity {
             protected Store doInBackground(Void... params) {
                 Store store = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/storeAndroid?sid="+sid);
+                    /*URL url = new URL("http://192.168.0.58:8080/myweb/storeAndroid?sid="+sid);*/
+                    URL url = new URL("http://192.168.10.65:8080/myweb/storeAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
@@ -194,7 +195,8 @@ public class EventActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.58:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
+            /*URL url = new URL("http://192.168.0.58:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png*/
+            URL url = new URL("http://192.168.10.65:8080/myweb/event/showPhoto?esavedfile=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

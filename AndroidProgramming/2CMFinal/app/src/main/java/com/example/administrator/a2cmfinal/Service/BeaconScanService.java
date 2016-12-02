@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Service;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,6 +12,8 @@ import android.os.RemoteException;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.example.administrator.a2cmfinal.Activity.EventActivity;
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.StoreEvent;
 import com.perples.recosdk.RECOBeacon;
 import com.perples.recosdk.RECOBeaconManager;
@@ -101,7 +103,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
         for (RECOBeacon beacon : collection) {
             int bmajor = beacon.getMajor();
-            if (beacon.getAccuracy() < 0.2){
+            if (beacon.getAccuracy() < 0.1){
                 if (!beacons.contains(bmajor)) {
                     beacons.add(bmajor);
                     /*StoreEvent storeEvent = getStoreEvent(bmajor);
@@ -111,8 +113,10 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             } else {
 
                 beacons.remove(new Integer(bmajor));
-                NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-                nm.cancel(new Integer(bmajor));
+
+                //범위를 벗어 낫을때 노티피케이션을 삭제 한다.
+                /*NotificationManager nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+                nm.cancel(new Integer(bmajor));*/
             }
         }
     }
@@ -123,7 +127,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             protected List<StoreEvent> doInBackground(Void... params) {
                 List<StoreEvent> list = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/eventAndroid?sbeacon="+bmajor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
 
@@ -142,7 +146,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
                         is.close();
                         list = parseJson(strJson, bmajor);
 
-                        Log.i("mylog", strJson);
+                        Log.i("mylog beacon", strJson);
 
 
                     } else {
@@ -199,16 +203,6 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
 
     }
 
-
-    private StoreEvent getStoreEvent(int bmajor) {
-        StoreEvent storeEvent = new StoreEvent();
-        storeEvent.setBmajor(bmajor);
-        storeEvent.setSid("store1");
-       /* List<String> events = Arrays.asList("엄청난 이벤트");*/
-       /* storeEvent.setEtitle(events);*/
-        return storeEvent;
-    }
-
     private void popupNotification(StoreEvent storeEvent) {
         if (storeEvent != null) {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
@@ -216,8 +210,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             builder.setSmallIcon(R.drawable.coffeecup24);
             builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.coffeecup));
             builder.setContentTitle(storeEvent.getEtitle());
-            builder.setContentText(/*storeEvent.getEstartperiod()+"~"+storeEvent.getElastperiod()+" "+*/storeEvent.getEcontents());
-            // builder.setContentText(""+storeEvent.getBmajor());
+            builder.setContentText(storeEvent.getEcontents());
             Intent intent = new Intent(getApplicationContext(), EventActivity.class);
             intent.putExtra("sid", storeEvent.getSid());
             intent.putExtra("sbeacon", "" + storeEvent.getBmajor());

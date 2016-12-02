@@ -2,6 +2,8 @@ package com.example.administrator.a2cmbeacontest;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +29,6 @@ public class MenuActivity extends AppCompatActivity {
         //String sid = intent.getExtras().getString("sid");
        // Toast.makeText(this,sid,Toast.LENGTH_SHORT).show();
 
-
         tabLayout = (TabLayout)findViewById(R.id.tabLayout);
         tabLayout.addTab(tabLayout.newTab().setText("전체"));
         tabLayout.addTab(tabLayout.newTab().setText("커피"));
@@ -37,7 +38,6 @@ public class MenuActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         viewPager = (ViewPager)findViewById(R.id.pager);
-
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(pagerAdapter);
 
@@ -62,6 +62,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        TotalFragment.newInstance("test");
+
         //fragment에 데이터 값 전달
         TotalFragment fragment = new TotalFragment();
         Bundle bundle = new Bundle();
@@ -69,4 +71,5 @@ public class MenuActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
 
     }
+
 }

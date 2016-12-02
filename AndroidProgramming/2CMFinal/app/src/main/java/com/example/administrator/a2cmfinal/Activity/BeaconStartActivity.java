@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -17,8 +17,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.administrator.a2cmfinal.Service.BeaconScanService;
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.StoreEvent;
 
 public class BeaconStartActivity extends AppCompatActivity {
@@ -43,6 +46,13 @@ public class BeaconStartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beacon);
 
+        getSupportActionBar().setTitle("Beacon Start");
+
+        //로그인 테스트
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String test = pref.getString("id","");
+        Toast.makeText(BeaconStartActivity.this, test, Toast.LENGTH_SHORT).show();
+
         rootViewGroup = (RelativeLayout)findViewById(R.id.rootViewGroup);
 
         btnBeacon = (ToggleButton)findViewById(R.id.btnBeacon);
@@ -61,7 +71,7 @@ public class BeaconStartActivity extends AppCompatActivity {
                     startService(intent);
                     editor.putBoolean("Auto_Login_enabled", true);
                     editor.commit();
-                    Log.i("mylog of", String.valueOf(isChecked));
+                    Log.i("mylog of", "start");
 
                 } else {
                     btnBeacon.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.beacon_off));
@@ -69,7 +79,7 @@ public class BeaconStartActivity extends AppCompatActivity {
                     stopService(intent);
                     editor.clear();
                     editor.commit();
-                    Log.i("mylog off", String.valueOf(isChecked));
+                    Log.i("mylog off", "stop");
                 }
             }
         });

@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Store;
 
 import org.json.JSONException;
@@ -49,6 +50,15 @@ public class EventActivity extends AppCompatActivity {
         beaconText = (TextView)findViewById(R.id.beaconText);
         sidText = (TextView)findViewById(R.id.sidText);
         btnOrder = (Button)findViewById(R.id.btnOrder);
+
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMenu = new Intent(EventActivity.this, MenuActivity.class);
+                intent.putExtra("sid",sid);
+                startActivity(intentMenu);
+            }
+        });
 
         beaconText.setText("sbeacon: " + beacon);
         sidText.setText("sid: " + sid);
@@ -91,7 +101,6 @@ public class EventActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentOrder = new Intent(EventActivity.this,MenuActivity.class);
                 intentOrder.putExtra("sid",sid);
-
                 startActivity(intentOrder);
             }
         });
@@ -131,7 +140,8 @@ public class EventActivity extends AppCompatActivity {
             protected Store doInBackground(Void... params) {
                 Store store = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/storeAndroid?sid="+sid);
+                    //URL url = new URL("http://192.168.0.3:8080/myweb/storeAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/storeAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
@@ -190,7 +200,8 @@ public class EventActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            URL url = new URL("http://192.168.0.58:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
+            //URL url = new URL("http://192.168.0.3:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
+            URL url = new URL("http://192.168.0.22:8080/myweb/event/showPhoto?esavedfile=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

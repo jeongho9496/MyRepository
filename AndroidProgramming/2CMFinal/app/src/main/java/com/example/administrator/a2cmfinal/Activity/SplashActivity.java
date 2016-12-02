@@ -1,10 +1,12 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.administrator.a2cmfinal.R;
 
 public class SplashActivity extends AppCompatActivity {
     Handler mHandler = new Handler(Looper.getMainLooper());

@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Sphoto;
 import com.example.administrator.a2cmfinal.dto.Store;
 
@@ -43,7 +44,7 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
         Intent intent = getIntent();
         Store store = (Store) intent.getSerializableExtra("store");
 
-        getSupportActionBar().setTitle(store.getSname()+" "+store.getSlocal());
+        getSupportActionBar().setTitle("매장정보");
 
         String sid = store.getSid();
 
@@ -71,7 +72,9 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
             protected List<Sphoto> doInBackground(Void... params) {
                 List<Sphoto> list = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/sphotoAndroid?sid="+sid);
+                   // URL url = new URL("http://192.168.0.58:8080/myweb/sphotoAndroid?sid="+sid);
+                   // URL url = new URL("http://192.168.0.3:8080/myweb/sphotoAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/sphotoAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                     conn.connect();
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK){
@@ -103,22 +106,26 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
                 super.onPostExecute(sphotos);
 
                 HashMap<String,String> url_maps = new HashMap<String, String>();
-                for (int i=0; i<sphotos.size(); i++){
-                    url_maps.put("photos"+i, "http://192.168.0.58:8080/myweb/store/showPhoto?savedfile="+sphotos.get(i).getSpic_savedfile());
+                if(sphotos != null) {
+                    for (int i = 0; i < sphotos.size(); i++) {
+                        //url_maps.put("photos" + i, "http://192.168.0.3:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
+                        url_maps.put("photos" + i, "http://192.168.0.22:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
+                    }
                 }
-                storeImage.removeAllSliders();
+                    storeImage.removeAllSliders();
 
-                for (String name : url_maps.keySet()){
-                    TextSliderView textSliderView = new TextSliderView(StoreInfoActivity.this);
-                    textSliderView.image((url_maps.get(name)));
+                    for (String name : url_maps.keySet()) {
+                        TextSliderView textSliderView = new TextSliderView(StoreInfoActivity.this);
+                        textSliderView.image((url_maps.get(name)));
 
 
-                    storeImage.addSlider(textSliderView);
-                    storeImage.setPresetTransformer(SliderLayout.Transformer.Default);
-                    storeImage.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-                }
+                        storeImage.addSlider(textSliderView);
+                        storeImage.setPresetTransformer(SliderLayout.Transformer.Default);
+                        storeImage.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+                    }
 
-                asyncDialog.dismiss();
+                    asyncDialog.dismiss();
+
             }
         };
         asyncTask.execute();

@@ -5,19 +5,19 @@
     android:id="@+id/rootViewGroup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.administrator.a2cmfinal.BeaconStartActivity">
+    tools:context="com.example.administrator.a2cmfinal.Activity.BeaconStartActivity">
 
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@android:color/black"
+        android:src="@drawable/coffeebackground"
         android:id="@+id/imageView3"
         android:scaleType="fitXY" />
 
 
     <TextView
-        android:text="스위치를 키면"
+        android:text="커피를 누르면"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,10 +25,12 @@
         android:id="@+id/textView"
         android:textSize="18sp"
         android:textStyle="normal|bold"
+        android:padding="3dp"
         android:textColor="@android:color/white"
+        android:background="#ffa500"
         android:textAllCaps="false"
         android:textAlignment="center"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:text="서비스가 실행됩니다."
@@ -39,19 +41,21 @@
         android:layout_centerHorizontal="true"
         android:textSize="18sp"
         android:textStyle="normal|bold"
+        android:padding="3dp"
         android:textColor="@android:color/white"
+        android:background="#ffa500"
         android:textAllCaps="false"
         android:textAlignment="center" />
 
     <ToggleButton
         android:textOn=""
         android:textOff=""
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
         android:background="@drawable/beacon_off"
         android:id= "@+id/btnBeacon"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        android:layout_alignStart="@+id/textView" />
 
 </RelativeLayout>

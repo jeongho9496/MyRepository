@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string-array name="syrup">
+        <item>없음</item>
+        <item>설탕시럽</item>
+        <item>초코시럽</item>
+        <item>딸기시럽</item>
+    </string-array>
+
+    <string-array name="shot">
+        <item>없음</item>
+        <item>샷 추가 1개</item>
+        <item>샷 추가 2개</item>
+        <item>샷 추가 3개</item>
+    </string-array>
+
+
+</resources>
