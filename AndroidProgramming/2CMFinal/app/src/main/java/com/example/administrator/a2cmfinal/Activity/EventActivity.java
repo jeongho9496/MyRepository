@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Store;
 
 import org.json.JSONException;

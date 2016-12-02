@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.administrator.a2cmfinal.DetailMenuActivity">
+    tools:context="com.example.administrator.a2cmfinal.Activity.DetailMenuActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
 
         <TextView
             android:layout_height="wrap_content"
-            android:id="@+id/nameText"
+            android:id="@+id/textName"
             android:textSize="25sp"
             android:gravity="center_horizontal"
             android:layout_marginTop="20dp"
@@ -40,30 +40,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/priceText"
-            android:layout_below="@+id/nameText"
+            android:id="@+id/textPrice"
+            android:layout_below="@+id/textName"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:textSize="25sp"
             android:gravity="center_horizontal"
             android:layout_toEndOf="@+id/menuImage"
-            android:layout_alignStart="@+id/countText" />
+            android:layout_alignStart="@+id/textCount" />
 
         <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:id="@+id/countText"
+            android:id="@+id/textCount"
             android:textSize="20sp"
             android:gravity="center_horizontal"
-            android:layout_alignTop="@+id/minusBtn"
-            android:layout_alignStart="@+id/minusBtn"
-            android:layout_alignEnd="@+id/plusBtn"
+            android:layout_alignTop="@+id/btnMinus"
+            android:layout_alignStart="@+id/btnMinus"
+            android:layout_alignEnd="@+id/btnPlus"
             tools:text="1" />
 
         <ImageView
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/minus_selector"
-            android:id="@+id/minusBtn"
+            android:id="@+id/btnMinus"
             android:clickable="true"
             android:layout_alignBottom="@+id/menuImage"
             android:layout_centerHorizontal="true"
@@ -73,9 +73,9 @@
         <ImageView
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/plus_selector"
-            android:id="@+id/plusBtn"
+            android:id="@+id/btnPlus"
             android:clickable="true"
-            android:layout_alignBottom="@+id/minusBtn"
+            android:layout_alignBottom="@+id/btnMinus"
             android:layout_alignEnd="@+id/hot_iced"
             android:layout_width="25dp"
             android:onClick="onPlusClick"/>
@@ -125,13 +125,47 @@
 
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/syruplayout"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/contentLayout"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="시럽 선택"
+            android:padding="5sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView10"
+            android:background="#ffa500"
+            android:textColor="@android:color/black"
+            android:layout_alignParentEnd="true" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="32dp"
+            android:id="@+id/syrupSpinner" />
+
+        <!--android:entries="@array/extra"-->
+
+    </RelativeLayout>
+
     <RelativeLayout
         android:id="@+id/sizelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
-        android:layout_below="@+id/contentLayout"
+        android:layout_below="@+id/syruplayout"
         android:layout_alignParentStart="true">
 
         <TextView
@@ -157,7 +191,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="10dp"
+        android:id="@+id/shotlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -166,26 +200,48 @@
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="옵션 선택"
+            android:text="샷 선택"
             android:padding="5sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:layout_alignParentStart="true"
-            android:id="@+id/textView10"
+            android:id="@+id/textView12"
             android:background="#ffa500"
             android:textColor="@android:color/black"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            />
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginTop="32dp"
-            android:id="@+id/extraSpinner" />
-
-        <!--android:entries="@array/extra"-->
-
+            android:id="@+id/shotSpinner" />
+        <!--android:entries="@array/size"-->
     </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:text="담기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddMenu"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="주문하기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSingleOrder"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 
 </RelativeLayout>

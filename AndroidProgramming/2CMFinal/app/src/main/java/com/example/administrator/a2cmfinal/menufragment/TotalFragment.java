@@ -12,12 +12,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.administrator.a2cmfinal.DetailMenuActivity;
-import com.example.administrator.a2cmfinal.EventActivity;
+import com.example.administrator.a2cmfinal.Activity.DetailMenuActivity;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.adapter.MenuAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
@@ -49,9 +48,13 @@ public class TotalFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public static final String ARG_POSITION = "test";
+    public static final String ARG_POSITION = "total";
 
     private String sid;
+
+    private int pageNo = 1;
+
+    boolean isLast = false;
 
     public static TotalFragment newInstance(int position){
         TotalFragment fragment = new TotalFragment();
@@ -79,24 +82,47 @@ public class TotalFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_total, container, false);
 
         totalList = (ListView)view.findViewById(R.id.totalList);
-       
+        
+        setMenuItems(pageNo);
 
-       /* list.add(new Menu("커피"));
-        list.add(new Menu("홍차"));
-        list.add(new Menu("케익"));
-        list.add(new Menu("베이글"));*/
-        
-        /*menuAdapter = new MenuAdapter(getContext());
-        list.removeAll(list);
-        menuAdapter.setList(list);
-        totalList.setAdapter(menuAdapter);*/
-        
-        setMunuItems();
+        totalList.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (isLast && scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                    int itemCount = menuAdapter.getCount();
+                    int page = itemCount / 8;
+                    page = (itemCount % 8 > 0) ? page+1:page;
+                    getMoreItem(page+1);
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+                if (totalItemCount > 0 && (firstVisibleItem + visibleItemCount >= totalItemCount - 1)) {
+                    isLast = true;
+                } else {
+                    isLast = false;
+                }
+
+            }
+        });
+
+        totalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Menu menuData = (Menu) totalList.getItemAtPosition(position);
+
+                Intent intent = new Intent(getContext(), DetailMenuActivity.class);
+                intent.putExtra("menuDetail",menuData.getMid());
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
 
-    private void setMunuItems() {
+    private void setMenuItems(final int pageNo) {
         AsyncTask<Void, Void, List<Menu>> asyncTask = new AsyncTask<Void, Void, List<Menu>>() {
 
             ProgressDialog asyncDialog = new ProgressDialog(getContext());
@@ -112,7 +138,7 @@ public class TotalFragment extends Fragment {
                 List<Menu> list = null;
                 try {
                     //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo);
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -149,17 +175,68 @@ public class TotalFragment extends Fragment {
                 menuAdapter.setList(menu);
                 totalList.setAdapter(menuAdapter);
 
-                totalList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Menu menuData = (Menu) totalList.getItemAtPosition(position);
+                asyncDialog.dismiss();
+            }
+        };
+        asyncTask.execute();
+    }
 
-                        Intent intent = new Intent(getContext(), DetailMenuActivity.class);
-                        intent.putExtra("menuDetail",menuData.getMid());
-                        startActivity(intent);
+    //리스트뷰 확장
+    boolean isMoreData = false;
+    private void getMoreItem(final int pageNo) {
+        if (isMoreData) return;
+        isMoreData = true;
+
+        AsyncTask<Void, Void, List<Menu>> asyncTask = new AsyncTask<Void, Void, List<Menu>>() {
+
+            ProgressDialog asyncDialog = new ProgressDialog(getContext());
+            @Override
+            protected void onPreExecute() {
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
+            }
+
+            @Override
+            protected List<Menu> doInBackground(Void... params) {
+                List<Menu> list = null;
+                try {
+                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo);
+                    Log.i("mylog sid",sid);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
+                    conn.connect();//연결
+
+                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
+                        InputStream is = conn.getInputStream();
+                        Reader reader = new InputStreamReader(is);  // 읽기 객체 생성
+                        BufferedReader br = new BufferedReader(reader);//성능 향상위해 사용.
+                        String strJson = "";
+                        while (true) {
+                            String data = br.readLine();
+                            if (data == null) break;
+                            strJson += data;
+                        }
+                        br.close();
+                        reader.close();
+                        is.close();
+                        list=parseJson(strJson);
+                        Log.i("mylog total", strJson);
+
                     }
-                });
 
+                    conn.disconnect();
+                } catch (Exception e){
+                    Log.i("mylog total",e.getMessage());
+                }
+                return list;
+            }
+
+            @Override
+            protected void onPostExecute(final List<Menu> menu) {
+
+                menuAdapter.set(menu);
+                isMoreData = false;
                 asyncDialog.dismiss();
             }
         };

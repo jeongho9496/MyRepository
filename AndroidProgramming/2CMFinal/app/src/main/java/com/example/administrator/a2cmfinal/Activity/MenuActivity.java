@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.adapter.TabPagerAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
 import com.example.administrator.a2cmfinal.menufragment.TotalFragment;

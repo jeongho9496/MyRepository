@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -17,8 +17,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.example.administrator.a2cmfinal.Service.BeaconScanService;
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.StoreEvent;
 
 public class BeaconStartActivity extends AppCompatActivity {
@@ -44,6 +47,11 @@ public class BeaconStartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_beacon);
 
         getSupportActionBar().setTitle("Beacon Start");
+
+        //로그인 테스트
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String test = pref.getString("id","");
+        Toast.makeText(BeaconStartActivity.this, test, Toast.LENGTH_SHORT).show();
 
         rootViewGroup = (RelativeLayout)findViewById(R.id.rootViewGroup);
 

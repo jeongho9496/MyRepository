@@ -15,10 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".BeaconStartActivity"
+            android:name=".Activity.BeaconStartActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,19 +28,21 @@
         </activity>
 
         <service
-            android:name=".BeaconScanService"
+            android:name=".Service.BeaconScanService"
             android:enabled="true"
             android:exported="true" />
         <service android:name="com.perples.recosdk.RECOBeaconService" />
 
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".EventActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.EventActivity" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".Activity.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".StoreInfoActivity" />
-        <activity android:name=".DetailMenuActivity"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activity.StoreInfoActivity" />
+        <activity android:name=".Activity.DetailMenuActivity" />
+        <activity android:name=".Activity.JoinActivity" />
+        <activity android:name=".Activity.OrderActivity"></activity>
     </application>
 
 </manifest>

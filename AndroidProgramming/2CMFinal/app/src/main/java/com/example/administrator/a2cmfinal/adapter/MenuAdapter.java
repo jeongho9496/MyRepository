@@ -21,7 +21,13 @@ import java.util.List;
 public class MenuAdapter extends BaseAdapter {
 
     private List<Menu> list;
-    public void setList(List<Menu> list){this.list = list;}
+    public void setList(List<Menu> list){this.list = list;
+    }
+
+    public void set(List<Menu> data){
+        list.addAll(data);
+        notifyDataSetChanged();//리스트의 데이터가 변경되었다는 것을 리스트에 알려주는 메소드.
+    }
 
     private Context context;
     private LayoutInflater layoutInflater;

@@ -5,11 +5,14 @@
     tools:context="com.example.administrator.a2cmfinal.menufragment.DessertFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="DESSERT FRAGMENT"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:id="@+id/dessertList"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:divider="#777"
+        android:dividerHeight="0px"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

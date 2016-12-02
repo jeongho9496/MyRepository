@@ -1,4 +1,4 @@
-package com.example.administrator.a2cmfinal;
+package com.example.administrator.a2cmfinal.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
+import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Sphoto;
 import com.example.administrator.a2cmfinal.dto.Store;
 
