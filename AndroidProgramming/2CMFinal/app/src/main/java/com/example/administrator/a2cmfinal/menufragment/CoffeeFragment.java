@@ -45,7 +45,7 @@ public class CoffeeFragment extends Fragment {
 
     public CoffeeFragment(){setHasOptionsMenu(true);}
 
-    public static final String ARG_POSITION = "test";
+    public static final String ARG_POSITION = "coffeeList";
 
     private String sid;
 
@@ -138,7 +138,7 @@ public class CoffeeFragment extends Fragment {
                 List<Menu> list = null;
                 try {
                     //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -195,7 +195,7 @@ public class CoffeeFragment extends Fragment {
                 List<Menu> list = null;
                 try {
                     //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo);
+                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
