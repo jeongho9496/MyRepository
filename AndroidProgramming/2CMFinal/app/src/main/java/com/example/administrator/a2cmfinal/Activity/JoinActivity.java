@@ -70,7 +70,7 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 try {
-                    URL url = new URL("http://192.168.0.22:8080/myweb/joinAndroid");
+                    URL url = new URL("http://192.168.0.58:8080/myweb/joinAndroid");
 
                     JSONObject body = new JSONObject();
                     body.put("user_id", joinId);

@@ -38,9 +38,10 @@ public class DetailMenuActivity extends AppCompatActivity {
     int price;  //개당금액
     int totalPrice; //한 종류 총 합계금액
     int mid;//extra로 받아온 메뉴 아이디
-    int xid;//옵션아이디
-
-    String size, syrup, shot;
+    int xid1;//옵션아이디
+    int xid2;
+    int xid3;
+    String size, syrup, shot, sid;
 
     Spinner sizeSpinner, syrupSpinner, shotSpinner;
 
@@ -76,19 +77,17 @@ public class DetailMenuActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 syrup = (String) syrupSpinner.getSelectedItem();
-                Log.i("mylog extraSpinner", syrup);
                 switch (position){
                     case 1:
-                        xid = 11;
+                        xid2=11;
                         break;
                     case 2:
-                        xid=12;
+                        xid2=12;
                         break;
                     case 3:
-                        xid=13;
+                        xid2=13;
                         break;
                 }
-
             }
 
             @Override
@@ -97,25 +96,32 @@ public class DetailMenuActivity extends AppCompatActivity {
             }
         });
 
+
+
+        btnAddMenu = (Button)findViewById(R.id.btnAddMenu);
+        menuItems(mid);
+
         btnSingleOrder = (Button)findViewById(R.id.btnSingleOrder);
         btnSingleOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentOrder = new Intent(DetailMenuActivity.this, OrderActivity.class);
-
+                Log.i("mylog extraSpinner", syrup+" xid :"+xid2);
+                intentOrder.putExtra("syrup", syrup);
+                intentOrder.putExtra("xid2",""+xid2);
+                intentOrder.putExtra("size", size);
+                intentOrder.putExtra("xid1",""+xid1);
+                intentOrder.putExtra("shot", shot);
+                intentOrder.putExtra("xid3",""+xid3);
+                intentOrder.putExtra("count",""+count);
+                intentOrder.putExtra("mid",""+mid);
+                intentOrder.putExtra("price",""+totalPrice);
+                intentOrder.putExtra("sid",sid);
                 startActivity(intentOrder);
             }
         });
 
-        btnAddMenu = (Button)findViewById(R.id.btnAddMenu);
-
-
-        menuItems(mid);
-
         countText.setText(""+count);
-
-        Log.i("mylog Spinner", syrup +","+size);
-
 
 
     }
@@ -133,7 +139,7 @@ public class DetailMenuActivity extends AppCompatActivity {
             protected Menu doInBackground(Void... params) {
                 Menu menu = null;
                 try{
-                    URL url = new URL("http://192.168.0.22:8080/myweb/detailMenuAndroid?mid="+mid);
+                    URL url = new URL("http://192.168.0.58:8080/myweb/detailMenuAndroid?mid="+mid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
@@ -163,12 +169,12 @@ public class DetailMenuActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Menu menu) {
                 super.onPostExecute(menu);
-                if (!menu.getHot_ice().equals("없음")){
+                if (!menu.getHot_ice().equals(" ")){
                     getSupportActionBar().setTitle(menu.getMname()+" "+menu.getHot_ice());
                     if (menu.getHot_ice().equals("HOT")){
                         hot_iced.setTextColor(ContextCompat.getColor(DetailMenuActivity.this,android.R.color.holo_red_light));
                         hot_iced.setText(menu.getHot_ice());
-                    } else {
+                    } else if (menu.getHot_ice().equals("ICE")){
                         hot_iced.setTextColor(ContextCompat.getColor(DetailMenuActivity.this,android.R.color.holo_blue_dark));
                         hot_iced.setText(menu.getHot_ice());
                     }
@@ -184,13 +190,13 @@ public class DetailMenuActivity extends AppCompatActivity {
                             Log.i("mylog extraSpinner",shot);
                             switch (position){
                                 case 1:
-                                    xid = 21;
+                                    xid3=21;
                                     break;
                                 case 2:
-                                    xid=22;
+                                    xid3=22;
                                     break;
                                 case 3:
-                                    xid=23;
+                                    xid3=23;
                                     break;
                             }
                         }
@@ -212,13 +218,13 @@ public class DetailMenuActivity extends AppCompatActivity {
                             Log.i("mylog extraSpinner",size);
                             switch (position){
                                 case 0:
-                                    xid=1;
+                                    xid1=1;
                                     break;
                                 case 1:
-                                    xid=2;
+                                    xid1=2;
                                     break;
                                 case 2:
-                                    xid=3;
+                                    xid1=3;
                                     break;
                             }
                         }
@@ -238,6 +244,7 @@ public class DetailMenuActivity extends AppCompatActivity {
                 contentText.setText(menu.getMcontents());
                 price = menu.getMprice();
                 totalPrice = price;
+                sid = menu.getSid();
                 priceText.setText(String.format("%,d",price)+" 원");
                 asyncDialog.dismiss();
             }
@@ -268,7 +275,7 @@ public class DetailMenuActivity extends AppCompatActivity {
 
         try {
             //URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
-            URL url = new URL("http://192.168.0.22:8080/myweb/getImage?fileName=" + fileName);
+            URL url = new URL("http://192.168.0.58:8080/myweb/getImage?fileName=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

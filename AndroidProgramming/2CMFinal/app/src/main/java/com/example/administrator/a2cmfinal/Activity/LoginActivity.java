@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             protected Result doInBackground(String... params) {
                 Result result = null;
                 try {
-                    URL url = new URL("http://192.168.0.22:8080/myweb/loginAndroid");
+                    URL url = new URL("http://192.168.0.58:8080/myweb/loginAndroid");
 
                     JSONObject body = new JSONObject();
                     body.put("user_id", user_id);

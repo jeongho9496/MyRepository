@@ -39,25 +39,25 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
         switch (position){
             case 0:
                 //TotalFragment totalFragment = new TotalFragment();
-                CachePot.getInstance().push(position, sid);
-                return TotalFragment.newInstance(position);
+                CachePot.getInstance().push(0, sid);
+                return TotalFragment.newInstance(0);
 
             case 1:
                 //CoffeeFragment coffeeFragment = new CoffeeFragment();
-                CachePot.getInstance().push(position, sid);
-                return CoffeeFragment.newInstance(position);
+                CachePot.getInstance().push(1, sid);
+                return CoffeeFragment.newInstance(1);
 
             case 2:
-                CachePot.getInstance().push(position, sid);
-                return TeaFragment.newInstance(position);
+                CachePot.getInstance().push(2, sid);
+                return TeaFragment.newInstance(2);
 
             case 3:
-                CachePot.getInstance().push(position, sid);
-                return DessertFragment.newInstance(position);
+                CachePot.getInstance().push(3, sid);
+                return DessertFragment.newInstance(3);
 
             case 4:
-                CachePot.getInstance().push(position, sid);
-                return EtcFragment.newInstance(position);
+                CachePot.getInstance().push(4, sid);
+                return EtcFragment.newInstance(4);
 
             default:
             return null;

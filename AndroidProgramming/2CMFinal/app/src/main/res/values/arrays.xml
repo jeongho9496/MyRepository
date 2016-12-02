@@ -2,7 +2,7 @@
 <resources>
     <string-array name="size">
         <item>Small</item>
-        <item>Medium</item>
+        <item>Midium</item>
         <item>Large</item>
     </string-array>
 
@@ -15,9 +15,9 @@
 
     <string-array name="shot">
         <item>없음</item>
-        <item>샷 추가 1개</item>
-        <item>샷 추가 2개</item>
-        <item>샷 추가 3개</item>
+        <item>샷추가1</item>
+        <item>샷추가2</item>
+        <item>샷추가3</item>
     </string-array>
 
 

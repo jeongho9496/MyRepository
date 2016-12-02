@@ -60,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
 
-                Toast.makeText(getApplicationContext(),tab.getText(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),tab.getText(),Toast.LENGTH_SHORT).show();
             }
 
             @Override

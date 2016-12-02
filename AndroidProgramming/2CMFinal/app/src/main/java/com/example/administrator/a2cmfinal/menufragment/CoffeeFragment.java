@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.administrator.a2cmfinal.Activity.DetailMenuActivity;
 import com.example.administrator.a2cmfinal.R;
-import com.example.administrator.a2cmfinal.adapter.MenuAdapter;
+import com.example.administrator.a2cmfinal.adapter.CoffeeAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
 import com.github.kimkevin.cachepot.CachePot;
 
@@ -39,7 +39,7 @@ import java.util.List;
 
 public class CoffeeFragment extends Fragment {
     private ListView coffeeList;
-    private MenuAdapter coffeeAdapter;
+    private CoffeeAdapter coffeeAdapter;
 
     List<Menu> list = new ArrayList<>();
 
@@ -67,7 +67,7 @@ public class CoffeeFragment extends Fragment {
         if (getArguments() != null) {
             final int position = getArguments().getInt(ARG_POSITION);
             sid = CachePot.getInstance().pop(position);
-            //Toast.makeText(getContext(),sid,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),sid,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -117,9 +117,70 @@ public class CoffeeFragment extends Fragment {
         return view;
     }
 
+
+    private void setMenuItems(final int pageNo) {
+        AsyncTask<Void, Void, List<Menu>> asyncTask = new AsyncTask<Void, Void, List<Menu>>() {
+
+            ProgressDialog asyncDialog = new ProgressDialog(getContext());
+            @Override
+            protected void onPreExecute() {
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
+            }
+
+            @Override
+            protected List<Menu> doInBackground(Void... params) {
+                List<Menu> list = null;
+                try {
+                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.58:8080/myweb/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
+                    Log.i("mylog sid123",sid);
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
+                    conn.connect();//연결
+
+                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
+                        InputStream is = conn.getInputStream();
+                        Reader reader = new InputStreamReader(is);  // 읽기 객체 생성
+                        BufferedReader br = new BufferedReader(reader);//성능 향상위해 사용.
+                        String strJson = "";
+                        while (true) {
+                            String data = br.readLine();
+                            if (data == null) break;
+                            strJson += data;
+                        }
+                        br.close();
+                        reader.close();
+                        is.close();
+                        list=parseJson(strJson);
+                        Log.i("mylog total", strJson);
+
+                    }
+
+                    conn.disconnect();
+                } catch (Exception e){
+                    Log.i("mylog total",e.getMessage());
+                }
+                return list;
+            }
+
+            @Override
+            protected void onPostExecute(final List<Menu> menu) {
+                coffeeAdapter = new CoffeeAdapter(getContext());
+                list.removeAll(menu);
+                coffeeAdapter.setList(menu);
+                coffeeList.setAdapter(coffeeAdapter);
+
+                asyncDialog.dismiss();
+            }
+        };
+        asyncTask.execute();
+    }
+
+
     //리스트뷰 확장
     boolean isMoreData = false;
-    private void getMoreItem(int pagaNo) {
+    private void getMoreItem(final int pageNo) {
         if (isMoreData) return;
         isMoreData = true;
 
@@ -138,7 +199,7 @@ public class CoffeeFragment extends Fragment {
                 List<Menu> list = null;
                 try {
                     //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
+                    URL url = new URL("http://192.168.0.58:8080/myweb/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -179,65 +240,6 @@ public class CoffeeFragment extends Fragment {
         asyncTask.execute();
     }
 
-    private void setMenuItems(final int pageNo) {
-        AsyncTask<Void, Void, List<Menu>> asyncTask = new AsyncTask<Void, Void, List<Menu>>() {
-
-            ProgressDialog asyncDialog = new ProgressDialog(getContext());
-            @Override
-            protected void onPreExecute() {
-                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                asyncDialog.setMessage("로딩중입니다..");
-                asyncDialog.show();
-            }
-
-            @Override
-            protected List<Menu> doInBackground(Void... params) {
-                List<Menu> list = null;
-                try {
-                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.22:8080/myweb/menuAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
-                    Log.i("mylog sid",sid);
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
-                    conn.connect();//연결
-
-                    if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상
-                        InputStream is = conn.getInputStream();
-                        Reader reader = new InputStreamReader(is);  // 읽기 객체 생성
-                        BufferedReader br = new BufferedReader(reader);//성능 향상위해 사용.
-                        String strJson = "";
-                        while (true) {
-                            String data = br.readLine();
-                            if (data == null) break;
-                            strJson += data;
-                        }
-                        br.close();
-                        reader.close();
-                        is.close();
-                        list=parseJson(strJson);
-                        Log.i("mylog total", strJson);
-
-                    }
-
-                    conn.disconnect();
-                } catch (Exception e){
-                    Log.i("mylog total",e.getMessage());
-                }
-                return list;
-            }
-
-            @Override
-            protected void onPostExecute(final List<Menu> menu) {
-                coffeeAdapter = new MenuAdapter(getContext());
-                list.removeAll(menu);
-                coffeeAdapter.setList(menu);
-                coffeeList.setAdapter(coffeeAdapter);
-
-                asyncDialog.dismiss();
-            }
-        };
-        asyncTask.execute();
-    }
-
     private List<Menu> parseJson(String strJson) {
         List<Menu> list = new ArrayList<>();
         try {
@@ -263,7 +265,7 @@ public class CoffeeFragment extends Fragment {
 
         try {
             //URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
-            URL url = new URL("http://192.168.0.22:8080/myweb/getImage?fileName=" + fileName);
+            URL url = new URL("http://192.168.0.58:8080/myweb/getImage?fileName=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
