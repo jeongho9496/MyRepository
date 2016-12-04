@@ -2,10 +2,13 @@ package com.example.administrator.a2cmfinal.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
@@ -33,7 +36,13 @@ import java.util.List;
 public class StoreInfoActivity extends AppCompatActivity implements BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
     private SliderLayout storeImage;
-    private TextView storeInfo;
+    /** 2016.12.04 추가 */
+    Store store;
+    private TextView storeNameText;
+    private TextView storeAddrText;
+    private TextView storeTimeText;
+    private Button btnCall;
+    /** // 2016.12.04 추가 */
 
 
     @Override
@@ -42,16 +51,32 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
         setContentView(R.layout.activity_store_info);
 
         Intent intent = getIntent();
-        Store store = (Store) intent.getSerializableExtra("store");
+        store = (Store) intent.getSerializableExtra("store");
 
         getSupportActionBar().setTitle("매장정보");
 
         String sid = store.getSid();
 
-        storeImage = (SliderLayout)findViewById(R.id.sliderImage);
-        storeInfo = (TextView)findViewById(R.id.storeInfoText);
+        storeImage = (SliderLayout) findViewById(R.id.sliderImage);
 
-        storeInfo.setText(store.getSid()+" "+store.getSname()+" "+store.getSlocal()+" "+store.getSaddr()+" "+store.getSopen()+" "+store.getSclosed()+" "+store.getStel());
+        /** 2016.12.04 추가 */
+        storeNameText = (TextView) findViewById(R.id.storeNameText);
+        storeAddrText = (TextView) findViewById(R.id.storeAddrText);
+        storeTimeText = (TextView) findViewById(R.id.storeTimeText);
+
+        storeNameText.setText(store.getSname() + " " + store.getSlocal());
+        storeAddrText.setText(store.getSaddr());
+        storeTimeText.setText(store.getSopen() + " ~ " + store.getSclosed());
+
+        btnCall = (Button) findViewById(R.id.btnCall);
+        btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + store.getStel()));
+                startActivity(intent);
+            }
+        });
+        /** //2016.12.04 추가 */
 
         sphotoLoading(sid);
     }
@@ -72,8 +97,8 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
             protected List<Sphoto> doInBackground(Void... params) {
                 List<Sphoto> list = null;
                 try {
-                   URL url = new URL("http://192.168.0.58:8080/myweb/sphotoAndroid?sid="+sid);
-                   // URL url = new URL("http://192.168.0.3:8080/myweb/sphotoAndroid?sid="+sid);
+                    URL url = new URL("http://192.168.0.58:8080/myweb/sphotoAndroid?sid="+sid);
+                    // URL url = new URL("http://192.168.0.3:8080/myweb/sphotoAndroid?sid="+sid);
                     //URL url = new URL("http://192.168.0.22:8080/myweb/sphotoAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                     conn.connect();
@@ -112,19 +137,19 @@ public class StoreInfoActivity extends AppCompatActivity implements BaseSliderVi
                         url_maps.put("photos" + i, "http://192.168.0.58:8080/myweb/store/showPhoto?savedfile=" + sphotos.get(i).getSpic_savedfile());
                     }
                 }
-                    storeImage.removeAllSliders();
+                storeImage.removeAllSliders();
 
-                    for (String name : url_maps.keySet()) {
-                        TextSliderView textSliderView = new TextSliderView(StoreInfoActivity.this);
-                        textSliderView.image((url_maps.get(name)));
+                for (String name : url_maps.keySet()) {
+                    TextSliderView textSliderView = new TextSliderView(StoreInfoActivity.this);
+                    textSliderView.image((url_maps.get(name)));
 
 
-                        storeImage.addSlider(textSliderView);
-                        storeImage.setPresetTransformer(SliderLayout.Transformer.Default);
-                        storeImage.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-                    }
+                    storeImage.addSlider(textSliderView);
+                    storeImage.setPresetTransformer(SliderLayout.Transformer.Default);
+                    storeImage.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+                }
 
-                    asyncDialog.dismiss();
+                asyncDialog.dismiss();
 
             }
         };

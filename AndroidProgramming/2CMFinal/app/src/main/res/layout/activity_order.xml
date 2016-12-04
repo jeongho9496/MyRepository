@@ -7,8 +7,7 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/coffeebackground"
+    android:paddingTop="5dp"
     tools:context="com.example.administrator.a2cmfinal.Activity.OrderActivity">
 
 
@@ -68,27 +67,28 @@
             android:layout_below="@+id/textView5"
             android:layout_alignParentStart="true"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <RadioButton
-                android:text="신용카드"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButton3"
-                android:layout_weight="1" />
+            android:gravity="center_vertical"
+            android:id="@+id/howpayGroup">
 
             <RadioButton
                 android:text="무통장입금"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton2"
+                android:id="@+id/btnCash"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="카드결제"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnCard"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:text="PAYCO"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/radioButton"
+                android:id="@+id/btnPayco"
                 android:layout_weight="1" />
         </RadioGroup>
 
@@ -133,14 +133,14 @@
 
             <TextView
                 android:padding="5dp"
-                android:text="3,000 원"
                 android:gravity="right"
                 android:textColor="@android:color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:layout_below="@+id/textView6"
                 android:layout_alignParentEnd="true"
-                android:id="@+id/textView13"
+                android:id="@+id/orderTotal"
                 android:layout_toEndOf="@+id/textView7" />
 
         </RelativeLayout>
@@ -149,13 +149,15 @@
             android:id="@+id/orderBtnLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
             android:layout_weight="2">
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="결제하기"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:id="@+id/btnOrder" />
 
         </RelativeLayout>
 

@@ -30,7 +30,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class EventActivity extends AppCompatActivity {
-    TextView contentText , beaconText, sidText;
+    /** 2016. 12. 04 추가 */
+    TextView storeEventText;
+    /** // 2016. 12. 04 추가 */
+
     ImageView eventImage;
     Store storeTrans;//객체로 정보 페이지에 넘길때 사용
     String beacon;
@@ -45,10 +48,11 @@ public class EventActivity extends AppCompatActivity {
         String content = intent.getExtras().getString("content");
         final String sid = intent.getExtras().getString("sid");
 
+        /** 2016. 12. 04 추가 */
+        storeEventText = (TextView) findViewById(R.id.storeEventText);
+        storeEventText.setText(content);
+        /** // 2016. 12. 04 추가 */
 
-        contentText = (TextView)findViewById(R.id.contentText);
-        beaconText = (TextView)findViewById(R.id.beaconText);
-        sidText = (TextView)findViewById(R.id.sidText);
         btnOrder = (Button)findViewById(R.id.btnOrder);
 
         btnOrder.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +64,7 @@ public class EventActivity extends AppCompatActivity {
             }
         });
 
-        beaconText.setText("sbeacon: " + beacon);
-        sidText.setText("sid: " + sid);
-
-
         final String image = intent.getExtras().getString("image");
-        contentText.setText("content: " + content);
 
         eventImage = (ImageView)findViewById(R.id.eventImage);
 

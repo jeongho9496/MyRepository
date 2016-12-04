@@ -1,5 +1,6 @@
 package com.example.administrator.a2cmfinal.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Result;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,6 +67,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginConn(final Editable user_id, final Editable user_pw) {
         AsyncTask<String, Void, Result> asyncTask = new AsyncTask<String, Void, Result>() {
+            ProgressDialog asyncDialog = new ProgressDialog(LoginActivity.this);
+            @Override
+            protected void onPreExecute() {
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
+            }
+
             @Override
             protected Result doInBackground(String... params) {
                 Result result = null;
@@ -127,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                 super.onPostExecute(result);
                 Log.i("mylog",result.getResult());
                 if (result.getResult().equals("LOGIN_SUCCESS")){
-                    Toast.makeText(getApplicationContext(),"로그인 성공 하셨습니다.",Toast.LENGTH_SHORT).show();
+                   /* Toast.makeText(getApplicationContext(),"로그인 성공 하셨습니다.",Toast.LENGTH_SHORT).show();*/
                     SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("id", String.valueOf(user_id));
@@ -137,14 +147,10 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(),"로그인 실패 하셨습니다.",Toast.LENGTH_SHORT).show();
                 }
+
+                asyncDialog.dismiss();
             }
 
-            @Override
-            protected void onPreExecute()
-            {
-                super.onPreExecute();
-
-            }
         };
         asyncTask.execute();
 

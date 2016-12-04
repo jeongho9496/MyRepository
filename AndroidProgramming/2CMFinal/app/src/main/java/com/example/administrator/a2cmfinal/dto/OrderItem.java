@@ -1,3 +1,4 @@
+/*
 package com.example.administrator.a2cmfinal.dto;
 
 public class OrderItem {
@@ -31,3 +32,4 @@ public class OrderItem {
 		this.ordercount = ordercount;
 	}
 }
+*/

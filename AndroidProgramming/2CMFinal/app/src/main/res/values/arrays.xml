@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="size">
+        <item>없음</item>
         <item>Small</item>
         <item>Midium</item>
         <item>Large</item>

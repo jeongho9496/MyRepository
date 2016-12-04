@@ -1,5 +1,6 @@
 package com.example.administrator.a2cmfinal.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -67,6 +68,14 @@ public class JoinActivity extends AppCompatActivity {
 
     private void joinConn(final Editable joinId, final Editable joinEmail, final Editable joinPassword , final Editable joinTel)  {
         AsyncTask<String, Void, String> asyncTask = new AsyncTask<String, Void, String>() {
+            ProgressDialog asyncDialog = new ProgressDialog(JoinActivity.this);
+            @Override
+            protected void onPreExecute() {
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
+            }
+
             @Override
             protected String doInBackground(String... params) {
                 try {
@@ -137,14 +146,10 @@ public class JoinActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(getApplicationContext(), "회원가입을 실패 하였습니다.", Toast.LENGTH_SHORT).show();
                 }
+
+                asyncDialog.dismiss();
             }
 
-            @Override
-            protected void onPreExecute()
-            {
-                super.onPreExecute();
-
-            }
         };
         asyncTask.execute();
 

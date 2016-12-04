@@ -1,3 +1,4 @@
+/*
 package com.example.administrator.a2cmfinal.dto;
 
 import java.util.Date;
@@ -50,3 +51,4 @@ public class Order {
 	}
 
 }
+*/

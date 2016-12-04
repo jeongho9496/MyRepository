@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.example.administrator.a2cmfinal.Activity.DetailMenuActivity;
 import com.example.administrator.a2cmfinal.R;
-import com.example.administrator.a2cmfinal.adapter.CoffeeAdapter;
+import com.example.administrator.a2cmfinal.adapter.MenuAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
 import com.github.kimkevin.cachepot.CachePot;
 
@@ -39,7 +39,7 @@ import java.util.List;
 
 public class CoffeeFragment extends Fragment {
     private ListView coffeeList;
-    private CoffeeAdapter coffeeAdapter;
+    private MenuAdapter coffeeAdapter;
 
     List<Menu> list = new ArrayList<>();
 
@@ -67,7 +67,6 @@ public class CoffeeFragment extends Fragment {
         if (getArguments() != null) {
             final int position = getArguments().getInt(ARG_POSITION);
             sid = CachePot.getInstance().pop(position);
-            Toast.makeText(getContext(),sid,Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -124,9 +123,9 @@ public class CoffeeFragment extends Fragment {
             ProgressDialog asyncDialog = new ProgressDialog(getContext());
             @Override
             protected void onPreExecute() {
-                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                asyncDialog.setMessage("로딩중입니다..");
-                asyncDialog.show();
+//                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                asyncDialog.setMessage("로딩중입니다..");
+//                asyncDialog.show();
             }
 
             @Override
@@ -166,7 +165,7 @@ public class CoffeeFragment extends Fragment {
 
             @Override
             protected void onPostExecute(final List<Menu> menu) {
-                coffeeAdapter = new CoffeeAdapter(getContext());
+                coffeeAdapter = new MenuAdapter(getContext());
                 list.removeAll(menu);
                 coffeeAdapter.setList(menu);
                 coffeeList.setAdapter(coffeeAdapter);
@@ -189,9 +188,9 @@ public class CoffeeFragment extends Fragment {
             ProgressDialog asyncDialog = new ProgressDialog(getContext());
             @Override
             protected void onPreExecute() {
-                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                asyncDialog.setMessage("로딩중입니다..");
-                asyncDialog.show();
+//                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                asyncDialog.setMessage("로딩중입니다..");
+//                asyncDialog.show();
             }
 
             @Override
@@ -251,6 +250,7 @@ public class CoffeeFragment extends Fragment {
                 menu.setMid(jsonObject.getInt("mid"));
                 menu.setMname(jsonObject.getString("mname"));
                 menu.setMprice(jsonObject.getInt("mprice"));
+                menu.setHot_ice(jsonObject.getString("hot_ice"));
                 menu.setImage(getBitmap(jsonObject.getString("msavedfile")));
                 list.add(menu);
             }

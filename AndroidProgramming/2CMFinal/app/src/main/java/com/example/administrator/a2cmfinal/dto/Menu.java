@@ -2,11 +2,13 @@ package com.example.administrator.a2cmfinal.dto;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by kimjeongho on 2016-11-27.
  */
 
-public class Menu {
+public class Menu  {
     private int mid;
     private String mgroup;
     private String mname;
@@ -16,6 +18,12 @@ public class Menu {
     private String msavedfile;
     private String sid;
     private Bitmap image;
+    /*private String syrup;
+    private String size;
+    private String shot;
+    private int sizePrice;
+    private int syrupPrice;
+    private int shotPrice;*/
 
     public Bitmap getImage() {
         return image;
@@ -88,4 +96,52 @@ public class Menu {
     public void setSid(String sid) {
         this.sid = sid;
     }
+
+    /*public String getSyrup() {
+        return syrup;
+    }
+
+    public void setSyrup(String syrup) {
+        this.syrup = syrup;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getShot() {
+        return shot;
+    }
+
+    public void setShot(String shot) {
+        this.shot = shot;
+    }
+
+    public int getSizePrice() {
+        return sizePrice;
+    }
+
+    public void setSizePrice(int sizePrice) {
+        this.sizePrice = sizePrice;
+    }
+
+    public int getSyrupPrice() {
+        return syrupPrice;
+    }
+
+    public void setSyrupPrice(int syrupPrice) {
+        this.syrupPrice = syrupPrice;
+    }
+
+    public int getShotPrice() {
+        return shotPrice;
+    }
+
+    public void setShotPrice(int shotPrice) {
+        this.shotPrice = shotPrice;
+    }*/
 }

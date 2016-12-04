@@ -51,7 +51,7 @@ public class BeaconStartActivity extends AppCompatActivity {
         //로그인 테스트
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         String test = pref.getString("id","");
-        Toast.makeText(BeaconStartActivity.this, test, Toast.LENGTH_SHORT).show();
+        Toast.makeText(BeaconStartActivity.this, test+"님 반갑습니다.", Toast.LENGTH_SHORT).show();
 
         rootViewGroup = (RelativeLayout)findViewById(R.id.rootViewGroup);
 

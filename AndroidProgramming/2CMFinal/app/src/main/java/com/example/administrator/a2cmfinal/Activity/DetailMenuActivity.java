@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Menu;
+import com.example.administrator.a2cmfinal.dto.OrderMenu;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,14 +39,18 @@ public class DetailMenuActivity extends AppCompatActivity {
     int price;  //개당금액
     int totalPrice; //한 종류 총 합계금액
     int mid;//extra로 받아온 메뉴 아이디
-    int xid1;//옵션아이디
-    int xid2;
-    int xid3;
+    int syrupPrice;//옵션아이디
+    int sizePrice;
+    int shotPrice;
     String size, syrup, shot, sid;
 
     Spinner sizeSpinner, syrupSpinner, shotSpinner;
 
     Button btnSingleOrder, btnAddMenu;
+
+    OrderMenu orderMenu;
+
+    Menu menuTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,16 +83,84 @@ public class DetailMenuActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 syrup = (String) syrupSpinner.getSelectedItem();
                 switch (position){
+                    case 0:
+                        syrupPrice=0;
+                        break;
                     case 1:
-                        xid2=11;
+                        syrupPrice=500;
                         break;
                     case 2:
-                        xid2=12;
+                        syrupPrice=1000;
                         break;
                     case 3:
-                        xid2=13;
+                        syrupPrice=1500;
                         break;
                 }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter shotAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.shot, android.R.layout.simple_spinner_dropdown_item);
+        shotAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        shotSpinner.setAdapter(shotAdapter);
+
+        shotSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                shot = (String) shotSpinner.getSelectedItem();
+                Log.i("mylog extraSpinner",shot);
+                switch (position){
+                    case 0:
+                        shotPrice=0;
+                        break;
+                    case 1:
+                        shotPrice=500;
+                        break;
+                    case 2:
+                        shotPrice=1000;
+                        break;
+                    case 3:
+                        shotPrice=1500;
+                        break;
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter sizeAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.size, android.R.layout.simple_spinner_dropdown_item);
+        sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sizeSpinner.setAdapter(sizeAdapter);
+
+        sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                size = (String) sizeSpinner.getSelectedItem();
+                Log.i("mylog extraSpinner",size);
+                switch (position){
+                    case 0:
+                        sizePrice=0;
+                        break;
+                    case 1:
+                        sizePrice=0;
+                        break;
+                    case 2:
+                        sizePrice=500;
+                        break;
+                    case 3:
+                        sizePrice=1000;
+                        break;
+                }
+
             }
 
             @Override
@@ -105,25 +178,44 @@ public class DetailMenuActivity extends AppCompatActivity {
         btnSingleOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentOrder = new Intent(DetailMenuActivity.this, OrderActivity.class);
-                Log.i("mylog extraSpinner", syrup+" xid :"+xid2);
-                intentOrder.putExtra("syrup", syrup);
-                intentOrder.putExtra("xid2",""+xid2);
+
+                orderMenu = new OrderMenu();
+                orderMenu.setHot_ice(menuTotal.getHot_ice());
+                orderMenu.setSid(menuTotal.getSid());
+                orderMenu.setMid(menuTotal.getMid());
+                orderMenu.setMname(menuTotal.getMname());
+                orderMenu.setMprice(totalPrice);
+                orderMenu.setCount(count);
+
+
+                orderMenu.setSyrup(syrup);
+                orderMenu.setSyrupPrice(syrupPrice);
+                orderMenu.setSize(size);
+                orderMenu.setSizePrice(sizePrice);
+                orderMenu.setShot(shot);
+                orderMenu.setShotPrice(shotPrice);
+
+                Intent intentOrder = new Intent(getApplicationContext(), OrderActivity.class);
+                /*intentOrder.putExtra("syrup", syrup);
+                intentOrder.putExtra("syrupPrice",""+syrupPrice);
                 intentOrder.putExtra("size", size);
-                intentOrder.putExtra("xid1",""+xid1);
+                intentOrder.putExtra("sizePrice",""+sizePrice);
                 intentOrder.putExtra("shot", shot);
-                intentOrder.putExtra("xid3",""+xid3);
+                intentOrder.putExtra("shotPrice",""+shotPrice);
                 intentOrder.putExtra("count",""+count);
                 intentOrder.putExtra("mid",""+mid);
                 intentOrder.putExtra("price",""+totalPrice);
-                intentOrder.putExtra("sid",sid);
+                intentOrder.putExtra("sid",sid);*/
+                /*intentOrder.putExtra("count",""+count);
+                intentOrder.putExtra("price",""+totalPrice);*/
+                intentOrder.putExtra("orderMenu",orderMenu);
+
+                Log.i("orderMenu",orderMenu.getHot_ice()+"---"+orderMenu.getSize()+"---"+orderMenu.getSizePrice());
                 startActivity(intentOrder);
             }
         });
 
         countText.setText(""+count);
-
-
     }
 
     private void menuItems(final int mid) {
@@ -169,6 +261,10 @@ public class DetailMenuActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Menu menu) {
                 super.onPostExecute(menu);
+                //orderMenu = new Menu();
+
+                menuTotal = menu;
+
                 if (!menu.getHot_ice().equals(" ")){
                     getSupportActionBar().setTitle(menu.getMname()+" "+menu.getHot_ice());
                     if (menu.getHot_ice().equals("HOT")){
@@ -179,61 +275,7 @@ public class DetailMenuActivity extends AppCompatActivity {
                         hot_iced.setText(menu.getHot_ice());
                     }
 
-                    ArrayAdapter shotAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.shot, android.R.layout.simple_spinner_dropdown_item);
-                    shotAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    shotSpinner.setAdapter(shotAdapter);
 
-                    shotSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            shot = (String) shotSpinner.getSelectedItem();
-                            Log.i("mylog extraSpinner",shot);
-                            switch (position){
-                                case 1:
-                                    xid3=21;
-                                    break;
-                                case 2:
-                                    xid3=22;
-                                    break;
-                                case 3:
-                                    xid3=23;
-                                    break;
-                            }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-
-                    ArrayAdapter sizeAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.size, android.R.layout.simple_spinner_dropdown_item);
-                    sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    sizeSpinner.setAdapter(sizeAdapter);
-
-                    sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            size = (String) sizeSpinner.getSelectedItem();
-                            Log.i("mylog extraSpinner",size);
-                            switch (position){
-                                case 0:
-                                    xid1=1;
-                                    break;
-                                case 1:
-                                    xid1=2;
-                                    break;
-                                case 2:
-                                    xid1=3;
-                                    break;
-                            }
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
                 } else {
                     getSupportActionBar().setTitle(menu.getMname());
                     hot_iced.setText(null);
@@ -246,6 +288,10 @@ public class DetailMenuActivity extends AppCompatActivity {
                 totalPrice = price;
                 sid = menu.getSid();
                 priceText.setText(String.format("%,d",price)+" 원");
+
+
+
+
                 asyncDialog.dismiss();
             }
         };

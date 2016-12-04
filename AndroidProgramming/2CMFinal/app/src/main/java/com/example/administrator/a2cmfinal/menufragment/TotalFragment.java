@@ -254,6 +254,7 @@ public class TotalFragment extends Fragment {
                 menu.setMid(jsonObject.getInt("mid"));
                 menu.setMname(jsonObject.getString("mname"));
                 menu.setMprice(jsonObject.getInt("mprice"));
+                menu.setHot_ice(jsonObject.getString("hot_ice"));
                 menu.setImage(getBitmap(jsonObject.getString("msavedfile")));
                 list.add(menu);
             }

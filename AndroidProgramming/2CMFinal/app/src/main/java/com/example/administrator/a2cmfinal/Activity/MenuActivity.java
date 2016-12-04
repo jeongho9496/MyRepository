@@ -55,6 +55,9 @@ public class MenuActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
+        // 한번에 다음 4개 페이지까지(현재 페이지 포함 5개) 로딩
+        viewPager.setOffscreenPageLimit(4);
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

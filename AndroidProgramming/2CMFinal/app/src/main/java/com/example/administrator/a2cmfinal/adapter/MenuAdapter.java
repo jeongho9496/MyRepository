@@ -2,6 +2,7 @@ package com.example.administrator.a2cmfinal.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,19 @@ public class MenuAdapter extends BaseAdapter {
         TextView totalTitle = (TextView)convertView.findViewById(R.id.menuTitle);
         totalTitle.setText(menu.getMname());
 
+        /** 2016.12.04 추가 */
+        TextView hotIce = (TextView) convertView.findViewById(R.id.menuHotIce);
+        String hotOrIce = menu.getHot_ice();
+        if (hotOrIce != null && !hotOrIce.equals("")) {
+            if (hotOrIce.equals("HOT")) {
+                hotIce.setTextColor( ContextCompat.getColor(convertView.getContext(), android.R.color.holo_red_light));
+            } else if (hotOrIce.equals("ICE")) {
+                hotIce.setTextColor( ContextCompat.getColor(convertView.getContext(), android.R.color.holo_blue_light));
+            }
+            hotIce.setText("  " + hotOrIce);
+        }
+        /** // 2016.12.04 추가 */
+
         TextView totalContent = (TextView)convertView.findViewById(R.id.menuContent);
         totalContent.setText(""+menu.getMprice());
 
@@ -75,3 +89,4 @@ public class MenuAdapter extends BaseAdapter {
 
 
 }
+

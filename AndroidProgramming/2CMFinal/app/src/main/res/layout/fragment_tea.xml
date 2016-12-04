@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.administrator.a2cmfinal.menufragment.TeaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/teaList"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:divider="#777"
         android:dividerHeight="0px"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>
