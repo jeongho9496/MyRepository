@@ -3,26 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-
+    android:background="@android:color/white"
     >
 
     <ImageView
         android:id="@+id/menuImg"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="60dp"
         android:scaleType="fitXY"
         android:layout_margin="5dp"
         android:layout_marginRight="10dp"
-        />
+        android:layout_height="60dp" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical"
+
         android:layout_margin="5dp"
         >
+
         <!-- 2016. 12. 04 추가 -->
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -36,16 +36,26 @@
                 android:id="@+id/menuHotIce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/menuTitle"
                 android:textSize="18sp"/>
-        </LinearLayout>
+
+            <TextView
+                android:id="@+id/menuPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
         <!-- // 2016. 12. 04 추가 -->
 
         <TextView
             android:id="@+id/menuContent"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             />
-
 
     </LinearLayout>
 
