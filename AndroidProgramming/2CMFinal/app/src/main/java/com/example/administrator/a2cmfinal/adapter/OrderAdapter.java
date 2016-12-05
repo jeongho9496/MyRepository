@@ -1,6 +1,7 @@
 package com.example.administrator.a2cmfinal.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +63,18 @@ public class OrderAdapter extends BaseAdapter {
         OrderMenu menu = list.get(position);
 
         TextView orderTitle = (TextView)convertView.findViewById(R.id.menuTitle);
-        orderTitle.setText(menu.getMname()+" "+menu.getHot_ice()+" "+menu.getCount()+"개");
+        orderTitle.setText(menu.getMname()+" "+menu.getCount()+"개 ");
+
+        TextView orderHotIce = (TextView)convertView.findViewById(R.id.menuHotIce);
+        String hotOrIce = menu.getHot_ice();
+        if (hotOrIce != null && !hotOrIce.equals("")) {
+            if (hotOrIce.equals("HOT")) {
+                orderHotIce.setTextColor( ContextCompat.getColor(convertView.getContext(), android.R.color.holo_red_light));
+            } else if (hotOrIce.equals("ICE")) {
+                orderHotIce.setTextColor( ContextCompat.getColor(convertView.getContext(), android.R.color.holo_blue_light));
+            }
+            orderHotIce.setText("  " + hotOrIce);
+        }
 
         TextView menuPrice = (TextView)convertView.findViewById(R.id.menuPrice);
         menuPrice.setText("가격: "+String.format("%,d",menu.getMprice())+"원");

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Store;
 
@@ -139,8 +140,7 @@ public class EventActivity extends AppCompatActivity {
             protected Store doInBackground(Void... params) {
                 Store store = null;
                 try {
-                    //URL url = new URL("http://192.168.0.3:8080/myweb/storeAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.58:8080/myweb/storeAndroid?sid="+sid);
+                    URL url = new URL( NetWork.URI+"/storeAndroid?sid="+sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상

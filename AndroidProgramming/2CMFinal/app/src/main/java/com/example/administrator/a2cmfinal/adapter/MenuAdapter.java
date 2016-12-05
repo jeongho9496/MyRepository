@@ -66,7 +66,7 @@ public class MenuAdapter extends BaseAdapter {
         totalImage.setImageBitmap(menu.getImage());
 
         TextView totalTitle = (TextView)convertView.findViewById(R.id.menuTitle);
-        totalTitle.setText(menu.getMname());
+        totalTitle.setText(menu.getMname()+"  ");
 
         /** 2016.12.04 추가 */
         TextView hotIce = (TextView) convertView.findViewById(R.id.menuHotIce);
@@ -81,8 +81,11 @@ public class MenuAdapter extends BaseAdapter {
         }
         /** // 2016.12.04 추가 */
 
+        TextView totalPrice = (TextView)convertView.findViewById(R.id.menuPrice);
+        totalPrice.setText(""+String.format("%,d",menu.getMprice())+"원");
+
         TextView totalContent = (TextView)convertView.findViewById(R.id.menuContent);
-        totalContent.setText(""+menu.getMprice());
+        totalContent.setText(menu.getMcontents());
 
         return convertView;
     }

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Result;
 
@@ -57,7 +58,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View view){
-        loginConn(user_id, user_pw);
+       /* if (!user_id.equals(null)& user_pw.equals(null)){*/
+        loginConn(user_id, user_pw);/*}else {
+        Toast.makeText(getApplicationContext(),"로그인 정보를 작성 해주세요",Toast.LENGTH_SHORT).show();}*/
+
+        editId.setText("");
+        editPassword.setText("");
     }
 
     public void onJoinClick(View view){
@@ -79,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             protected Result doInBackground(String... params) {
                 Result result = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/loginAndroid");
+                    URL url = new URL( NetWork.URI+"/loginAndroid");
 
                     JSONObject body = new JSONObject();
                     body.put("user_id", user_id);

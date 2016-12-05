@@ -13,6 +13,7 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.example.administrator.a2cmfinal.Activity.EventActivity;
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.StoreEvent;
 import com.perples.recosdk.RECOBeacon;
@@ -127,7 +128,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
             protected List<StoreEvent> doInBackground(Void... params) {
                 List<StoreEvent> list = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/eventAndroid?sbeacon="+bmajor);
+                    URL url = new URL(NetWork.URI+"/eventAndroid?sbeacon="+bmajor);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
 

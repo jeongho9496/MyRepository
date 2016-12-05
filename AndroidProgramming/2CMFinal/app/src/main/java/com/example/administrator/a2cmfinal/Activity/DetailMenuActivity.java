@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.dto.Menu;
 import com.example.administrator.a2cmfinal.dto.OrderMenu;
@@ -74,10 +75,13 @@ public class DetailMenuActivity extends AppCompatActivity {
 
         shotSpinner = (Spinner)findViewById(R.id.shotSpinner);
 
+        menuItems(mid);
+
+
+
         ArrayAdapter extraAdapter = ArrayAdapter.createFromResource(this, R.array.syrup, android.R.layout.simple_spinner_dropdown_item);
         extraAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         syrupSpinner.setAdapter(extraAdapter);
-
         syrupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -108,7 +112,6 @@ public class DetailMenuActivity extends AppCompatActivity {
         ArrayAdapter shotAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.shot, android.R.layout.simple_spinner_dropdown_item);
         shotAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         shotSpinner.setAdapter(shotAdapter);
-
         shotSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -140,7 +143,6 @@ public class DetailMenuActivity extends AppCompatActivity {
         ArrayAdapter sizeAdapter = ArrayAdapter.createFromResource(DetailMenuActivity.this, R.array.size, android.R.layout.simple_spinner_dropdown_item);
         sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sizeSpinner.setAdapter(sizeAdapter);
-
         sizeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -169,10 +171,8 @@ public class DetailMenuActivity extends AppCompatActivity {
             }
         });
 
-
-
         btnAddMenu = (Button)findViewById(R.id.btnAddMenu);
-        menuItems(mid);
+
 
         btnSingleOrder = (Button)findViewById(R.id.btnSingleOrder);
         btnSingleOrder.setOnClickListener(new View.OnClickListener() {
@@ -187,7 +187,6 @@ public class DetailMenuActivity extends AppCompatActivity {
                 orderMenu.setMprice(totalPrice);
                 orderMenu.setCount(count);
 
-
                 orderMenu.setSyrup(syrup);
                 orderMenu.setSyrupPrice(syrupPrice);
                 orderMenu.setSize(size);
@@ -196,18 +195,6 @@ public class DetailMenuActivity extends AppCompatActivity {
                 orderMenu.setShotPrice(shotPrice);
 
                 Intent intentOrder = new Intent(getApplicationContext(), OrderActivity.class);
-                /*intentOrder.putExtra("syrup", syrup);
-                intentOrder.putExtra("syrupPrice",""+syrupPrice);
-                intentOrder.putExtra("size", size);
-                intentOrder.putExtra("sizePrice",""+sizePrice);
-                intentOrder.putExtra("shot", shot);
-                intentOrder.putExtra("shotPrice",""+shotPrice);
-                intentOrder.putExtra("count",""+count);
-                intentOrder.putExtra("mid",""+mid);
-                intentOrder.putExtra("price",""+totalPrice);
-                intentOrder.putExtra("sid",sid);*/
-                /*intentOrder.putExtra("count",""+count);
-                intentOrder.putExtra("price",""+totalPrice);*/
                 intentOrder.putExtra("orderMenu",orderMenu);
 
                 Log.i("orderMenu",orderMenu.getHot_ice()+"---"+orderMenu.getSize()+"---"+orderMenu.getSizePrice());
@@ -281,6 +268,15 @@ public class DetailMenuActivity extends AppCompatActivity {
                     hot_iced.setText(null);
                 }
 
+                if (!menu.getMgroup().equals("커피")){
+                    shotSpinner.setVisibility(View.INVISIBLE);
+                    shotPrice=0;
+                    if (!menu.getMgroup().equals("차")){
+                        sizeSpinner.setVisibility(View.INVISIBLE);
+                        sizePrice = 0;
+                    }
+                }
+
                 nameText.setText(menu.getMname());
                 menuImage.setImageBitmap(menu.getImage());
                 contentText.setText(menu.getMcontents());
@@ -288,8 +284,6 @@ public class DetailMenuActivity extends AppCompatActivity {
                 totalPrice = price;
                 sid = menu.getSid();
                 priceText.setText(String.format("%,d",price)+" 원");
-
-
 
 
                 asyncDialog.dismiss();
@@ -307,6 +301,7 @@ public class DetailMenuActivity extends AppCompatActivity {
             menu.setMname(jsonObject.getString("mname"));
             menu.setHot_ice(jsonObject.getString("hot_ice"));
             menu.setMprice(jsonObject.getInt("mprice"));
+            menu.setMgroup(jsonObject.getString("mgroup"));
             menu.setMcontents(jsonObject.getString("mcontents"));
             menu.setImage(getBitmap(jsonObject.getString("msavedfile")));
             menu.setSid(jsonObject.getString("sid"));
@@ -320,8 +315,7 @@ public class DetailMenuActivity extends AppCompatActivity {
         Bitmap bitmap = null;
 
         try {
-            //URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
-            URL url = new URL("http://192.168.0.58:8080/myweb/getImage?fileName=" + fileName);
+            URL url = new URL( NetWork.URI+"/getImage?fileName=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

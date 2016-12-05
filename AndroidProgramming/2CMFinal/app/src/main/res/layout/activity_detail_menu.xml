@@ -5,6 +5,7 @@
     android:id="@+id/activity_detail_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.example.administrator.a2cmfinal.Activity.DetailMenuActivity">
 
     <RelativeLayout
@@ -85,7 +86,8 @@
             android:layout_height="130dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:layout_marginBottom="5dp" />
 
     </RelativeLayout>
 
@@ -232,7 +234,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnAddMenu"
+            android:visibility="gone"
             android:layout_weight="1" />
+
+        <!-- 담기 다음에 -->
 
         <Button
             android:text="주문하기"

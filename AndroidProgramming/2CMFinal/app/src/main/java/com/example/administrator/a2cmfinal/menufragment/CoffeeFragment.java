@@ -18,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.administrator.a2cmfinal.Activity.DetailMenuActivity;
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.adapter.MenuAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
@@ -132,8 +133,7 @@ public class CoffeeFragment extends Fragment {
             protected List<Menu> doInBackground(Void... params) {
                 List<Menu> list = null;
                 try {
-                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.58:8080/myweb/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
+                    URL url = new URL( NetWork.URI+"/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
                     Log.i("mylog sid123",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -197,8 +197,7 @@ public class CoffeeFragment extends Fragment {
             protected List<Menu> doInBackground(Void... params) {
                 List<Menu> list = null;
                 try {
-                    //URL url = new URL("http://192.168.0.3:8080/myweb/menuAndroid?sid="+sid);
-                    URL url = new URL("http://192.168.0.58:8080/myweb/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
+                    URL url = new URL( NetWork.URI+"/menuGroupAndroid?sid="+sid+"&pageNo="+pageNo+"&mgroup=커피");
                     Log.i("mylog sid",sid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
@@ -251,6 +250,7 @@ public class CoffeeFragment extends Fragment {
                 menu.setMname(jsonObject.getString("mname"));
                 menu.setMprice(jsonObject.getInt("mprice"));
                 menu.setHot_ice(jsonObject.getString("hot_ice"));
+                menu.setMcontents(jsonObject.getString("mcontents"));
                 menu.setImage(getBitmap(jsonObject.getString("msavedfile")));
                 list.add(menu);
             }
@@ -264,8 +264,7 @@ public class CoffeeFragment extends Fragment {
         Bitmap bitmap = null;
 
         try {
-            //URL url = new URL("http://192.168.0.3:8080/myweb/getImage?fileName=" + fileName);//get방식 light01.png
-            URL url = new URL("http://192.168.0.58:8080/myweb/getImage?fileName=" + fileName);
+            URL url = new URL( NetWork.URI+"/getImage?fileName=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {

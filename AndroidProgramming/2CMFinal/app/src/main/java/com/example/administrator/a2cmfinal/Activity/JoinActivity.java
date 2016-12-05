@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 
 import org.json.JSONObject;
@@ -58,6 +59,11 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 joinConn(joinId, joinEmail, joinPassword, joinTel);
+                editEmail.setText("");
+                editPassword.setText("");
+                editEmail.setText("");
+                editTel.setText("");
+
             }
         });
 
@@ -79,7 +85,7 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/joinAndroid");
+                    URL url = new URL( NetWork.URI+"/joinAndroid");
 
                     JSONObject body = new JSONObject();
                     body.put("user_id", joinId);

@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
 import com.example.administrator.a2cmfinal.adapter.OrderAdapter;
 import com.example.administrator.a2cmfinal.dto.Menu;
@@ -110,7 +111,6 @@ public class OrderActivity extends AppCompatActivity {
                 RadioButton rb = (RadioButton)findViewById(id);
                 howpay = rb.getText().toString();
                 orderConn(orderMenu, howpay, totalPrice,user_id);
-
             }
         });
 
@@ -120,7 +120,7 @@ public class OrderActivity extends AppCompatActivity {
     }
 
     private void orderConn(final OrderMenu orderMenu, final String howpay, final int totalPrice, final String user_id) {
-        AsyncTask<String, Void, Result> asyncTask = new AsyncTask<String, Void, Result>() {
+        final AsyncTask<String, Void, Result> asyncTask = new AsyncTask<String, Void, Result>() {
             ProgressDialog asyncDialog = new ProgressDialog(OrderActivity.this);
             @Override
             protected void onPreExecute() {
@@ -133,7 +133,7 @@ public class OrderActivity extends AppCompatActivity {
             protected Result doInBackground(String... params) {
                 Result result = null;
                 try {
-                    URL url = new URL("http://192.168.0.58:8080/myweb/orderTotalAndroid");
+                    URL url = new URL( NetWork.URI+"/orderTotalAndroid");
 
                     JSONObject body = new JSONObject();
                     body.put("howpay",howpay);
