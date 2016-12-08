@@ -218,7 +218,7 @@ public class DetailMenuActivity extends AppCompatActivity {
             protected Menu doInBackground(Void... params) {
                 Menu menu = null;
                 try{
-                    URL url = new URL("http://192.168.0.58:8080/myweb/detailMenuAndroid?mid="+mid);
+                    URL url = new URL(NetWork.URI+"/detailMenuAndroid?mid="+mid);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();// url.openConnection() 연결 객체 얻음
                     conn.connect();//연결
                     if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {//200 이면 정상

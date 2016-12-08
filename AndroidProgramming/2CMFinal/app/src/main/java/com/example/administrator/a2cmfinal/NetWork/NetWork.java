@@ -5,5 +5,5 @@ package com.example.administrator.a2cmfinal.NetWork;
  */
 
 public class NetWork {
-    public static String URI = "http://192.168.0.58:8080/myweb";
+    public static final String URI = "http://192.168.0.7:8080/myweb";
 }

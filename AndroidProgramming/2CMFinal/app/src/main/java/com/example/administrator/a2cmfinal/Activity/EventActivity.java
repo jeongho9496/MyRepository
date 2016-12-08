@@ -3,9 +3,13 @@ package com.example.administrator.a2cmfinal.Activity;
 import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.a2cmfinal.NetWork.NetWork;
 import com.example.administrator.a2cmfinal.R;
@@ -40,6 +45,22 @@ public class EventActivity extends AppCompatActivity {
     String beacon;
     Button btnOrder;
 
+    //backKey 2번 누를시 앱종료
+    boolean isBackPressed = false;
+    public static final int MESSAGE_BACK_KEY_TIMEOUT = 0;
+    public static final int BACK_KEY_TIME = 2000;
+    Handler mHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_BACK_KEY_TIMEOUT:
+                    isBackPressed = false;
+                    return true;
+            }
+            return false;
+        }
+    });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +69,9 @@ public class EventActivity extends AppCompatActivity {
         beacon = intent.getExtras().getString("sbeacon");
         String content = intent.getExtras().getString("content");
         final String sid = intent.getExtras().getString("sid");
+
+        /*SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String test = pref.getString("id","");*/
 
         /** 2016. 12. 04 추가 */
         storeEventText = (TextView) findViewById(R.id.storeEventText);
@@ -200,7 +224,7 @@ public class EventActivity extends AppCompatActivity {
 
         try {
             //URL url = new URL("http://192.168.0.3:8080/myweb/event/showPhoto?esavedfile=" + fileName);//get방식 light01.png
-            URL url = new URL("http://192.168.0.58:8080/myweb/event/showPhoto?esavedfile=" + fileName);
+            URL url = new URL(NetWork.URI+"/event/showPhoto?esavedfile=" + fileName);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.connect();
             if (conn.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -215,4 +239,20 @@ public class EventActivity extends AppCompatActivity {
         return bitmap;
     }
 
+    @Override
+    public void onBackPressed() {
+//back 두번 누를시 종료
+        if (!isBackPressed) {
+            Toast.makeText(getApplicationContext(), "한번 더 누르시면 종료 됩니다.", Toast.LENGTH_SHORT).show();
+            isBackPressed = true;
+            mHandler.sendEmptyMessageDelayed(MESSAGE_BACK_KEY_TIMEOUT, BACK_KEY_TIME);
+        } else {
+            mHandler.removeMessages(MESSAGE_BACK_KEY_TIMEOUT);
+            SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.clear();
+            editor.commit();
+            finish();
+        }
+    }
 }

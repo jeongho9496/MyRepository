@@ -57,6 +57,8 @@ public class TotalFragment extends Fragment {
 
     boolean isLast = false;
 
+    Bitmap bitmap;
+
     public static TotalFragment newInstance(int position){
         TotalFragment fragment = new TotalFragment();
         Bundle args = new Bundle();
@@ -265,7 +267,7 @@ public class TotalFragment extends Fragment {
     }
 
     private Bitmap getBitmap(String fileName) {
-        Bitmap bitmap = null;
+        bitmap = null;
 
         try {
             URL url = new URL( NetWork.URI+"/getImage?fileName=" + fileName);
@@ -283,5 +285,12 @@ public class TotalFragment extends Fragment {
         return bitmap;
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        bitmap.recycle();
+        bitmap = null;
 
+        super.onDestroy();
+    }
 }

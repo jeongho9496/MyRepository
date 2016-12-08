@@ -125,9 +125,9 @@ public class EtcFragment extends Fragment {
             ProgressDialog asyncDialog = new ProgressDialog(getContext());
             @Override
             protected void onPreExecute() {
-//                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                asyncDialog.setMessage("로딩중입니다..");
-//                asyncDialog.show();
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
             }
 
             @Override
@@ -188,9 +188,9 @@ public class EtcFragment extends Fragment {
             ProgressDialog asyncDialog = new ProgressDialog(getContext());
             @Override
             protected void onPreExecute() {
-//                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//                asyncDialog.setMessage("로딩중입니다..");
-//                asyncDialog.show();
+                asyncDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                asyncDialog.setMessage("로딩중입니다..");
+                asyncDialog.show();
             }
 
             @Override

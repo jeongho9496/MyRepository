@@ -49,17 +49,19 @@ public class JoinActivity extends AppCompatActivity {
         editPassword = (EditText) findViewById(R.id.edit_join_password);
         editEmail= (EditText) findViewById(R.id.edit_join_email);
         editTel = (EditText)findViewById(R.id.edit_join_tel);
-        joinId = editId.getText();           //id
-        joinPassword = editPassword.getText();//pw
-        joinEmail = editEmail.getText();     //email
-        joinTel = editTel.getText();        //tel
+
 
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                joinId = editId.getText();           //id
+                joinPassword = editPassword.getText();//pw
+                joinEmail = editEmail.getText();     //email
+                joinTel = editTel.getText();        //tel
+
                 joinConn(joinId, joinEmail, joinPassword, joinTel);
-                editEmail.setText("");
+                editId.setText("");
                 editPassword.setText("");
                 editEmail.setText("");
                 editTel.setText("");

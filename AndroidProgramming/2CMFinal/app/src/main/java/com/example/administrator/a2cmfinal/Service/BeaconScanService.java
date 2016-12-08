@@ -104,7 +104,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     public void didRangeBeaconsInRegion(Collection<RECOBeacon> collection, RECOBeaconRegion recoBeaconRegion) {
         for (RECOBeacon beacon : collection) {
             int bmajor = beacon.getMajor();
-            if (beacon.getAccuracy() < 0.1){
+            if (beacon.getAccuracy() < 0.5){
                 if (!beacons.contains(bmajor)) {
                     beacons.add(bmajor);
                     /*StoreEvent storeEvent = getStoreEvent(bmajor);

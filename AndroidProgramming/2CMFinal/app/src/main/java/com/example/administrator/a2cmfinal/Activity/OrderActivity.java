@@ -63,6 +63,8 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
+        getSupportActionBar().setTitle("주문결제");
+
         //로그인 테스트
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
 

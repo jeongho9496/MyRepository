@@ -28,9 +28,11 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+       /* Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("메뉴");
+        toolbar.setTitle("메뉴");*/
+        getSupportActionBar().setTitle("메뉴");
+
 
         //EventActivity에서 보낸 Sid를 담음
         Intent intent = getIntent();

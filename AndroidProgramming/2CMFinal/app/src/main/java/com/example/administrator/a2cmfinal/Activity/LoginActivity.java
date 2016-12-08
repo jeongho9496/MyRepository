@@ -47,20 +47,35 @@ public class LoginActivity extends AppCompatActivity {
         editId = (EditText)findViewById(R.id.login_id);
         editPassword = (EditText)findViewById(R.id.login_password);
 
+
         btnLogin = (ImageView)findViewById(R.id.btnLogin);
 
         btnJoin = (ImageView)findViewById(R.id.btnJoinForm);
 
-        user_id = editId.getText();
 
-        user_pw = editPassword.getText();
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("id", "");
+        //pref.getString("id","");
+        editor.commit();
+    }
+
     public void onLoginClick(View view){
-       /* if (!user_id.equals(null)& user_pw.equals(null)){*/
-        loginConn(user_id, user_pw);/*}else {
-        Toast.makeText(getApplicationContext(),"로그인 정보를 작성 해주세요",Toast.LENGTH_SHORT).show();}*/
+
+        //Toast.makeText(getApplicationContext(),user_id,Toast.LENGTH_SHORT).show();
+
+        /*getText를 하실때 editText 밑에다가 하지마시고 저장버튼을 누르는 곳 바로 위에서 선언하셔야됩니다.
+        객체 선언후 바로 gettext해서 객체에 담으면 당연히 값은 null 이죠^^;
+        저장할 시점에 getText를 해야 현재 썼던 값이 저장됩니다..*/
+        user_id = editId.getText();
+        user_pw = editPassword.getText();
+        loginConn(user_id, user_pw);
 
         editId.setText("");
         editPassword.setText("");
@@ -93,6 +108,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     Log.i("mylog", body.toString());
 
+                    Log.i("mylog userId", ""+user_id);
+                    Log.i("mylog userpw", ""+user_pw);
+
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(15000);
                     conn.setConnectTimeout(15000);
@@ -113,13 +131,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (responseCode == HttpURLConnection.HTTP_OK){
                         InputStreamReader isp = new InputStreamReader(conn.getInputStream());
                         BufferedReader br = new BufferedReader(isp);
-                        //StringBuffer sb = new StringBuffer("");
                         String strJson = "";
 
-                        /*while ((line = br.readLine()) != null) {
-                            sb.append(line);
-                            break;
-                        }*/
                         while (true) {
                             String data = br.readLine();
                             if (data == null) break;
@@ -149,7 +162,10 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("id", String.valueOf(user_id));
                     editor.commit();
                     Intent intent = new Intent(getApplicationContext(), BeaconStartActivity.class);
+                    Toast.makeText(getApplicationContext(),user_id+"님 반갑습니다.",Toast.LENGTH_SHORT).show();
                     startActivity(intent);
+
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(),"로그인 실패 하셨습니다.",Toast.LENGTH_SHORT).show();
                 }
