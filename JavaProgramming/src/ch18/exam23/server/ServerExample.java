@@ -34,7 +34,7 @@ public class ServerExample extends Application {
 		// ServerSocket 생성(5001번 포트를 사용)
 		try {
 			serverSocket = new ServerSocket();
-			serverSocket.bind(new InetSocketAddress("192.168.0.2", 5001));
+			serverSocket.bind(new InetSocketAddress("192.168.0.8", 5001));
 		} catch (Exception e) {
 			if (!serverSocket.isClosed()) {
 				stopServer();
