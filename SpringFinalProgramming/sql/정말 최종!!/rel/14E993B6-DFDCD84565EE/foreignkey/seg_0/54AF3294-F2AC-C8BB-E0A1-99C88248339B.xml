@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="54AF3294-F2AC-C8BB-E0A1-99C88248339B" containerWithKeyObject="6E679873-D9B6-698B-2AED-B69D1633B457" localFKIndex="F0FD60F1-A8CE-95FD-A977-38205B928CC4" name="ORDER_TOTAL_USER_TABLE_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:36:42 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5AB40B92-6534-4A9E-C49E-B47E4E9821D3</referredTableID>
+<keyObject>936BE061-8E4A-0999-27BE-C5813F65691E</keyObject>
+<referredKeyID>936BE061-8E4A-0999-27BE-C5813F65691E</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

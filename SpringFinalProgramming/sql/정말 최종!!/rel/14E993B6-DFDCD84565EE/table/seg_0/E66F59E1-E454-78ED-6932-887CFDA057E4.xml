@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E66F59E1-E454-78ED-6932-887CFDA057E4" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="EVENT_MENU">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>EVENT_MENU</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EMID" id="4F34DBE0-C2DD-F2FC-1AD7-216CD8BDF8F4">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>EVENT_MENU</sourceObjSchema>
+<sourceObjName>EMID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DC_PRICE" id="F9F043F1-14DC-ECF6-EAFA-6A6F2490FF32">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>EVENT_MENU</sourceObjSchema>
+<sourceObjName>DC_PRICE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EID" id="776878F3-53C7-B0C1-86F4-8AE82D0BB8F1">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>EVENT_MENU</sourceObjSchema>
+<sourceObjName>EID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A8A63ADE-7831-DD23-2632-F2510462A4AB" referredColumn="982D6DEE-D25E-FF08-90F6-592B62F9923C"/>
+</associations>
+</Column>
+<Column name="MID" id="3131163B-957D-9F5B-998E-AAB10F8BCB40">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>EVENT_MENU</sourceObjSchema>
+<sourceObjName>MID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,3,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9D35BE3E-3804-992C-FB1F-367EA8ECD93A" referredColumn="1AF4312A-C07E-68F9-53BB-939B15068760"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8DE63741-D5F5-9DC4-1E5A-E121EBA45108" name="EVENT_MENU_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>EVENT_MENU_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F34DBE0-C2DD-F2FC-1AD7-216CD8BDF8F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="970411D3-3A6C-5A08-F9B7-C57C15B14F6A" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="EVENT_MENU_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>EVENT_MENU_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F34DBE0-C2DD-F2FC-1AD7-216CD8BDF8F4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F6D7BD2-FB68-E678-2BB5-FEB4DFA1A2F7" name="EVENT_MENU_EVENT_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:36 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="776878F3-53C7-B0C1-86F4-8AE82D0BB8F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="04A09079-490B-2121-78D3-3B7AB6D1B001" name="EVENT_MENU_MENU_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:36 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3131163B-957D-9F5B-998E-AAB10F8BCB40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
