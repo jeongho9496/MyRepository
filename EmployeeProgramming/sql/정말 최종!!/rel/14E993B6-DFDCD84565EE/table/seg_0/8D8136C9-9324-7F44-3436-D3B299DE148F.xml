@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8D8136C9-9324-7F44-3436-D3B299DE148F" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="SPHOTO">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>SPHOTO</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SPIC_ID" id="20340CE9-FAB7-AF1D-7489-3B7C1AE90664">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>SPHOTO</sourceObjSchema>
+<sourceObjName>SPIC_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,5,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPIC_SAVEDFILE" id="EF7D03A9-499B-B997-9C46-8CAB431BA946">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>SPHOTO</sourceObjSchema>
+<sourceObjName>SPIC_SAVEDFILE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPIC_MIMETYPE" id="A8DDEF5E-C388-6223-79CC-EAB7F326112C">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>SPHOTO</sourceObjSchema>
+<sourceObjName>SPIC_MIMETYPE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SID" id="2C8B16C3-524D-7CAB-776A-3BC188FF6698">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>SPHOTO</sourceObjSchema>
+<sourceObjName>SID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="868A15B3-0305-DA6F-2A3E-9C62679AA2F8" referredColumn="0E7A58E3-E54E-4EBC-4104-305E3D0F834F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C5E77A4A-D7F5-D1B6-6A06-4820EA01856C" name="SPHOTO_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>SPHOTO_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20340CE9-FAB7-AF1D-7489-3B7C1AE90664"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="57FE1F81-9112-A3CC-2598-F800C25B21EF" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="SPHOTO_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>SPHOTO_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20340CE9-FAB7-AF1D-7489-3B7C1AE90664"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0AAA2DE4-B62B-1C15-6257-B110EA154655" name="SPHOTO_STORE_FK">
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:36 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C8B16C3-524D-7CAB-776A-3BC188FF6698"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

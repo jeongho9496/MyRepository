@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5AB40B92-6534-4A9E-C49E-B47E4E9821D3" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="USER_TABLE">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>USER_TABLE</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="USER_ID" id="66FCF31F-A2AB-23AE-3539-EF79CF9E8965">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>USER_TABLE</sourceObjSchema>
+<sourceObjName>USER_ID</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_EMAIL" id="A4E1F8B1-B6E7-7E92-C957-827B262CEFC3">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>USER_TABLE</sourceObjSchema>
+<sourceObjName>USER_EMAIL</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 BYTE</dataTypeSize>
+<ownDataTypeParameters>100 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_PW" id="0132CAC2-CC47-505A-2114-145A9EE7CF94">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>USER_TABLE</sourceObjSchema>
+<sourceObjName>USER_PW</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="USER_TEL" id="71625A56-39EA-FA4A-8632-34F12722BC41">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>USER_TABLE</sourceObjSchema>
+<sourceObjName>USER_TEL</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="936BE061-8E4A-0999-27BE-C5813F65691E" name="USER_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>USER_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66FCF31F-A2AB-23AE-3539-EF79CF9E8965"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CA752DD3-0C17-DAE8-7D5D-C6B52909A54D" schemaObject="9BA8F8CE-6DCA-8202-5D5E-ADFD2FAEB9CB" name="USER_TABLE_PK">
+<sourceConnName>106.253.56.125.orcl_kosauser5</sourceConnName>
+<sourceObjSchema>KOSAUSER5</sourceObjSchema>
+<sourceObjName>USER_TABLE_PK</sourceObjName>
+<createdBy>Administrator</createdBy>
+<createdTime>2016-11-18 02:29:35 UTC</createdTime>
+<ownerDesignName>정말 최종!!</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66FCF31F-A2AB-23AE-3539-EF79CF9E8965"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

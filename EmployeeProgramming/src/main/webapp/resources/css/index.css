@@ -1,0 +1,39 @@
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  font-family: Roboto;
+}
+
+.form-control label div{
+	padding:0px;
+}
+/* .custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    } */
+#eventInfo .list-group {border-radius: 0;}
+#eventInfo .list-group .list-group-item {background-color: transparent;overflow: hidden;border: 0;border-radius: 0;padding: 0 16px;}
+#eventInfo .list-group .list-group-item .row-action-primary label {display: block;width: 56px;height: 56px;}
+#eventInfo .list-group .list-group-item .row-content {display: inline-block;width: calc(100% - 92px);min-height: 66px;}
+    
