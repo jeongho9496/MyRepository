@@ -38,5 +38,9 @@ public class EmployeeService {
 		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCCESS;
 	}
+	
+	public Employee info(int no){
+		return empDao.selectByNo(no);
+	}
 
 }

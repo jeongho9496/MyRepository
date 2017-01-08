@@ -45,6 +45,7 @@ public class FreeBoardDao {
 				freeBoard.getBhitcount(),
 				freeBoard.getBno()
 				);
+	
 		return row;
 	}
 	
