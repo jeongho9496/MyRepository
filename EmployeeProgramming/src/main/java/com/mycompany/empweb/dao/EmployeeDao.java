@@ -29,6 +29,25 @@ public class EmployeeDao {
 		return row;
 	}
 	
+	public int update(Employee emp){
+		String sql = "update employees set emp_no=?, emp_name=?, emp_phone=?, emp_position=?, emp_email=? where emp_no=?";
+		int row = jdbcTemplate.update(
+				sql,
+				emp.getNo(),
+				emp.getName(),
+				emp.getPhone(),
+				emp.getPosition(),
+				emp.getEmail()
+				);
+		return row;
+	}
+	
+	public int delete(int no){
+		String sql = "delete from employees where emp_no=?";
+		int row = jdbcTemplate.update(sql, no);
+		return row;
+	}
+	
 	
 	
 }

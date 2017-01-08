@@ -17,9 +17,15 @@ public class HomeController {
 	@Autowired
 	OrderService orderService;
 	
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public String index(HttpSession session){
 		logger.info("맨처음");
 		return "index";
+	}*/
+	
+	@RequestMapping("/")
+	public String index(HttpSession session){
+		logger.info("맨처음");
+		return "employee/index";
 	}
 }
