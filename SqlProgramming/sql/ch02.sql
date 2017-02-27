@@ -6,7 +6,7 @@ select empno, ename from emp;
 select ename, sal, sal*12 from emp;--select 연산식도 올수 있음.
 --NULL도 데이터 이다.(null 연산시 주의할 점)
 select ename,sal,comm,sal*12+comm from emp;--null : 데이터가 없다. null로 연산시 해당 데이터가 null 처리 된다.
-select ename,sal,comm,sal*12+nvl(comm,0) from emp;--nval( text , 0 ) =>text가 null이라면 0으로 대치 : 함수 호출 -> *함수:실행블록 VS 메소드()객체안에서 존재해야 하는 실행블록(기능)
+select ename,sal,comm,sal*12+nvl(comm,0) from emp;--nvl( text , 0 ) =>text가 null이라면 0으로 대치 : 함수 호출 -> *함수:실행블록 VS 메소드()객체안에서 존재해야 하는 실행블록(기능)
 --컬럼 이름에 별칭 지정하기
 select ename as 이름 ,sal as 월급,comm 보너스,sal*12+nvl(comm,0) 연봉 from emp;--as 결과셋 컬럼명 변경 as는 넣어도 되고 안넣어도 된다.
 --Concatenation 연산자(문자열 결합)

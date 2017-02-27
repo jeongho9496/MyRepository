@@ -5,13 +5,13 @@ public class InsertionSort {
 	public static void main(String[] args) {
 		int[] arr = { 7, 1, 2, 3 };
 
-		InsertionSort sort = new InsertionSort();
-		sort.solution(arr);
+		/*InsertionSort sort = new InsertionSort();
+		sort.solution(arr);*/
+		solution(arr);
 
 	}
 	
-
-	public int solution(int[] arr) {
+	private static int solution(int[] arr) {
 		int count =0;
 		for (int i = 1; i < arr.length; i++) {
 			int standard = arr[i]; // 기준

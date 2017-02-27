@@ -1,5 +1,8 @@
 package com.mycompany.empweb.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,15 +21,15 @@ public class EmployeeService {
 	public static final int REMOVE_FAIL = 1;
 	
 	@Autowired
-	private EmployeeDao empDao;
+	private EmployeeDao employeeDao;
 	
 	public int write(Employee emp){
-		empDao.insert(emp);
+		employeeDao.insert(emp);
 		return WRITE_SUCCESS;
 	}
 	
-	public int modify(Employee emp){
-		int row = empDao.update(emp);
+	public int modify(Employee emp,int no){
+		int row = employeeDao.update(emp, no);
 		if (row == 0) {
 			return MODIFY_FAIL;
 		}
@@ -34,13 +37,20 @@ public class EmployeeService {
 	}
 	
 	public int remove(int no){
-		int row = empDao.delete(no);
+		int row = employeeDao.delete(no);
 		if(row == 0) { return REMOVE_FAIL; }
 		return REMOVE_SUCCESS;
 	}
 	
 	public Employee info(int no){
-		return empDao.selectByNo(no);
+		return employeeDao.selectByNo(no);
 	}
 
+	public List<Map<String, Object>> getEmployeeList() {
+		return employeeDao.getEmployeeList();
+	}
+	
+	public List<Map<String, Object>> searchEmployee(int searchType, String searchParam) {
+		return employeeDao.searchEmployee(searchType, searchParam);
+	}
 }

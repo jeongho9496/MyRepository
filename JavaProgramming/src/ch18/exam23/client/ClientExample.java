@@ -30,7 +30,7 @@ public class ClientExample extends Application {
 			public void run() {
 				try {
 					socket = new Socket();
-					socket.connect(new InetSocketAddress("192.168.0.8", 5001));//연결시 bind가 아닌 connect 사용
+					socket.connect(new InetSocketAddress("192.168.0.2", 5001));//연결시 bind가 아닌 connect 사용
 					Platform.runLater(new Runnable() {
 						
 						@Override

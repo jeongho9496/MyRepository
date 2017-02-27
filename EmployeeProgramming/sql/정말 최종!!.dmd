@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="정말 최종!!" id="0E06CB7F-8754-7D19-5F21-8CCEEAEDC773" version="3.5">
-<createdBy>kimjeongho</createdBy>
-<createdTime>2016-11-08 11:26:37 UTC</createdTime>
-<ownerDesignName>2CM_Modeling</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>0E06CB7F-8754-7D19-5F21-8CCEEAEDC773</designId>
-</OSDM_Design>

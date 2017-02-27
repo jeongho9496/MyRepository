@@ -18,7 +18,7 @@
 			이메일: ${emp.email}<br/>
 			<a href="modify?no=${emp.no}">[수정]</a>
 			<a href="remove?no=${emp.no}">[삭제]</a>
-			<a href="list">[목록]</a>
+			<a href="${pageContext.request.contextPath}/index">[목록]</a>
 		</form>
 	</body>
 </html>
