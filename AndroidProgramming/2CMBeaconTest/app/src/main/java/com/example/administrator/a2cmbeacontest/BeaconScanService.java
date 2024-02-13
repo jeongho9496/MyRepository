@@ -47,7 +47,7 @@ public class BeaconScanService extends Service implements RECOServiceConnectList
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        /*throw new UnsupportedOperationException("Not yet implemented");*/
+        /*throw new UnsupportedOperationException("Not yet implemented"); kjh1006*/
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
